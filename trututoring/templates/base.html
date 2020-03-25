@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontello-2f186091/css/fontello.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
-    {% if user.is_authenticated and user.is_tutor %}
-      <link rel="stylesheet" type="text/css" href="{% static 'css/tutors.css' %}">
+    {% if user.is_authenticated and user.is_teacher %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/teachers.css' %}">
     {% else %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/students.css' %}">
     {% endif %}
@@ -26,8 +26,8 @@
                   <!---<img class="img-fluid" src="static/img/trulogo.png" alt="tru-logo">--->
                   TRU Tutoring
                   {% if user.is_authenticated %}
-                    {% if user.is_tutor %}
-                      <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="Tutor profile"></span>
+                    {% if user.is_teacher %}
+                      <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="Teacher profile"></span>
                     {% else %}
                       <span class="icon-graduation-cap" data-toggle="tooltip" data-placement="right" title="Student profile"></span>
                     {% endif %}

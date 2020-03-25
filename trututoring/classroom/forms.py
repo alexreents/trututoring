@@ -7,13 +7,13 @@ from classroom.models import (Answer, Question, Student, StudentAnswer,
                               Subject, User)
 
 
-class TutorSignUpForm(UserCreationForm):
+class TeacherSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.is_tutor = True
+        user.is_teacher = True
         if commit:
             user.save()
         return user

@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.', verbose_name='active')),
                 ('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
                 ('is_student', models.BooleanField(default=False)),
-                ('is_tutor', models.BooleanField(default=False)),
+                ('is_teacher', models.BooleanField(default=False)),
             ],
             options={
                 'verbose_name': 'user',
