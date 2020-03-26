@@ -1,0 +1,118 @@
+[
+{
+    "model": "classroom.user",
+    "fields": {
+        "password": "pbkdf2_sha256$100000$zp38kE8xULSG$9RVerKOUcOZE0lB7djLNekCS9Lcul9b6WUE1ByCseSw=",
+        "last_login": "2020-03-25T22:26:25.847Z",
+        "is_superuser": false,
+        "username": "askjdf",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-03-25T22:26:25.775Z",
+        "is_student": false,
+        "is_teacher": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "classroom.user",
+    "fields": {
+        "password": "pbkdf2_sha256$100000$ZNinETl8i44Z$U0cmu+uDczwwaPqtt3adHum/60WndE9BHIjEhEazgkI=",
+        "last_login": "2020-03-26T06:10:35.256Z",
+        "is_superuser": false,
+        "username": "testtutor",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-03-26T05:46:39.271Z",
+        "is_student": false,
+        "is_teacher": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "classroom.user",
+    "fields": {
+        "password": "pbkdf2_sha256$100000$DEzCUUOYF0aQ$M9mswrUB359oQ/NasjCYkya5gZ2oLa+AhVWmQ8OR0EA=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-03-26T05:57:30.916Z",
+        "is_student": false,
+        "is_teacher": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "classroom.user",
+    "fields": {
+        "password": "pbkdf2_sha256$100000$psQVw8jlqcCF$+bMUP5k0LI5xvILJU4XGT1mj5KKS7WTOOFjkbK/bgow=",
+        "last_login": "2020-03-26T06:10:21.922Z",
+        "is_superuser": true,
+        "username": "tru-admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "areents@scu.edu",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-03-26T06:09:15.209Z",
+        "is_student": false,
+        "is_teacher": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "classroom.subject",
+    "pk": 1,
+    "fields": {
+        "name": "Arts",
+        "color": "#343a40"
+    }
+},
+{
+    "model": "classroom.subject",
+    "pk": 2,
+    "fields": {
+        "name": "Computing",
+        "color": "#007bff"
+    }
+},
+{
+    "model": "classroom.subject",
+    "pk": 3,
+    "fields": {
+        "name": "Math",
+        "color": "#28a745"
+    }
+},
+{
+    "model": "classroom.subject",
+    "pk": 4,
+    "fields": {
+        "name": "Biology",
+        "color": "#17a2b8"
+    }
+},
+{
+    "model": "classroom.subject",
+    "pk": 5,
+    "fields": {
+        "name": "History",
+        "color": "#ffc107"
+    }
+}
+]

@@ -10,6 +10,9 @@ pylint = "*"
 django-crispy-forms = "==1.7.0"
 pytz = "==2017.3"
 Django = "==2.2.10"
+pip3 = "*"
+pip = "*"
+mysql-python = "*"
 
 [requires]
 python_version = "3.8"
