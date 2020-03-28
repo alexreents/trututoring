@@ -19,25 +19,21 @@
     <div class="container my-4">
       <div class="row justify-content-center">
         <div class="col-md-10 col-sm-12">
-          <div class="row">
-            <div class="col-6">
-              <h1 class="tru-logo"> <!---style="max-height: 2.4em;">---> 
+          <div class="row" style="max-height: 8em; padding-bottom: 1%;">
+            <div class="col-5">
+              <h1 class="tru-logo">
                 <a href="{% url 'home' %}">
-                  <!---<img class="img-fluid" src="static/img/trulogo.png" alt="tru-logo">--->
-                  TRU Tutoring
-                  {% if user.is_authenticated %}
-                    {% if user.is_teacher %}
-                      <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="Teacher profile"></span>
-                    {% else %}
-                      <span class="icon-graduation-cap" data-toggle="tooltip" data-placement="right" title="Student profile"></span>
-                    {% endif %}
-                  {% endif %}
+                  {% load static %} <img class="img-fluid" src="{% static 'img/trulogo.png' %}" alt="tru-logo">
                 </a>
               </h1>
             </div>
-            <div class="col-6 text-right"> <!---change to col-12 and add style="padding-bottom: 1em;">--->
+            <div class="col-7 text-right" style="padding-top: 8.5%;">
               {% if user.is_authenticated %}
-                <p class="pt-3">Logged in as <strong>{{ user.username }}</strong>. <a href="{% url 'logout' %}">Log out</a>.</p>
+                {% if user.is_teacher %}
+                  <p class="pt-3">Logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>tutor account</i>"><strong>{{ user.username }}.</strong></a> <a href="{% url 'logout' %}">Log out</a>.</p>
+                {% else %}
+                  <p class="pt-3">Logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong>{{ user.username }}.</strong></a> <a href="{% url 'logout' %}">Log out</a>.</p>
+                {% endif %}
               {% else %}
                 <a href="{% url 'login' %}" class="btn btn-light" role="button">Log in</a>
                 <a href="{% url 'signup' %}" class="btn btn-primary" role="button">Sign up</a>
