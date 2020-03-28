@@ -6,7 +6,7 @@ from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 
 from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm
@@ -25,8 +25,8 @@ class StudentSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
+#        return render(request, 'classroom/students/quiz_list.html')
         return redirect('students:quiz_list')
-
 
 @method_decorator([login_required, student_required], name='dispatch')
 class StudentInterestsView(UpdateView):
@@ -42,3 +42,7 @@ class StudentInterestsView(UpdateView):
         messages.success(self.request, 'Interests updated with success!')
         return super().form_valid(form)
 
+
+@method_decorator([login_required, student_required], name='dispatch')
+class QuizListView(TemplateView):
+    template_name = 'classroom/students/quiz_list.html'
