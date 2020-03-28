@@ -7,6 +7,10 @@
   text-decoration: none;
 }
 
+.admin-link {
+  font-size: small;
+}
+
 footer {
   font-size: .9rem;
 }
