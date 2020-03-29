@@ -44,49 +44,11 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Answer',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField(max_length=255, verbose_name='Answer')),
-                ('is_correct', models.BooleanField(default=False, verbose_name='Correct answer')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Question',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField(max_length=255, verbose_name='Question')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Quiz',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='StudentAnswer',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('answer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='+', to='classroom.Answer')),
-            ],
-        ),
-        migrations.CreateModel(
             name='Subject',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=30)),
                 ('color', models.CharField(default='#007bff', max_length=7)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='TakenQuiz',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('score', models.FloatField()),
-                ('date', models.DateTimeField(auto_now_add=True)),
-                ('quiz', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='taken_quizzes', to='classroom.Quiz')),
             ],
         ),
         migrations.CreateModel(
@@ -97,26 +59,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='quiz',
-            name='owner',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='quizzes', to=settings.AUTH_USER_MODEL),
-        ),
-        migrations.AddField(
-            model_name='quiz',
-            name='subject',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='quizzes', to='classroom.Subject'),
-        ),
-        migrations.AddField(
-            model_name='question',
-            name='quiz',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='questions', to='classroom.Quiz'),
-        ),
-        migrations.AddField(
-            model_name='answer',
-            name='question',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='answers', to='classroom.Question'),
-        ),
-        migrations.AddField(
             model_name='user',
             name='groups',
             field=models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.Group', verbose_name='groups'),
@@ -125,20 +67,5 @@ class Migration(migrations.Migration):
             model_name='user',
             name='user_permissions',
             field=models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.Permission', verbose_name='user permissions'),
-        ),
-        migrations.AddField(
-            model_name='takenquiz',
-            name='student',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='taken_quizzes', to='classroom.Student'),
-        ),
-        migrations.AddField(
-            model_name='studentanswer',
-            name='student',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='quiz_answers', to='classroom.Student'),
-        ),
-        migrations.AddField(
-            model_name='student',
-            name='quizzes',
-            field=models.ManyToManyField(through='classroom.TakenQuiz', to='classroom.Quiz'),
         ),
     ]
