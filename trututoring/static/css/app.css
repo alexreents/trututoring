@@ -1,5 +1,18 @@
-.tru-logo {
-  font-weight: 800;
+html {
+  height:100%;
+}
+
+.main-card {
+  width: 60%;
+  margin: 2% auto auto auto;
+  background-color: white;
+}
+
+.b-base {
+  background: #E0EAFC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
 .tru-logo a {
@@ -33,6 +46,34 @@ footer a {
   font-size: .875rem;
   line-height: 1.5;
   border-radius: .2rem;
+}
+
+.btn-log, .btn-sign {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  margin: 0.5em 0 0 0.5em;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: black;
+  text-align:center;
+  transition: all 0.2s;
+}
+.btn-log:hover{
+  color:black;
+  background-color:#FFFFFF;
+  border: 0.1em solid white;
+  text-decoration: none;
+  font-weight:400;
+}
+.btn-sign:hover{
+  color:black;
+  background-color:#FFFFFF;
+  border: 0.1em solid white;
+  text-decoration: none;
+  font-weight:400;
 }
 
 .btn-student {

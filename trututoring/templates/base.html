@@ -5,57 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}TRU Tutoring{% endblock %}</title>
     <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontello-2f186091/css/fontello.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
     {% if user.is_authenticated and user.is_teacher %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/teachers.css' %}">
     {% else %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/students.css' %}">
     {% endif %}
   </head>
-  <body>
-    <div class="container my-4">
-      <div class="row justify-content-center">
-        <div class="col-md-10 col-sm-12">
-          <div class="row" style="max-height: 8em; padding-bottom: 1%;">
-            <div class="col-5">
-              <h1 class="tru-logo">
-                <a href="{% url 'home' %}">
-                  {% load static %} <img class="img-fluid" src="{% static 'img/trulogo.png' %}" alt="tru-logo">
-                </a>
-              </h1>
-            </div>
-            <div class="col-7 text-right" style="padding-top: 8.5%;">
-              {% if user.is_authenticated %}
-                {% if user.is_teacher %}
-                  <p class="pt-3">Logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>tutor account</i>"><strong>{{ user.username }}.</strong></a> <a href="{% url 'logout' %}">Log out</a>.</p>
-                {% else %}
-                  <p class="pt-3">Logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong>{{ user.username }}.</strong></a> <a href="{% url 'logout' %}">Log out</a>.</p>
-                {% endif %}
-              {% else %}
-                <a href="{% url 'login' %}" class="btn btn-light" role="button">Log in</a>
-                <a href="{% url 'signup' %}" class="btn btn-primary" role="button">Sign up</a>
-              {% endif %}
-            </div>
+  <body class="b-base">
+    <div class="row justify-content-center">
+      <div class="col-12"> <!-- make bigger -->
+        <div class="row align-items-start" style="margin-left: 2%; margin-right: 2%; margin-top: 1%;"> <!---style="max-height: 8em; padding-bottom: 1%;">--->
+          <div class="col-md-2 col-sm-3">
+            <h1 style="width:70%">
+              <a href="{% url 'home' %}">
+                {% load static %} <img class="img-fluid" src="{% static 'img/trulogo-short.png' %}" alt="tru-logo">
+              </a>
+            </h1>
           </div>
-          <div class="card mb-3">
-            <div class="card-body">
-              {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-                  {{ message }}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              {% endfor %}
-              {% block content %}
-              {% endblock %}
-            </div>
-          </div>  
-        </div>     
-      </div>
+          <div class="col-sm-1"></div>
+          <div class="col-md-9 col-sm-8 text-right" style="padding-top: 0.8%;"> <!--style="padding-top: 8.5%;">-->
+            {% if user.is_authenticated %}
+              {% if user.is_teacher %}
+                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>tutor account</i>"><strong>{{ user.username }}</strong>&nbsp;&nbsp; |&nbsp;&nbsp;</a> <a style="color: black;" href="{% url 'logout' %}">log out</a></p>
+              {% else %}
+                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong>{{ user.username }}</strong>&nbsp;&nbsp; |&nbsp;&nbsp;</a> <a style="color: black;" href="{% url 'logout' %}">log out</a> </p>
+              {% endif %}
+            {% else %}
+              <a href="{% url 'login' %}" class="btn-log">log in</a>
+              <a href="{% url 'signup' %}" class="btn-sign">sign up</a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="main-card">
+          <div class="card-body">
+            {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>  
+      </div>     
     </div>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
