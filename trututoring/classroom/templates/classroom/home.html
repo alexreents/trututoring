@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="main-card">
+
   <h2>Welcome to TRU Tutoring!</h2>
   <p class="lead">
     If you're already a member of TRU Tutoring, go ahead and <a href="{% url 'login' %}">log in</a>. If you are new to TRU Tutoring, get started
@@ -10,4 +12,6 @@
   <p class="admin-link" style="font-size: small;">
     Are you an admin for TRU Tutoring? If so, click <a href="admin">here</a>.
   </p>
+  
+</div>
 {% endblock %}

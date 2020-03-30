@@ -40,7 +40,7 @@
             {% endif %}
           </div>
         </div>
-        <div class="main-card">
+        <div>
           <div class="card-body">
             {% for message in messages %}
               <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
@@ -50,8 +50,10 @@
                 </button>
               </div>
             {% endfor %}
+            
             {% block content %}
             {% endblock %}
+
           </div>
         </div>  
       </div>     
