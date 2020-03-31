@@ -7,12 +7,12 @@ urlpatterns = [
 
     path('students/', include(([
         path('', students.QuizListView.as_view(), name='quiz_list'),
-        path('interests/', students.StudentInterestsView.as_view(), name='student_interests'),
+        path('topics/', students.StudentTopicsView.as_view(), name='student_topics'),
     ], 'classroom'), namespace='students')),
     
     
     path('teachers/', include(([
-        path('values', teachers.TeacherValuesView.as_view(), name='teacher_values'),
+        path('values', teachers.TeacherValuesView.as_view(), name='values'),
     ], 'classroom'), namespace='teachers')),
 ]
 

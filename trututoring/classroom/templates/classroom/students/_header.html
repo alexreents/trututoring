@@ -1,6 +1,6 @@
 <h2>My Account</h2>
 <p class="text-muted">
-  Subjects:{% for subject in user.student.interests.all %} {{ subject.get_html_badge }}{% endfor %}
-  <a href="{% url 'students:student_interests' %}"><small>(update interests)</small></a>
+  Subjects:{% for subject in user.student.topics.all %} {{ subject.get_html_badge }}{% endfor %}
+  <a href="{% url 'students:student_topics' %}"><small>(update topics)</small></a>
 </p>
 

@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 
 from ..decorators import student_required
-from ..forms import StudentInterestsForm, StudentSignUpForm
+from ..forms import StudentTopicsForm, StudentSignUpForm
 from ..models import Student, User
 
 
@@ -29,17 +29,17 @@ class StudentSignUpView(CreateView):
         return redirect('students:quiz_list')
 
 @method_decorator([login_required, student_required], name='dispatch')
-class StudentInterestsView(UpdateView):
+class StudentTopicsView(UpdateView):
     model = Student
-    form_class = StudentInterestsForm
-    template_name = 'classroom/students/interests_form.html'
+    form_class = StudentTopicsForm
+    template_name = 'classroom/students/topics_form.html'
     success_url = reverse_lazy('students:quiz_list')
 
     def get_object(self):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Interests updated with success!')
+        messages.success(self.request, 'topics updated with success!')
         return super().form_valid(form)
 
 

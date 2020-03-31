@@ -6,16 +6,23 @@
 <div class="login-card">
 
   <div class="row">
-    <div class="col-md-8 col-sm-10 col-12">
-      <h2>Sign up as a {{ user_type }}</h2>
-      <form method="post" novalidate>
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}">
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-success">Sign up</button>
-      </form>
-    </div>
+    <h2 id="title">{{ user_type }} SIGNUP</h2>
+    <form class="login-box" method="post" novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}">
+      {{ form|crispy }}
+      <button type="submit" class="sign-btn">sign up</button>
+    </form>
   </div>
   
 </div>
 {% endblock %}
+
+<!--
+
+      {% for field in form|crispy %}
+      {{ field.label_tag }}
+      {{ field }}
+      {% endfor %}
+
+-->

@@ -24,7 +24,7 @@ class Subject(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    interests = models.ManyToManyField(Subject, related_name='interested_students')
+    topics = models.ManyToManyField(Subject, related_name='topical_students')
 
     def __str__(self):
         return self.user.username

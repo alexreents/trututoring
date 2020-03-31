@@ -30,9 +30,9 @@
           <div class="col-md-9 col-sm-8 text-right" style="padding-top: 0.8%;"> <!--style="padding-top: 8.5%;">-->
             {% if user.is_authenticated %}
               {% if user.is_teacher %}
-                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>tutor account</i>"><strong>{{ user.username }}</strong>&nbsp;&nbsp; |&nbsp;&nbsp;</a> <a style="color: black;" href="{% url 'logout' %}">log out</a></p>
+                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>tutor account</i>"><strong id="identify-user">{{ user.username }}</strong>|</a> <a class="logout-btn" href="{% url 'logout' %}">log out</a></p>
               {% else %}
-                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong>{{ user.username }}</strong>&nbsp;&nbsp; |&nbsp;&nbsp;</a> <a style="color: black;" href="{% url 'logout' %}">log out</a> </p>
+                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong id="identify-user">{{ user.username }}</strong>|</a> <a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
               {% endif %}
             {% else %}
               <a href="{% url 'login' %}" class="btn-log">log in</a>
