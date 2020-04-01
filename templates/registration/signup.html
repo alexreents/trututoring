@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="login-card">
+  <div class="box-header">
+    <h2 id="title">SIGN UP</h2>
+  </div>
+  <label class="lead">Please select your account type.</label>
+
+
+  <a href="{% url 'student_signup' %}"><button class="sign-btn">I'm a student</button></a>
+  <a href="{% url 'teacher_signup' %}"><button class="sign-btn">I'm a teacher</button></a>
+  
+</div>
+{% endblock %}
