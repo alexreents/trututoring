@@ -22,8 +22,10 @@ html {
 #hit-btn {
   background-color: white;
   display: inline-block;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top:2%;
+  margin-bottom:2%;
+  margin-left: 3%;
+  margin-right: 5%;
   padding: 0.35em 1.2em;
   border: 0.1em solid black;
   border-radius: 3em;
@@ -40,6 +42,32 @@ html {
   background-color:black;
   text-decoration: none;
   border: 0.1em solid black;
+  cursor: pointer;
+}
+
+#yes-btn {
+  background-color: white;
+  display: inline-block;
+  margin-top:2%;
+  margin-bottom:2%;
+  margin-left: 3%;
+  margin-right: 5%;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: black;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+#yes-btn:hover{
+  color:white;
+  background-color:green;
+  text-decoration: none;
+  border: 0.1em solid green;
   cursor: pointer;
 }
 
@@ -129,9 +157,9 @@ START LOGIN FORMATTING
 
 .login-box button:hover{
   color:white;
-  background-color:black;
+  background-color:green;
   text-decoration: none;
-  border: 0.1em solid black;
+  border: 0.1em solid green;
   cursor: pointer;
 }
 

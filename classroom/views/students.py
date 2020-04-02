@@ -27,6 +27,13 @@ class StudentSignUpView(CreateView):
         login(self.request, user)
         return redirect('students:quiz_list')
 
+@method_decorator([login_required, student_required], name='dispatch')
+class QuizListView(TemplateView):
+    template_name = 'classroom/students/quiz_list.html'
+
+
+# Student Profile Fields
+
 
 @method_decorator([login_required, student_required], name='dispatch')
 class StudentInterestsView(UpdateView):
@@ -56,6 +63,3 @@ class StudentGradesView(UpdateView):
         messages.success(self.request, 'Grade level updated with success!')
         return super().form_valid(form)
 
-@method_decorator([login_required, student_required], name='dispatch')
-class QuizListView(TemplateView):
-    template_name = 'classroom/students/quiz_list.html'
