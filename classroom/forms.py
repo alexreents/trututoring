@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
 
-from classroom.models import (Student, Subject, User)
+from classroom.models import (Student, Subject, User, Grade)
 
 
 class TeacherSignUpForm(UserCreationForm):
@@ -25,6 +25,12 @@ class StudentSignUpForm(UserCreationForm):
         required=True
     )
 
+    grade_level = forms.ModelMultipleChoiceField(
+        queryset=Grade.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True
+    )
+
     class Meta(UserCreationForm.Meta):
         model = User
 
@@ -35,6 +41,7 @@ class StudentSignUpForm(UserCreationForm):
         user.save()
         student = Student.objects.create(user=user)
         student.interests.add(*self.cleaned_data.get('interests'))
+        student.grade_level.add(*self.cleaned_data.get('grade_level'))
         return user
 
 
@@ -44,4 +51,12 @@ class StudentInterestsForm(forms.ModelForm):
         fields = ('interests', )
         widgets = {
             'interests': forms.CheckboxSelectMultiple
+        }
+
+class StudentGradesForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('grade_level', )
+        widgets = {
+            'grade_level': forms.CheckboxSelectMultiple
         }

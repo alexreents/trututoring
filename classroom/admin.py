@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.contrib.auth.admin import Group
-from classroom.models import User
+from classroom.models import User, Subject, Grade
 
 admin.site.unregister(Group)
+admin.site.register(Subject)
+admin.site.register(Grade)
 
 admin.site.site_header = 'TRU Tutoring Admin'
 

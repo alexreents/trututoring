@@ -4,9 +4,18 @@
 <div class="main-card">
 
   {% include 'classroom/students/_header.html' with active='new' %}
-  <div class="card">
-    
+
+  <div id="prof">
+    <p class="text-muted">
+      Subjects:&nbsp;{% for subject in user.student.interests.all %} {{ subject.get_html_badge }}{% endfor %}
+      <a href="{% url 'students:student_interests' %}"><small>(update subjects)</small></a>
+    </p>
+    <p class="text-muted">
+      Grade:&nbsp;{% for grade in user.student.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
+      <a href="{% url 'students:student_grade_level' %}"><small>(change grade)</small></a>
+    </p>
   </div>
+  <hr id="prof-line">
 
 </div>
 {% endblock %}

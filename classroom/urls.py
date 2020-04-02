@@ -8,6 +8,7 @@ urlpatterns = [
     path('students/', include(([
         path('', students.QuizListView.as_view(), name='quiz_list'),
         path('interests/', students.StudentInterestsView.as_view(), name='student_interests'),
+        path('grade_level/', students.StudentGradesView.as_view(), name='student_grade_level'),
     ], 'classroom'), namespace='students')),
 
     path('teachers/', include(([

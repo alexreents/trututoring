@@ -19,10 +19,45 @@ html {
   box-shadow: 0 5px 50px rgba(0,0,0,0.3);
 }
 
+#hit-btn {
+  background-color: white;
+  display: inline-block;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: black;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+#hit-btn:hover{
+  color:white;
+  background-color:black;
+  text-decoration: none;
+  border: 0.1em solid black;
+  cursor: pointer;
+}
+
 /*  
 START LOGIN FORMATTING
 */
 
+#prof {
+  padding-top: 1%;
+  padding-bottom: 0;
+}
+
+#prof-line {
+  border: none;
+  height: 0.5px;
+  color: grey; /* old IE */
+  background-color: grey; /* Modern Browsers */
+}
 
 .login-card {
 	background-color: white;
