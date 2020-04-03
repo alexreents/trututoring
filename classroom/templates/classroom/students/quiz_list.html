@@ -15,6 +15,10 @@
       Grade:&nbsp;{% for grade in user.student.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
       <a href="{% url 'students:student_grade_level' %}"><small>(change grade)</small></a>
     </p>
+    <p class="text-muted">
+      Availability:&nbsp;{% for availability in user.student.availability.all %} {{ availability.get_html_badge }}{% endfor %}
+      <a href="{% url 'students:student_availability' %}"><small>(update availability)</small></a>
+    </p>
   </div>
 
   <hr id="prof-line"> 

@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
-from classroom.models import (Student, Subject, User, Grade)
+from classroom.models import (Student, Subject, User, Grade, Availability)
 
 
 class TeacherSignUpForm(UserCreationForm):
@@ -20,12 +20,18 @@ class TeacherSignUpForm(UserCreationForm):
 class StudentSignUpForm(UserCreationForm):
     interests = forms.ModelMultipleChoiceField(
         queryset=Subject.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
+        widget=forms.SelectMultiple,
         required=True
     )
 
     grade_level = forms.ModelMultipleChoiceField(
         queryset=Grade.objects.all(),
+        widget=forms.SelectMultiple,
+        required=True
+    )
+
+    availability = forms.ModelMultipleChoiceField(
+        queryset=Availability.objects.all(),
         widget=forms.SelectMultiple,
         required=True
     )
@@ -42,6 +48,7 @@ class StudentSignUpForm(UserCreationForm):
         student = Student.objects.create(user=user)
         student.interests.add(*self.cleaned_data.get('interests'))
         student.grade_level.add(*self.cleaned_data.get('grade_level'))
+        student.availability.add(*self.cleaned_data.get('availability'))
         return user
 
 
@@ -50,7 +57,7 @@ class StudentInterestsForm(forms.ModelForm):
         model = Student
         fields = ('interests', )
         widgets = {
-            'interests': forms.CheckboxSelectMultiple
+            'interests': forms.SelectMultiple
         }
 
 class StudentGradesForm(forms.ModelForm):
@@ -61,4 +68,11 @@ class StudentGradesForm(forms.ModelForm):
             'grade_level': forms.SelectMultiple
         }
 
+class StudentAvailabilityForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('availability', )
+        widgets = {
+            'availability': forms.SelectMultiple
+        }
 

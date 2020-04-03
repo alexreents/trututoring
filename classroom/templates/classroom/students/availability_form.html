@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="main-card">
+
+  <h2 class="mb-3">Update your availability</h2>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" id="yes-btn">Save changes</button>
+    <a href="{% url 'students:quiz_list' %}" id="hit-btn">Nevermind</a>
+  </form>
+
+</div>
+{% endblock %}
