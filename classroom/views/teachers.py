@@ -41,7 +41,7 @@ class TeacherQuizListView(TemplateView):
 class TeacherInterestsView(UpdateView):
     model = Teacher
     form_class = TeacherInterestsForm
-    template_name = 'classroom/students/interests_form.html'
+    template_name = 'classroom/teachers/interests_form.html'
     success_url = reverse_lazy('teachers:quiz_change_list')
 
     def get_object(self):
@@ -55,7 +55,7 @@ class TeacherInterestsView(UpdateView):
 class TeacherGradesView(UpdateView):
     model = Teacher
     form_class = TeacherGradesForm
-    template_name = 'classroom/students/grade_level_form.html'
+    template_name = 'classroom/teachers/grade_level_form.html'
     success_url = reverse_lazy('teachers:quiz_change_list')
 
     def get_object(self):
@@ -69,7 +69,7 @@ class TeacherGradesView(UpdateView):
 class TeacherAvailabilityView(UpdateView):
     model = Teacher
     form_class = TeacherAvailabilityForm
-    template_name = 'classroom/students/availability_form.html'
+    template_name = 'classroom/teachers/availability_form.html'
     success_url = reverse_lazy('teachers:quiz_change_list')
 
     def get_object(self):
@@ -83,7 +83,7 @@ class TeacherAvailabilityView(UpdateView):
 class TeacherSessionsView(UpdateView):
     model = Teacher
     form_class = TeacherSessionsForm
-    template_name = 'classroom/students/sessions_form.html'
+    template_name = 'classroom/teachers/sessions_form.html'
     success_url = reverse_lazy('teachers:quiz_change_list')
 
     def get_object(self):
