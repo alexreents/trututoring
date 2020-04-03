@@ -9,7 +9,7 @@ class User(AbstractUser):
 
 class Subject(models.Model):
     name = models.CharField(max_length=30)
-    color = models.CharField(max_length=7, default='#007bff')
+    color = models.CharField(max_length=7, default='#505050')
 
     def __str__(self):
         return self.name
@@ -17,13 +17,13 @@ class Subject(models.Model):
     def get_html_badge(self):
         name = escape(self.name)
         color = escape(self.color)
-        html = '<span class="badge badge-primary" style="background-color: %s">%s</span>' % (color, name)
+        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (name)
         return mark_safe(html)
 
 
 class Grade(models.Model):
     grade_level = models.CharField(max_length=30)
-    color = models.CharField(max_length=7, default='#007bff')
+    color = models.CharField(max_length=7, default='#505050')
 
     def __str__(self):
         return self.grade_level
@@ -31,13 +31,13 @@ class Grade(models.Model):
     def get_html_badge(self):
         grade_level = escape(self.grade_level)
         color = escape(self.color)
-        html = '<span class="badge badge-primary" style="background-color: %s">%s</span>' % (color, grade_level)
+        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (grade_level)
         return mark_safe(html)
 
 class Availability(models.Model):
     day = models.CharField(max_length=30)
     time = models.CharField(max_length=30)
-    color = models.CharField(max_length=7, default='#007bff')
+    color = models.CharField(max_length=7, default='#505050')
 
     def __str__(self):
         return self.day + " " + self.time
@@ -46,14 +46,34 @@ class Availability(models.Model):
         day = escape(self.day)
         time = escape(self.time)
         color = escape(self.color)
-        html = '<span class="badge badge-primary" style="background-color: %s">%s %s</span>' % (color, day, time)
+        html = '<span class="badge badge-primary" style="background-color:#505050;">%s %s</span>' % (day, time)
         return mark_safe(html)
+
+class Session(models.Model):
+    sessions = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.sessions
+
+    def get_html_badge(self):
+        sessions = escape(self.sessions)
+        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (sessions)
+        return mark_safe(html)
+
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     interests = models.ManyToManyField(Subject, related_name='interested_students')
     grade_level = models.ManyToManyField(Grade, related_name='leveled_students')
     availability = models.ManyToManyField(Availability, related_name='available_students')
+    sessions = models.ManyToManyField(Session, related_name='session_students')
 
+    def __str__(self):
+        return self.user.username
+
+
+class Teacher(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    
     def __str__(self):
         return self.user.username

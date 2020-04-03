@@ -12,7 +12,7 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
 
 from ..decorators import teacher_required
 from ..forms import TeacherSignUpForm
-from ..models import User
+from ..models import User, Teacher
 
 
 class TeacherSignUpView(CreateView):

@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 
 from ..decorators import student_required
-from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm
+from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm
 from ..models import Student, User
 
 
@@ -75,4 +75,18 @@ class StudentAvailabilityView(UpdateView):
 
     def form_valid(self, form):
         messages.success(self.request, 'Availability updated with success!')
+        return super().form_valid(form)
+
+@method_decorator([login_required, student_required], name='dispatch')
+class StudentSessionsView(UpdateView):
+    model = Student
+    form_class = StudentSessionsForm
+    template_name = 'classroom/students/sessions_form.html'
+    success_url = reverse_lazy('students:quiz_list')
+
+    def get_object(self):
+        return self.request.user.student
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Sessions updated with success!')
         return super().form_valid(form)

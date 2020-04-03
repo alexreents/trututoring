@@ -19,6 +19,10 @@
       Availability:&nbsp;{% for availability in user.student.availability.all %} {{ availability.get_html_badge }}{% endfor %}
       <a href="{% url 'students:student_availability' %}"><small>(update availability)</small></a>
     </p>
+    <p class="text-muted">
+      Sessions/week:&nbsp;{% for session in user.student.sessions.all %} {{ session.get_html_badge }}{% endfor %}
+      <a href="{% url 'students:student_sessions' %}"><small>(update # of sessions)</small></a>
+    </p>
   </div>
 
   <hr id="prof-line"> 

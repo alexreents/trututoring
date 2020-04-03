@@ -2,18 +2,19 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
-from classroom.models import (Student, Subject, User, Grade, Availability)
+from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session)
 
 
 class TeacherSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
 
-    def save(self, commit=True):
+    @transaction.atomic
+    def save(self):
         user = super().save(commit=False)
         user.is_teacher = True
-        if commit:
-            user.save()
+        user.save()
+        teacher = Teacher.objects.create(user=user)
         return user
 
 
@@ -36,9 +37,16 @@ class StudentSignUpForm(UserCreationForm):
         required=True
     )
 
+    sessions = forms.ModelMultipleChoiceField(
+        queryset=Session.objects.all(),
+        widget=forms.SelectMultiple,
+        required=True
+    )
+
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('first_name', 'last_name', 'email', 'username')
 
     @transaction.atomic
     def save(self):
@@ -49,6 +57,7 @@ class StudentSignUpForm(UserCreationForm):
         student.interests.add(*self.cleaned_data.get('interests'))
         student.grade_level.add(*self.cleaned_data.get('grade_level'))
         student.availability.add(*self.cleaned_data.get('availability'))
+        student.sessions.add(*self.cleaned_data.get('sessions'))
         return user
 
 
@@ -57,7 +66,7 @@ class StudentInterestsForm(forms.ModelForm):
         model = Student
         fields = ('interests', )
         widgets = {
-            'interests': forms.SelectMultiple
+            'interests': forms.SelectMultiple(attrs={'style':'height: 10em'})
         }
 
 class StudentGradesForm(forms.ModelForm):
@@ -65,7 +74,7 @@ class StudentGradesForm(forms.ModelForm):
         model = Student
         fields = ('grade_level', )
         widgets = {
-            'grade_level': forms.SelectMultiple
+            'grade_level': forms.SelectMultiple(attrs={'style':'height: 10em'})
         }
 
 class StudentAvailabilityForm(forms.ModelForm):
@@ -73,6 +82,13 @@ class StudentAvailabilityForm(forms.ModelForm):
         model = Student
         fields = ('availability', )
         widgets = {
-            'availability': forms.SelectMultiple
+            'availability': forms.SelectMultiple(attrs={'style':'height: 10em'})
         }
 
+class StudentSessionsForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('sessions', )
+        widgets = {
+            'sessions': forms.SelectMultiple(attrs={'style':'height: 10em'})
+        }
