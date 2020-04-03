@@ -3,14 +3,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="login-card" style="width:40%;">
+<div class="login-card">
 
   <div class="row">
     <h2 id="title">{{ user_type }} SIGNUP</h2>
-    <form class="login-box" method="post" novalidate>
+  <form class="login-box" method="post" novalidate>
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}">
-      {{ form|crispy }}
+      {{ form }}
       <button type="submit" class="sign-btn">sign up</button>
     </form>
   </div>

@@ -21,25 +21,25 @@ class TeacherSignUpForm(UserCreationForm):
 class StudentSignUpForm(UserCreationForm):
     interests = forms.ModelMultipleChoiceField(
         queryset=Subject.objects.all(),
-        widget=forms.SelectMultiple,
+        widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
     )
 
     grade_level = forms.ModelMultipleChoiceField(
         queryset=Grade.objects.all(),
-        widget=forms.SelectMultiple,
+        widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
     )
 
     availability = forms.ModelMultipleChoiceField(
         queryset=Availability.objects.all(),
-        widget=forms.SelectMultiple,
+        widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
     )
 
     sessions = forms.ModelMultipleChoiceField(
         queryset=Session.objects.all(),
-        widget=forms.SelectMultiple,
+        widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
     )
 
@@ -47,7 +47,7 @@ class StudentSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ('first_name', 'last_name', 'email', 'username')
-
+        
     @transaction.atomic
     def save(self):
         user = super().save(commit=False)
@@ -66,7 +66,7 @@ class StudentInterestsForm(forms.ModelForm):
         model = Student
         fields = ('interests', )
         widgets = {
-            'interests': forms.SelectMultiple(attrs={'style':'height: 10em'})
+            'interests': forms.SelectMultiple(attrs={'id':'selector'})
         }
 
 class StudentGradesForm(forms.ModelForm):
@@ -74,7 +74,7 @@ class StudentGradesForm(forms.ModelForm):
         model = Student
         fields = ('grade_level', )
         widgets = {
-            'grade_level': forms.SelectMultiple(attrs={'style':'height: 10em'})
+            'grade_level': forms.SelectMultiple(attrs={'id':'selector'})
         }
 
 class StudentAvailabilityForm(forms.ModelForm):
@@ -82,7 +82,7 @@ class StudentAvailabilityForm(forms.ModelForm):
         model = Student
         fields = ('availability', )
         widgets = {
-            'availability': forms.SelectMultiple(attrs={'style':'height: 10em'})
+            'availability': forms.SelectMultiple(attrs={'id':'selector'})
         }
 
 class StudentSessionsForm(forms.ModelForm):
@@ -90,5 +90,5 @@ class StudentSessionsForm(forms.ModelForm):
         model = Student
         fields = ('sessions', )
         widgets = {
-            'sessions': forms.SelectMultiple(attrs={'style':'height: 10em'})
+            'sessions': forms.SelectMultiple(attrs={'id':'selector'})
         }

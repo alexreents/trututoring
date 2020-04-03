@@ -5,13 +5,13 @@
 {% block content %}
 <div class="login-card">
 
-  <h2 class="mb-3">Update sessions per week</h2>
+  <h2 id="title" class="mb-3">Update sessions per week</h2>
   <form method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy}}
 
     <button type="submit" id="yes-btn">Save changes</button>
-    <a href="{% url 'students:quiz_list' %}" id="hit-btn">Nevermind</a>
+    <a href="{% url 'students:quiz_list' %}" class="sign-btn">Nevermind</a>
   </form>
 
 </div>
