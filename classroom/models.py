@@ -63,7 +63,7 @@ class Session(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    interests = models.ManyToManyField(Subject, related_name='interested_students')
+    interests = models.ManyToManyField(Subject, related_name='interested_students', verbose_name='subjects')
     grade_level = models.ManyToManyField(Grade, related_name='leveled_students')
     availability = models.ManyToManyField(Availability, related_name='available_students')
     sessions = models.ManyToManyField(Session, related_name='session_students')
@@ -74,6 +74,10 @@ class Student(models.Model):
 
 class Teacher(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    interests = models.ManyToManyField(Subject, related_name='interested_teachers', verbose_name='subjects')
+    grade_level = models.ManyToManyField(Grade, related_name='leveled_teachers')
+    availability = models.ManyToManyField(Availability, related_name='available_teachers')
+    sessions = models.ManyToManyField(Session, related_name='session_teachers')
     
     def __str__(self):
         return self.user.username

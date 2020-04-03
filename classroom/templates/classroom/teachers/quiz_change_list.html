@@ -2,11 +2,28 @@
 
 {% block content %}
 <div class="main-card">
-  
+
   {% include 'classroom/teachers/_header.html' with active='new' %}
-  <div class="card">
-  
+  <hr id="prof-line"> 
+  <div id="prof">
+    <p class="text-muted">
+      Subjects:&nbsp;{% for subject in user.teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}
+      <a href="{% url 'teachers:teacher_interests' %}"><small>(update subjects)</small></a>
+    </p>
+    <p class="text-muted">
+      Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
+      <a href="{% url 'teachers:teacher_grade_level' %}"><small>(change grade)</small></a>
+    </p>
+    <p class="text-muted">
+      Availability:&nbsp;{% for availability in user.teacher.availability.all %} {{ availability.get_html_badge }}{% endfor %}
+      <a href="{% url 'teachers:teacher_availability' %}"><small>(update availability)</small></a>
+    </p>
+    <p class="text-muted">
+      Sessions/week:&nbsp;{% for session in user.teacher.sessions.all %} {{ session.get_html_badge }}{% endfor %}
+      <a href="{% url 'teachers:teacher_sessions' %}"><small>(update # of sessions)</small></a>
+    </p>
   </div>
 
 </div>
 {% endblock %}
+

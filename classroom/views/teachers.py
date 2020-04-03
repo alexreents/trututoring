@@ -11,7 +11,7 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
                                   UpdateView, TemplateView)
 
 from ..decorators import teacher_required
-from ..forms import TeacherSignUpForm
+from ..forms import TeacherInterestsForm, TeacherSignUpForm, TeacherGradesForm, TeacherAvailabilityForm, TeacherSessionsForm
 from ..models import User, Teacher
 
 
@@ -33,3 +33,62 @@ class TeacherSignUpView(CreateView):
 class QuizListView(TemplateView):
     template_name = 'classroom/teachers/quiz_change_list.html'
 
+
+# Teacher Profile Fields
+
+
+@method_decorator([login_required, teacher_required], name='dispatch')
+class TeacherInterestsView(UpdateView):
+    model = Teacher
+    form_class = TeacherInterestsForm
+    template_name = 'classroom/students/interests_form.html'
+    success_url = reverse_lazy('teachers:quiz_change_list')
+
+    def get_object(self):
+        return self.request.user.teacher
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Subjects updated with success!')
+        return super().form_valid(form)
+
+@method_decorator([login_required, teacher_required], name='dispatch')
+class TeacherGradesView(UpdateView):
+    model = Teacher
+    form_class = TeacherGradesForm
+    template_name = 'classroom/students/grade_level_form.html'
+    success_url = reverse_lazy('teachers:quiz_change_list')
+
+    def get_object(self):
+        return self.request.user.teacher
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Grade level updated with success!')
+        return super().form_valid(form)
+
+@method_decorator([login_required, teacher_required], name='dispatch')
+class TeacherAvailabilityView(UpdateView):
+    model = Teacher
+    form_class = TeacherAvailabilityForm
+    template_name = 'classroom/students/availability_form.html'
+    success_url = reverse_lazy('teachers:quiz_change_list')
+
+    def get_object(self):
+        return self.request.user.teacher
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Availability updated with success!')
+        return super().form_valid(form)
+
+@method_decorator([login_required, teacher_required], name='dispatch')
+class TeacherSessionsView(UpdateView):
+    model = Teacher
+    form_class = TeacherSessionsForm
+    template_name = 'classroom/students/sessions_form.html'
+    success_url = reverse_lazy('teachers:quiz_change_list')
+
+    def get_object(self):
+        return self.request.user.teacher
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Sessions updated with success!')
+        return super().form_valid(form)

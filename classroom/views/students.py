@@ -46,7 +46,7 @@ class StudentInterestsView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Interests updated with success!')
+        messages.success(self.request, 'Subjects updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, student_required], name='dispatch')

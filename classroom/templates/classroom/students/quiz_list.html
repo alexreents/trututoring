@@ -5,7 +5,7 @@
 <div class="main-card">
 
   {% include 'classroom/students/_header.html' with active='new' %}
-
+  <hr id="prof-line"> 
   <div id="prof">
     <p class="text-muted">
       Subjects:&nbsp;{% for subject in user.student.interests.all %} {{ subject.get_html_badge }}{% endfor %}
@@ -24,8 +24,6 @@
       <a href="{% url 'students:student_sessions' %}"><small>(update # of sessions)</small></a>
     </p>
   </div>
-
-  <hr id="prof-line"> 
 
 </div>
 {% endblock %}

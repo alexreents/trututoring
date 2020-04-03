@@ -16,5 +16,9 @@ urlpatterns = [
 
     path('teachers/', include(([
         path('', teachers.QuizListView.as_view(), name='quiz_change_list'),
+        path('interests/', teachers.TeacherInterestsView.as_view(), name='teacher_interests'),
+        path('grade_level/', teachers.TeacherGradesView.as_view(), name='teacher_grade_level'),
+        path('availability/', teachers.TeacherAvailabilityView.as_view(), name='teacher_availability'),
+        path('sessions/', teachers.TeacherSessionsView.as_view(), name='teacher_sessions'),
     ], 'classroom'), namespace='teachers')),
 ]
