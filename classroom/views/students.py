@@ -28,7 +28,7 @@ class StudentSignUpView(CreateView):
         return redirect('students:quiz_list')
 
 @method_decorator([login_required, student_required], name='dispatch')
-class QuizListView(TemplateView):
+class StudentQuizListView(TemplateView):
     template_name = 'classroom/students/quiz_list.html'
 
 

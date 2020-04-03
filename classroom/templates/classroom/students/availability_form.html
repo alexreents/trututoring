@@ -8,7 +8,7 @@
   <h2 id="title" class="mb-3">Update your availability</h2>
   <form method="post" novalidate>
     {% csrf_token %}
-    {{ form|crispy }}
+    {{ form }}
     <button type="submit" id="yes-btn">Save changes</button>
     <a href="{% url 'students:quiz_list' %}" class="sign-btn">Nevermind</a>
   </form>
