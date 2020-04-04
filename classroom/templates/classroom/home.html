@@ -2,11 +2,26 @@
 
 {% block content %}
 <div class="main-card">
-
-  <h2>Welcome to TRU Tutoring!</h2>
+  <div class="heading">
+    <h2>Welcome to TRU Tutoring!</h2>
+    <div class="social">
+      <a href="https://www.facebook.com/TRUtutoring/" class="fa fa-facebook fa-2x"></a>
+      <a href="https://www.instagram.com/trututoring/?hl=en/" class="fa fa-instagram fa-2x"></a>
+    </div>
+  </div>
+  <br>
   <p class="lead">
     If you're already a member of TRU Tutoring, go ahead and <a href="{% url 'login' %}">log in</a>. If you are new to TRU Tutoring, get started
     by creating a <a href="{% url 'student_signup' %}">student account</a> or a <a href="{% url 'teacher_signup' %}">tutor account</a>.
+  </p>
+  <hr>
+  <h3>Who Are We?</h3>
+  <p class="lead">
+    TRU Tutoring is a peer-to-peer education startup, dedicated to providing quality learning services at an 
+    affordable price. 
+  </p>
+  <p class="lead">
+    To learn more or to join TRU Tutoring, please register here and visit our facebook page!
   </p>
   <hr>
   <p class="admin-link" style="font-size: small;">
