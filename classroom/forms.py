@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
-from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session)
+from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session, School)
 
 
 class TeacherSignUpForm(UserCreationForm):
@@ -10,6 +10,12 @@ class TeacherSignUpForm(UserCreationForm):
         queryset=Subject.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True,
+    )
+
+    school = forms.CharField(label='your school',
+        widget=forms.TextInput(attrs={'id':'selector'}),
+        required=True,
+        empty_value=''
     )
 
     grade_level = forms.ModelMultipleChoiceField(label='select your grade level',
@@ -46,6 +52,7 @@ class TeacherSignUpForm(UserCreationForm):
         teacher.grade_level.add(*self.cleaned_data.get('grade_level'))
         teacher.availability.add(*self.cleaned_data.get('availability'))
         teacher.sessions.add(*self.cleaned_data.get('sessions'))
+        teacher.school.add(*self.cleaned_data.get('school'))
         return user
 
 
@@ -54,6 +61,12 @@ class StudentSignUpForm(UserCreationForm):
         queryset=Subject.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
+    )
+
+    school = forms.CharField(label='your school',
+        widget=forms.TextInput(attrs={'id':'selector-school'}),
+        required=True,
+        empty_value=""
     )
 
     grade_level = forms.ModelMultipleChoiceField(label='select your grade level',
@@ -74,7 +87,6 @@ class StudentSignUpForm(UserCreationForm):
         required=True
     )
 
-
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ('first_name', 'last_name', 'email', 'username')
@@ -89,6 +101,7 @@ class StudentSignUpForm(UserCreationForm):
         student.grade_level.add(*self.cleaned_data.get('grade_level'))
         student.availability.add(*self.cleaned_data.get('availability'))
         student.sessions.add(*self.cleaned_data.get('sessions'))
+        student.school.add(*self.cleaned_data.get('school'))
         return user
 
 # For Students
@@ -125,6 +138,14 @@ class StudentSessionsForm(forms.ModelForm):
             'sessions': forms.SelectMultiple(attrs={'id':'selector'})
         }
 
+class StudentSchoolForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('school', )
+        widgets = {
+            'school': forms.TextInput
+        }
+
 # For Teachers
 
 class TeacherInterestsForm(forms.ModelForm):
@@ -157,4 +178,12 @@ class TeacherSessionsForm(forms.ModelForm):
         fields = ('sessions', )
         widgets = {
             'sessions': forms.SelectMultiple(attrs={'id':'selector'})
+        }
+
+class TeacherSchoolForm(forms.ModelForm):
+    class Meta:
+        model = Teacher
+        fields = ('school', )
+        widgets = {
+            'school': forms.TextInput()
         }

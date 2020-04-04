@@ -11,7 +11,7 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
                                   UpdateView, TemplateView)
 
 from ..decorators import teacher_required
-from ..forms import TeacherInterestsForm, TeacherSignUpForm, TeacherGradesForm, TeacherAvailabilityForm, TeacherSessionsForm
+from ..forms import TeacherInterestsForm, TeacherSignUpForm, TeacherGradesForm, TeacherAvailabilityForm, TeacherSessionsForm, TeacherSchoolForm
 from ..models import User, Teacher
 
 
@@ -91,4 +91,18 @@ class TeacherSessionsView(UpdateView):
 
     def form_valid(self, form):
         messages.success(self.request, 'Sessions updated with success!')
+        return super().form_valid(form)
+
+@method_decorator([login_required, teacher_required], name='dispatch')
+class TeacherSchoolView(UpdateView):
+    model = Teacher
+    form_class = TeacherSchoolForm
+    template_name = 'classroom/teachers/school_form.html'
+    success_url = reverse_lazy('teachers:quiz_change_list')
+
+    def get_object(self):
+        return self.request.user.teacher
+
+    def form_valid(self, form):
+        messages.success(self.request, 'School updated with success!')
         return super().form_valid(form)

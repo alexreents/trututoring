@@ -12,6 +12,10 @@
       <a href="{% url 'teachers:teacher_interests' %}"><small>(update subjects)</small></a>
     </p>
     <p class="text-muted">
+        School:&nbsp;{% for school in user.teacher.school.all %} {{ school.get_html_badge }}{% endfor %}
+        <a href="{% url 'teachers:teacher_school' %}"><small>(update your school)</small></a>
+      </p>
+    <p class="text-muted">
       Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
       <a href="{% url 'teachers:teacher_grade_level' %}"><small>(change grade)</small></a>
     </p>
