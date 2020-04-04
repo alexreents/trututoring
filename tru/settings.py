@@ -26,11 +26,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'mls7arz!_4_+yzo7^e)f^(lmlr4tn(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-export DJANGO_DEBUG=False
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,24 +86,24 @@ WSGI_APPLICATION = 'tru.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 # default
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
-# this database is available to us, it just needs some configuration in djago before switching
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'trututoring',
-        'USER': 'trututoring',
-        'PASSWORD': 'tru-admin',
-        'HOST': '127.0.0.1', 
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# this database is available to us, it just needs some configuration in djago before switching
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'trututoring',
+#        'USER': 'trututoring',
+#        'PASSWORD': 'tru-admin',
+#        'HOST': '127.0.0.1', 
+#        'PORT': '3306',
+#    }
+#}
 
 
 # Internationalization
