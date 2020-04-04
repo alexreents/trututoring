@@ -6,10 +6,6 @@ admin.site.unregister(Group)
 admin.site.register(Student)
 admin.site.register(Teacher)
 admin.site.register(Subject)
-admin.site.register(Grade)
-admin.site.register(Availability)
-admin.site.register(Session)
-admin.site.register(Distance)
 
 admin.site.site_header = 'TRU Tutoring Admin'
 
