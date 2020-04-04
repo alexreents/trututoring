@@ -23,6 +23,8 @@ urlpatterns = [
         path('availability/', teachers.TeacherAvailabilityView.as_view(), name='teacher_availability'),
         path('sessions/', teachers.TeacherSessionsView.as_view(), name='teacher_sessions'),
         path('school/', teachers.TeacherSchoolView.as_view(), name='teacher_school'),
+        path('distance/', teachers.TeacherDistanceView.as_view(), name='teacher_distance'),
+
 
     ], 'classroom'), namespace='teachers')),
 ]

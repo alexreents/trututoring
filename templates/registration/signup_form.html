@@ -6,7 +6,11 @@
 <div class="login-card">
 
   <div class="row">
-    <h2 id="title">{{ user_type }} SIGNUP</h2>
+    {% if user_type == 'teacher' %}
+      <h2 id="title">TUTOR SIGNUP</h2>
+    {% else %}
+      <h2 id="title">STUDENT SIGNUP</h2>
+    {% endif %}
   <form class="login-box" method="post" novalidate>
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}">
