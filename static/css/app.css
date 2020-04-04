@@ -21,7 +21,7 @@ input:focus {
   padding: 2%;
   margin: 2% auto auto auto;
   background-color: white;
-  box-shadow: 0 5px 50px rgba(0, 57, 161, 0.3);
+  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
 }
 
 #hit-btn {
