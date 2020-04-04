@@ -2,20 +2,20 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
-from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session, School)
+from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session, Distance) 
 
 
 class TeacherSignUpForm(UserCreationForm):
+    school = forms.CharField(label='your school',
+        widget=forms.TextInput(attrs={'id':'selector-school'}),
+        required=True,
+        empty_value=''
+    )
+    
     interests = forms.ModelMultipleChoiceField(label='select subjects',
         queryset=Subject.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True,
-    )
-
-    school = forms.CharField(label='your school',
-        widget=forms.TextInput(attrs={'id':'selector'}),
-        required=True,
-        empty_value=''
     )
 
     grade_level = forms.ModelMultipleChoiceField(label='select your grade level',
@@ -36,6 +36,12 @@ class TeacherSignUpForm(UserCreationForm):
         required=True
     )
 
+    distance = forms.ModelMultipleChoiceField(label='select max lesson distance',
+        queryset=Distance.objects.all(),
+        widget=forms.SelectMultiple(attrs={'id':'selector'}),
+        required=True
+    )
+
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -47,26 +53,27 @@ class TeacherSignUpForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_teacher = True
         user.save()
-        teacher = Teacher.objects.create(user=user)
+        teacher = Teacher.objects.create(user=user, school=self.cleaned_data.get('school'))
         teacher.interests.add(*self.cleaned_data.get('interests'))
         teacher.grade_level.add(*self.cleaned_data.get('grade_level'))
         teacher.availability.add(*self.cleaned_data.get('availability'))
         teacher.sessions.add(*self.cleaned_data.get('sessions'))
-        teacher.school.add(*self.cleaned_data.get('school'))
+        teacher.distance.add(*self.cleaned_data.get('distance'))
+
         return user
 
 
 class StudentSignUpForm(UserCreationForm):
-    interests = forms.ModelMultipleChoiceField(label='select subjects',
-        queryset=Subject.objects.all(),
-        widget=forms.SelectMultiple(attrs={'id':'selector'}),
-        required=True
-    )
-
     school = forms.CharField(label='your school',
         widget=forms.TextInput(attrs={'id':'selector-school'}),
         required=True,
         empty_value=""
+    )
+    
+    interests = forms.ModelMultipleChoiceField(label='select subjects',
+        queryset=Subject.objects.all(),
+        widget=forms.SelectMultiple(attrs={'id':'selector'}),
+        required=True
     )
 
     grade_level = forms.ModelMultipleChoiceField(label='select your grade level',
@@ -96,12 +103,11 @@ class StudentSignUpForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_student = True
         user.save()
-        student = Student.objects.create(user=user)
+        student = Student.objects.create(user=user, school=self.cleaned_data.get('school'))
         student.interests.add(*self.cleaned_data.get('interests'))
         student.grade_level.add(*self.cleaned_data.get('grade_level'))
         student.availability.add(*self.cleaned_data.get('availability'))
         student.sessions.add(*self.cleaned_data.get('sessions'))
-        student.school.add(*self.cleaned_data.get('school'))
         return user
 
 # For Students
@@ -143,7 +149,7 @@ class StudentSchoolForm(forms.ModelForm):
         model = Student
         fields = ('school', )
         widgets = {
-            'school': forms.TextInput
+            'school': forms.TextInput(attrs={'id':'selector-school'})
         }
 
 # For Teachers
@@ -185,5 +191,13 @@ class TeacherSchoolForm(forms.ModelForm):
         model = Teacher
         fields = ('school', )
         widgets = {
-            'school': forms.TextInput()
+            'school': forms.TextInput(attrs={'id':'selector-school'})
+        }
+
+class TeacherDistanceForm(forms.ModelForm):
+    class Meta:
+        model = Teacher
+        fields = ('distance', )
+        widgets = {
+            'distance': forms.SelectMultiple(attrs={'id':'selector'})
         }

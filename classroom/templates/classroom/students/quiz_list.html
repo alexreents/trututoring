@@ -12,7 +12,7 @@
       <a href="{% url 'students:student_interests' %}"><small>(update subjects)</small></a>
     </p>
     <p class="text-muted">
-      School:&nbsp;{{ user.student.school.get_html_badge }}
+      School:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">{{ user.student.school }}</span>
       <a href="{% url 'students:student_school' %}"><small>(update your school)</small></a>
     </p>
     <p class="text-muted">

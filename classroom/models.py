@@ -60,16 +60,15 @@ class Session(models.Model):
         html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (sessions)
         return mark_safe(html)
 
-
-class School(models.Model):
-    school = models.CharField(max_length=50)
+class Distance(models.Model):
+    distance = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.school
+        return self.distance
 
     def get_html_badge(self):
-        school = escape(self.name)
-        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (school)
+        distance = escape(self.distance)
+        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (distance)
         return mark_safe(html)
 
 
@@ -79,7 +78,7 @@ class Student(models.Model):
     grade_level = models.ManyToManyField(Grade, related_name='leveled_students')
     availability = models.ManyToManyField(Availability, related_name='available_students')
     sessions = models.ManyToManyField(Session, related_name='session_students')
-    school = models.ForeignKey(School, on_delete=models.CASCADE, null=True)
+    school = models.CharField(max_length=50, verbose_name='your school', null=True)
 
 
     def __str__(self):
@@ -92,7 +91,9 @@ class Teacher(models.Model):
     grade_level = models.ManyToManyField(Grade, related_name='leveled_teachers')
     availability = models.ManyToManyField(Availability, related_name='available_teachers')
     sessions = models.ManyToManyField(Session, related_name='session_teachers')
-    school = models.ForeignKey(School, on_delete=models.CASCADE, null=True)
+    school = models.CharField(max_length=50, verbose_name='your school', null=True)
+    distance = models.ManyToManyField(Distance, related_name='distanced_teachers', verbose_name='max lesson radius')
+
     
     def __str__(self):
         return self.user.username

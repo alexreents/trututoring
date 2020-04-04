@@ -96,7 +96,7 @@ class StudentSchoolView(UpdateView):
     model = Student
     form_class = StudentSchoolForm
     template_name = 'classroom/students/school_form.html'
-    success_url = reverse_lazy('students:quiz_change_list')
+    success_url = reverse_lazy('students:quiz_list')
 
     def get_object(self):
         return self.request.user.student
