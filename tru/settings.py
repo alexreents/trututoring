@@ -21,8 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# PRODUCTION
 SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# DEVELOPMENT
+# SECRET_KEY = 'yr-!bb+ed3*mcx@0@!2+jso61ydy$k8(#xx@4^!0v5^^ky!hd9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
@@ -86,36 +89,12 @@ WSGI_APPLICATION = 'tru.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-#else:
-#    DATABASES = {
-#        'default': {
-#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#            'NAME': 'trudb',
-#            'USER': 'trudb_user',
-#            'PASSWORD': 'truDB_password',
-#            'HOST': 'localhost',
-#            'PORT': '',
-#        }
-#    }
-
-# this database is available to us, it just needs some configuration in djago before switching
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'trututoring',
-#        'USER': 'trututoring',
-#        'PASSWORD': 'tru-admin',
-#        'HOST': '127.0.0.1', 
-#        'PORT': '3306',
-#    }
-#}
+}
 
 
 # Internationalization
