@@ -140,7 +140,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../static_resources')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../static_resources'),
 )
 
 STATICFILES_FINDERS = (
@@ -148,6 +147,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
 
 
 # Custom Django auth settings
