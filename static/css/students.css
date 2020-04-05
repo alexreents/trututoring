@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 body {
   background-color: #c2d4d8;
 }
