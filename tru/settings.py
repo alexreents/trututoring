@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
 
-ALLOWED_HOSTS = ['trututoring.herokuapp.com']
+ALLOWED_HOSTS = ['trututoring.herokuapp.com', 'www.trututoring.live']
 
 
 # Application definition
