@@ -1,6 +1,7 @@
 from django.urls import include, path
 from django.contrib import admin
 from classroom.views import classroom, students, teachers
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', include('classroom.urls')),
@@ -10,3 +11,5 @@ urlpatterns = [
     path('accounts/signup/student/', students.StudentSignUpView.as_view(), name='student_signup'),
     path('accounts/signup/teacher/', teachers.TeacherSignUpView.as_view(), name='teacher_signup'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
