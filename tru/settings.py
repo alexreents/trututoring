@@ -140,7 +140,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
-
 # Custom Django auth settings
 
 AUTH_USER_MODEL = 'classroom.User'
