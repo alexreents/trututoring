@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'mls7arz!_4_+yzo7^e)f^(lmlr4tn(
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['165.227.21.222','localhost']
+ALLOWED_HOSTS = ['165.227.21.222','trututoring.live','trututoring','localhost']
 
 
 # Application definition
@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tru_prod',
         'USER': 'tru_user',
-        'PASSWORD': 'tru_password',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '',
     }
