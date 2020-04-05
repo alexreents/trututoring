@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'mls7arz!_4_+yzo7^e)f^(lmlr4tn(
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['165.227.21.222','localhost']
 
 
 # Application definition
@@ -88,8 +88,12 @@ WSGI_APPLICATION = 'tru.wsgi.application'
 # default
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'tru_prod',
+        'USER': 'tru_user',
+        'PASSWORD': 'tru_password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -124,10 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 # Custom Django auth settings
