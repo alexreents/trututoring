@@ -97,7 +97,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'truDB',
+            'NAME': 'trudb',
             'USER': 'truDB_user',
             'PASSWORD': 'truDB_password',
             'HOST': 'localhost',
