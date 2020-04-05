@@ -98,7 +98,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'trudb',
-            'USER': 'truDB_user',
+            'USER': 'trudb_user',
             'PASSWORD': 'truDB_password',
             'HOST': 'localhost',
             'PORT': '',
