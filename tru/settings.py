@@ -30,7 +30,7 @@ SECRET_KEY = 'yr-!bb+ed3*mcx@0@!2+jso61ydy$k8(#xx@4^!0v5^^ky!hd9'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['trututoring.herokuapp.com', 'www.trututoring.live', 'http://0.0.0.0:5000']
+ALLOWED_HOSTS = ['trututoring.herokuapp.com', 'www.trututoring.live', 'localhost','0.0.0.0']
 
 
 # Application definition
