@@ -5,23 +5,50 @@ html {
 .b-base {
   background:white;
 }
-/* .b-base {
-  background: #E0EAFC;  
-  background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  
-  background: linear-gradient(to right, #CFDEF3, #E0EAFC); 
-} */
 
-input:focus {
-  padding:2%;
-  transition:all 0.5s;
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  background-color: #fff;
 }
 
 .main-card {
-  width: 60%;
+  width: 70%;
   padding: 2%;
   margin: 2% auto auto auto;
   background-color: white;
   box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* button styling */
+
+#yes-btn {
+  background-color: white;
+  display: inline-block;
+  margin-top:2%;
+  margin-bottom:2%;
+  margin-left: 3%;
+  margin-right: 5%;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: black;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+#yes-btn:hover{
+  color:white;
+  background-color:green;
+  text-decoration: none;
+  border: 0.1em solid green;
+  cursor: pointer;
 }
 
 #hit-btn {
@@ -50,11 +77,13 @@ input:focus {
   cursor: pointer;
 }
 
-#yes-btn {
+          /* originally for login */
+
+.sign-btn {
   background-color: white;
   display: inline-block;
-  margin-top:2%;
-  margin-bottom:2%;
+  margin-top: 10%;
+  margin-bottom: 15%;
   margin-left: 3%;
   margin-right: 5%;
   padding: 0.35em 1.2em;
@@ -68,29 +97,26 @@ input:focus {
   transition: all 0.2s;
 }
 
-#yes-btn:hover{
+.sign-btn:hover{
   color:white;
-  background-color:green;
+  background-color:black;
   text-decoration: none;
-  border: 0.1em solid green;
+  border: 0.1em solid black;
   cursor: pointer;
 }
+
+.selected {
+	color: #5c5c5c!important;
+  transition: 0.5s;
+}
+
+/* end of button styling */
+
 
 /*  
 START LOGIN FORMATTING
 */
 
-#prof {
-  padding-top: 1%;
-  padding-bottom: 0;
-}
-
-#prof-line {
-  border: none;
-  height: 0.5px;
-  color: grey; /* old IE */
-  background-color: grey; /* Modern Browsers */
-}
 
 .login-card {
 	background-color: white;
@@ -183,42 +209,31 @@ START LOGIN FORMATTING
   cursor: pointer;
 }
 
-.sign-btn {
-  background-color: white;
-  display: inline-block;
-  margin-top: 10%;
-  margin-bottom: 15%;
-  margin-left: 3%;
-  margin-right: 5%;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid black;
-  border-radius: 3em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-weight:400;
-  color: black;
-  text-align:center;
-  transition: all 0.2s;
-}
-
-.sign-btn:hover{
-  color:white;
-  background-color:black;
-  text-decoration: none;
-  border: 0.1em solid black;
-  cursor: pointer;
-}
-
-.selected {
-	color: #5c5c5c!important;
-  transition: 0.5s;
-}
 
 /*
 END LOGIN FORMATTING
 */
 
-/* replaces need for crispy form styling */
+
+/* general form styling */
+
+#prof {
+  padding-top: 1%;
+  padding-bottom: 0;
+}
+
+#prof-line {
+  border: none;
+  height: 0.5px;
+  color: grey; /* old IE */
+  background-color: grey; /* Modern Browsers */
+}
+
+input:focus {
+  padding:2%;
+  transition:all 0.5s;
+}
+
 #selector {
   height: 8em;
   padding: 3%;
@@ -230,6 +245,7 @@ END LOGIN FORMATTING
   border-color:black;
   border-radius:1em;
   font-size: 16px;
+  -webkit-appearance: none;
 }
 
 #selector-school {
@@ -246,6 +262,7 @@ END LOGIN FORMATTING
   text-transform: none;
   font-size: 16px;
   text-align: center;
+  -webkit-appearance: none;
 }
 
 #identify-user {
@@ -267,6 +284,8 @@ END LOGIN FORMATTING
   letter-spacing: 0;
 }
 
+/* end general form styling */
+
 .tru-logo a {
   color: #212529;
   text-decoration: none;
@@ -284,21 +303,6 @@ footer a {
   color: #212529;
 }
 
-.list-group-formset label {
-  display: none;
-}
-
-.list-group-formset .form-group,
-.list-group-formset .invalid-feedback {
-  margin-bottom: 0;
-}
-
-.list-group-formset .form-control {
-  padding: .25rem .5rem;
-  font-size: .875rem;
-  line-height: 1.5;
-  border-radius: .2rem;
-}
 
 .btn-log, .btn-sign {
   display: inline-block;
@@ -328,52 +332,23 @@ footer a {
   font-weight:400;
 }
 
-.btn-student {
-  color: #fff;
-  background-color: #91afb6;
-  border-color: #91afb6;
+.lead {
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 30px;
 }
 
-.btn-student:hover,
-.btn-student:active {
-  color: #fff;
-  background-color: #608993;
-  border-color: #608993;
-}
-
-.btn-teacher {
-  color: #fff;
-  background-color: #8980a5;
-  border-color: #8980a5;
-}
-
-.btn-teacher:hover,
-.btn-teacher:active {
-  color: #fff;
-  background-color: #66598B;
-  border-color: #66598B;
-}
-
-.has-danger .radio,
-.has-danger .checkbox {
-  color: #dc3545;
-}
-
-.has-danger .invalid-feedback {
-  display: block;
-}
-
-.heading h2 { display: inline; }
 .social {
-  display: inline-block;
-  float: right;
-  border: none;
+  position: relative;
+  float:right;
 }
 
 .fa {
+  float:right;
   width: 50px;
   height:50px;
-  text-align: center;
+  text-align: right;
   text-decoration: none;
   color:black;
   background-color: transparent;
@@ -390,3 +365,11 @@ footer a {
 }
 
 
+.has-danger .radio,
+.has-danger .checkbox {
+  color: #dc3545;
+}
+
+.has-danger .invalid-feedback {
+  display: block;
+}
