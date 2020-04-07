@@ -17,24 +17,18 @@ body {
   line-height: 20px;
 }
 
-/*
+
 .main-card {
-  width: 70%;
-  padding: 2%;
-  margin: 2% auto auto auto;
   background-color: white;
-  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
+  padding:5em 2em 0 2em;
 }
-*/
+
 
 /* nav bar styling */
 
-#navigation {
-  margin-right:1%;
-  margin-left:1%;
-  max-height: 5em;
+.nav-item {
+  color:white;
 }
-
 .navbar-brand{
   font-size: 3em!important;
   font-weight: 800;
@@ -47,13 +41,13 @@ body {
 .logout-btn {
   margin-left: 10px;
   font-weight: 400;
-  color: black;
+  color: white;
 }
 
 .logout-btn:hover {
   margin-left: 10px;
   font-weight: 400;
-  color: black;
+  color: white;
   text-decoration: none;
   font-style: italic;
 }
@@ -158,9 +152,10 @@ START LOGIN FORMATTING
 .login-card {
 	background-color: white;
   width: 40%;
-	margin: 2% auto auto auto;
+  margin: auto;
 	box-shadow: 0 5px 50px rgba(0,0,0,0.3);
   text-align: center;
+  padding-top: 5em;
   padding-left: 8%;
   padding-right: 8%;
 }
@@ -254,6 +249,10 @@ END LOGIN FORMATTING
 
 /* general form styling */
 
+#prof-top {
+  margin-top:2em;
+}
+
 #prof {
   padding-top: 1%;
   padding-bottom: 0;
@@ -331,15 +330,62 @@ footer a {
   font-weight:400;
   color: black;
   text-align:center;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
 }
 .standard-btn:hover{
   color:white;
   background-color:black;
   border: 0.1em solid black;
   text-decoration: none;
-  font-weight:400;
+  font-weight:700;
+  letter-spacing: 0;
 }
+
+
+.nav-btn {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid white;
+  margin: 0.5em 0 0 0.5em;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: white;
+  text-align:center;
+  letter-spacing: 0.5px;
+}
+.nav-btn:hover{
+  color:black;
+  background-color:white;
+  border: 0.1em solid white;
+  text-decoration: none;
+  font-weight:700;
+  letter-spacing: 0;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: none;
+  margin: 0.5em 0 0 0.5em;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: white;
+  text-align:center;
+  letter-spacing: 0.5px;
+}
+.home-btn:hover{
+  color:white;
+  text-decoration: none;
+  font-weight:700;
+  letter-spacing: 0;
+}
+
+
 
 .lead {
   margin-bottom: 20px;

@@ -20,32 +20,43 @@
 
   <body>
 
-    <nav class="navbar navbar-expand navbar-light" id="navigation">
-      <a class="navbar-brand" href="{% url 'home' %}">TRU</a>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav ml-auto" id="nav-right-content">
-          {% if user.is_authenticated %}
-            {% if user.is_teacher %}
-              <li class="nav-item">
-                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong id="identify-student">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
-              </li>  
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navigation">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">TRU</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+              {% if user.is_teacher %}
+                <li class="nav-item">
+                  <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong id="identify-student">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
+                </li>  
+              {% else %}
+                <li class="nav-item">
+                  <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong id="identify-user">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
+                </li>  
+              {% endif %}
             {% else %}
+              <li class="nav-item active">
+                <a class="home-btn" href="{% url 'home' %}">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
               <li class="nav-item">
-                <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong id="identify-user">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
+                <a href="{% url 'login' %}" class="nav-btn">Log In</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'signup' %}" class="nav-btn">Sign Up</a>
               </li>  
             {% endif %}
-          {% else %}
-            <li class="nav-item">
-              <a href="{% url 'login' %}" class="standard-btn">log in</a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'signup' %}" class="standard-btn">sign up</a>
-            </li>  
-          {% endif %}
-        </ul>
+          </ul>
+        </div>
       </div>
     </nav>
-    
+
     {% for message in messages %}
       <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
         {{ message }}
@@ -59,6 +70,10 @@
     <!-- begin website code -->
     {% block content %}
     {% endblock %}    
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   </body>
 
