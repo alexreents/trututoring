@@ -1,12 +1,31 @@
-
-
 /* Full height image header */
-.bgimg-1 {
+.background {
   background-position: center;
   background-size: cover;
-  background-image: url("/w3images/mac.jpg");
+  background-color:white;
   min-height: 100%;
 }
+
+
+html {
+  height:100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/*
+.main-card {
+  width: 70%;
+  padding: 2%;
+  margin: 2% auto auto auto;
+  background-color: white;
+  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
+}
+*/
 
 /* nav bar styling */
 
@@ -40,27 +59,6 @@
 }
 
 /* end nav bar styling */
-
-
-html {
-  height:100%;
-}
-
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  background-color: white;
-}
-
-.main-card {
-  width: 70%;
-  padding: 2%;
-  margin: 2% auto auto auto;
-  background-color: white;
-  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
-}
 
 /* button styling */
 
