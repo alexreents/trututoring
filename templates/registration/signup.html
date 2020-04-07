@@ -5,11 +5,14 @@
   <div class="box-header">
     <h2 id="title">Sign Up</h2>
   </div>
+
   <label class="lead">Please select your account type.</label>
 
-
-  <a href="{% url 'student_signup' %}"><button class="sign-btn">I'm a student</button></a>
-  <a href="{% url 'teacher_signup' %}"><button class="sign-btn">I'm a tutor</button></a>
+  <div class="sign-btn">
+    <a href="{% url 'student_signup' %}"><button>I'm a student</button></a>
+    <a href="{% url 'teacher_signup' %}"><button>I'm a tutor</button></a>
+  </div>
+  
   
 </div>
 {% endblock %}
