@@ -1,9 +1,49 @@
-html {
-  height:100%;
+
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/mac.jpg");
+  min-height: 100%;
 }
 
-.b-base {
-  background:white;
+/* nav bar styling */
+
+#navigation {
+  margin-right:1%;
+  margin-left:1%;
+  max-height: 5em;
+}
+
+.navbar-brand{
+  font-size: 3em!important;
+  font-weight: 800;
+}
+
+#identify-user {
+  margin-right:10px;
+}
+
+.logout-btn {
+  margin-left: 10px;
+  font-weight: 400;
+  color: black;
+}
+
+.logout-btn:hover {
+  margin-left: 10px;
+  font-weight: 400;
+  color: black;
+  text-decoration: none;
+  font-style: italic;
+}
+
+/* end nav bar styling */
+
+
+html {
+  height:100%;
 }
 
 body {
@@ -11,8 +51,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333;
-  background-color: #fff;
+  background-color: white;
 }
 
 .main-card {
@@ -265,31 +304,10 @@ input:focus {
   -webkit-appearance: none;
 }
 
-#identify-user {
-  margin-right:1.5%;
-  letter-spacing: 0.5px;
-}
 
-.logout-btn {
-  text-decoration: none;
-  color:black;
-  margin-left:1.5%;
-  letter-spacing: 0.5px;
-}
-
-.logout-btn:hover {
-  font-weight: 700;
-  text-decoration: none;
-  color: black;
-  letter-spacing: 0;
-}
 
 /* end general form styling */
 
-.tru-logo a {
-  color: #212529;
-  text-decoration: none;
-}
 
 .admin-link {
   font-size: small;
@@ -304,7 +322,7 @@ footer a {
 }
 
 
-.btn-log, .btn-sign {
+.standard-btn {
   display: inline-block;
   padding: 0.35em 1.2em;
   border: 0.1em solid black;
@@ -317,14 +335,7 @@ footer a {
   text-align:center;
   transition: all 0.2s;
 }
-.btn-log:hover{
-  color:white;
-  background-color:black;
-  border: 0.1em solid black;
-  text-decoration: none;
-  font-weight:400;
-}
-.btn-sign:hover{
+.standard-btn:hover{
   color:white;
   background-color:black;
   border: 0.1em solid black;
