@@ -3,34 +3,54 @@
 
 {% block content %}
 <div class="main-card">
+  <div class="row align-items-center my-5">
 
-  {% include 'classroom/teachers/_header.html' with active='new' %}
+    <div class="col-lg-5 text-center">
+      <h1 class="font-weight-light">Start Teaching!</h1>
+      <p>Create targeted learning opportunities below! </p>    
+    </div>
+
+    <div class="col-lg-7">
+      <div class="card h-100">
+        <div class="card-body">
+          {% include 'classroom/teachers/_header.html' with active='new' %}
+          <hr id="prof-line"> 
+          <p class="text-muted">
+            Subjects:&nbsp;{% for subject in user.teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}
+            <a href="{% url 'teachers:teacher_interests' %}"><small>(update subjects)</small></a>
+          </p>
+          <p class="text-muted">
+              School:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">{{ user.teacher.school }}</span>
+              <a href="{% url 'teachers:teacher_school' %}"><small>(update your school)</small></a>
+            </p>
+          <p class="text-muted">
+            Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
+            <a href="{% url 'teachers:teacher_grade_level' %}"><small>(change grade)</small></a>
+          </p>
+          <p class="text-muted">
+            Availability:&nbsp;{% for availability in user.teacher.availability.all %} {{ availability.get_html_badge }}{% endfor %}
+            <a href="{% url 'teachers:teacher_availability' %}"><small>(update availability)</small></a>
+          </p>
+          <p class="text-muted">
+            Sessions/week:&nbsp;{% for session in user.teacher.sessions.all %} {{ session.get_html_badge }}{% endfor %}
+            <a href="{% url 'teachers:teacher_sessions' %}"><small>(update # of sessions)</small></a>
+          </p>
+          <p class="text-muted">
+            Distance:&nbsp;{% for distance in user.teacher.distance.all %} {{ distance.get_html_badge }}{% endfor %}
+            <a href="{% url 'teachers:teacher_distance' %}"><small>(update max radius)</small></a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <hr id="prof-line"> 
-  <div id="prof">
-    <p class="text-muted">
-      Subjects:&nbsp;{% for subject in user.teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}
-      <a href="{% url 'teachers:teacher_interests' %}"><small>(update subjects)</small></a>
-    </p>
-    <p class="text-muted">
-        School:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">{{ user.teacher.school }}</span>
-        <a href="{% url 'teachers:teacher_school' %}"><small>(update your school)</small></a>
-      </p>
-    <p class="text-muted">
-      Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
-      <a href="{% url 'teachers:teacher_grade_level' %}"><small>(change grade)</small></a>
-    </p>
-    <p class="text-muted">
-      Availability:&nbsp;{% for availability in user.teacher.availability.all %} {{ availability.get_html_badge }}{% endfor %}
-      <a href="{% url 'teachers:teacher_availability' %}"><small>(update availability)</small></a>
-    </p>
-    <p class="text-muted">
-      Sessions/week:&nbsp;{% for session in user.teacher.sessions.all %} {{ session.get_html_badge }}{% endfor %}
-      <a href="{% url 'teachers:teacher_sessions' %}"><small>(update # of sessions)</small></a>
-    </p>
-    <p class="text-muted">
-      Distance:&nbsp;{% for distance in user.teacher.distance.all %} {{ distance.get_html_badge }}{% endfor %}
-      <a href="{% url 'teachers:teacher_distance' %}"><small>(update max radius)</small></a>
-    </p>
+
+  <div class="card text-black bg-white my-4 py-2 z-depth-1">
+    <div class="card-body">
+
+    </div>
   </div>
 
 </div>
