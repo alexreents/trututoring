@@ -366,7 +366,6 @@ footer a {
 .heading h2 { display: inline; }
 .social {
   display: inline-block;
-  float: right;
   border: none;
 }
 
