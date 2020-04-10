@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block content %}
   
@@ -8,14 +9,14 @@
 
     <h2 id="title" class="mb-3">
       {{ quiz.name }}
-      <a href="{% url 'teachers:quiz_results' quiz.pk %}" class="btn btn-primary float-right">View results</a>
     </h2>
     
     <form method="post" novalidate>
       {% csrf_token %}
-      {{ form }}
-      <div class="sign-btn">
-        <button type="submit" id="yes-btn">Save changes</button>
+      {% render_field form.name placeholder="description" id+="selector-name" %}
+      {% render_field form.subject id+="selector-subject" %}
+      <div class="triple-btn">
+        <button type="submit" id="yes-btn">Update</button>
         <a href="{% url 'teachers:quiz_change_list' %}" id="hit-btn">Nevermind</a>
         <a href="{% url 'teachers:quiz_delete' quiz.pk %}" id="no-btn">Delete</a>
       </div>

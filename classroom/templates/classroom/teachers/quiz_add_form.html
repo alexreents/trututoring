@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block content %}
 <div class="login-card z-depth-2">
 
-  <h2 id="title" class="mb-3">Add a New Quiz</h2>
+  <h2 id="title" class="mb-3">Add a New Session</h2>
   <form method="post" novalidate>
     {% csrf_token %}
-    {{ form }}
+    {% render_field form.name placeholder="description" id+="selector-name" %}
+    {% render_field form.subject id+="selector-subject" %}
     <div class="sign-btn">
       <button type="submit" id="yes-btn">Save changes</button>
       <a href="{% url 'teachers:quiz_change_list' %}" id="hit-btn">Nevermind</a>

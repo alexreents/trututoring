@@ -203,7 +203,7 @@ class TeacherDistanceForm(forms.ModelForm):
         }
 
 
-# For Quizzes
+# For Quizzes -- NOT CURRENTLY USED BECUASE FUNCTIONED INCORRECTLY 
 
 
 class QuizAddForm(forms.ModelForm):
