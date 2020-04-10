@@ -12,7 +12,8 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
 
 from ..decorators import teacher_required
 from ..forms import (TeacherInterestsForm, TeacherSignUpForm, TeacherGradesForm, 
-                    TeacherAvailabilityForm, TeacherSessionsForm, TeacherSchoolForm, TeacherDistanceForm)
+                    TeacherAvailabilityForm, TeacherSessionsForm, TeacherSchoolForm, TeacherDistanceForm, 
+                    QuizAddForm, QuizChangeForm)
 from ..models import Quiz, User, Teacher
 
 
@@ -136,10 +137,11 @@ class QuizListView(ListView):
         return queryset
 
 
+
 @method_decorator([login_required, teacher_required], name='dispatch')
 class QuizCreateView(CreateView):
     model = Quiz
-    fields = ('name', 'subject', )
+    form_class = QuizAddForm
     template_name = 'classroom/teachers/quiz_add_form.html'
 
     def form_valid(self, form):
@@ -154,7 +156,7 @@ class QuizCreateView(CreateView):
 @method_decorator([login_required, teacher_required], name='dispatch')
 class QuizUpdateView(UpdateView):
     model = Quiz
-    fields = ('name', 'subject', )
+    form_class = QuizChangeForm    
     context_object_name = 'quiz'
     template_name = 'classroom/teachers/quiz_change_form.html'
 
@@ -171,7 +173,7 @@ class QuizUpdateView(UpdateView):
         return self.request.user.quizzes.all()
 
     def get_success_url(self):
-        return reverse('teachers:quiz_change', kwargs={'pk': self.object.pk})
+        return reverse('teachers:quiz_change_list')
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')

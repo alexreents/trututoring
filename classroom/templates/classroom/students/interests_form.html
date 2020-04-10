@@ -5,13 +5,14 @@
 {% block content %}
 <div class="login-card z-depth-2">
 
-  <h2 id="title" class="mb-3">Update your subjects</h2>
+  <h2 id="title" class="mb-3">Update Your Subjects</h2>
   <form method="post" novalidate>
     {% csrf_token %}
     {{ form }}
-
-    <button type="submit" id="yes-btn">Save changes</button>
-    <a href="{% url 'students:quiz_list' %}" class="sign-btn">Nevermind</a>
+    <div class="sign-btn">
+      <button type="submit" id="yes-btn">Save changes</button>
+      <a href="{% url 'students:quiz_list' %}" id="hit-btn">Nevermind</a>
+    </div>
   </form>
 
 </div>

@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
-from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session, Distance) 
+from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session, Distance, Quiz) 
 
 
 class TeacherSignUpForm(UserCreationForm):
@@ -200,4 +200,26 @@ class TeacherDistanceForm(forms.ModelForm):
         fields = ('distance', )
         widgets = {
             'distance': forms.SelectMultiple(attrs={'id':'selector'})
+        }
+
+
+# For Quizzes
+
+
+class QuizAddForm(forms.ModelForm):
+    class Meta:
+        model = Quiz
+        fields = ('name', 'subject', )
+        widgets = {
+            'name': forms.TextInput(attrs={'id':'selector-school'}),
+            'subject': forms.SelectMultiple(attrs={'id':'selector'})
+        }
+
+class QuizChangeForm(forms.ModelForm):
+    class Meta:
+        model = Quiz
+        fields = ('name', 'subject')
+        widgets = {
+            'name': forms.TextInput(attrs={'id':'selector-school'}),
+            'subject': forms.SelectMultiple(attrs={'id':'selector'})
         }

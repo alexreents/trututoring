@@ -71,7 +71,8 @@ body {
 
 /* button styling */
 
-#yes-btn {
+
+#hit-btn, #yes-btn, #no-btn {
   background-color: white;
   display: inline-block;
   margin-top:2%;
@@ -85,6 +86,22 @@ body {
   text-decoration:none;
   font-weight:400;
   color: black;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+#add-quiz-btn {
+  font-size: large;
+  background-color: #02075d;
+  float: right;
+  margin-right:2em;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #02075d;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: white;
   text-align:center;
   transition: all 0.2s;
 }
@@ -97,23 +114,22 @@ body {
   cursor: pointer;
 }
 
-#hit-btn {
-  background-color: white;
-  display: inline-block;
-  margin-top:2%;
-  margin-bottom:2%;
-  margin-left: 3%;
-  margin-right: 5%;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid black;
-  border-radius: 3em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-weight:400;
-  color: black;
-  text-align:center;
-  transition: all 0.2s;
+#no-btn:hover{
+  color:white;
+  background-color:red;
+  text-decoration: none;
+  border: 0.1em solid red;
+  cursor: pointer;
 }
+
+#add-quiz-btn:hover{
+  color:#02075d;
+  background-color:white;
+  text-decoration: none;
+  border: 0.1em solid #02075d;
+  cursor: pointer;
+}
+
 
 #hit-btn:hover{
   color:white;
@@ -124,6 +140,10 @@ body {
 }
 
           /* originally for login */
+
+#course-descriptor:hover {
+  text-decoration: underline;
+}
 
 .sign-btn {
   margin-top:2em;
@@ -190,7 +210,6 @@ START LOGIN FORMATTING
   padding-top: 15%;
   padding-bottom:10%;
   margin: auto auto;
-  text-transform: lowercase;
 }
 
 
@@ -273,6 +292,15 @@ END LOGIN FORMATTING
 
 
 /* general form styling */
+
+.text-muted small{
+  color:black;
+}
+
+.text-muted small:hover{
+  color:black;
+  text-decoration: underline;
+}
 
 #prof-top {
   margin-top:2em;

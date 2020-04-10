@@ -17,27 +17,27 @@
           <hr id="prof-line"> 
           <p class="text-muted">
             Subjects:&nbsp;{% for subject in user.teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}
-            <a href="{% url 'teachers:teacher_interests' %}"><small>(update subjects)</small></a>
+            <a href="{% url 'teachers:teacher_interests' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
               School:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">{{ user.teacher.school }}</span>
-              <a href="{% url 'teachers:teacher_school' %}"><small>(update your school)</small></a>
+              <a href="{% url 'teachers:teacher_school' %}"><small>(update)</small></a>
             </p>
           <p class="text-muted">
             Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
-            <a href="{% url 'teachers:teacher_grade_level' %}"><small>(change grade)</small></a>
+            <a href="{% url 'teachers:teacher_grade_level' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
             Availability:&nbsp;{% for availability in user.teacher.availability.all %} {{ availability.get_html_badge }}{% endfor %}
-            <a href="{% url 'teachers:teacher_availability' %}"><small>(update availability)</small></a>
+            <a href="{% url 'teachers:teacher_availability' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
             Sessions/week:&nbsp;{% for session in user.teacher.sessions.all %} {{ session.get_html_badge }}{% endfor %}
-            <a href="{% url 'teachers:teacher_sessions' %}"><small>(update # of sessions)</small></a>
+            <a href="{% url 'teachers:teacher_sessions' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
             Distance:&nbsp;{% for distance in user.teacher.distance.all %} {{ distance.get_html_badge }}{% endfor %}
-            <a href="{% url 'teachers:teacher_distance' %}"><small>(update max radius)</small></a>
+            <a href="{% url 'teachers:teacher_distance' %}"><small>(update)</small></a>
           </p>
         </div>
       </div>
@@ -49,27 +49,26 @@
 
   <div class="card text-black bg-white my-4 py-2 z-depth-1">
     <div class="card-body">
-      <h2 class="mb-3">My Quizzes</h2>
-      <a href="{% url 'teachers:quiz_add' %}" class="btn btn-primary mb-3" role="button">Add quiz</a>
+      <h2 class="mb-3">My Quizzes
+        <a href="{% url 'teachers:quiz_add' %}" class="text-right" id="add-quiz-btn" role="button">Add quiz</a>
+      </h2>
       
       <table class="table mb-0">
         <thead>
           <tr>
-            <th>Quiz</th>
+            <th>Description</th>
             <th>Subject</th>
-            <th>Questions</th>
-            <th>Taken</th>
-            <th></th>
+            <th>Zoom Link</th>
           </tr>
         </thead>
         <tbody>
           {% for quiz in user.quizzes.all %}
             <tr>
-              <td class="align-middle"><a href="{% url 'teachers:quiz_change' quiz.pk %}">{{ quiz.name }}</a></td>
+              <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:quiz_change' quiz.pk %}">{{ quiz.name }}</a></td>
               <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
               <td class="align-middle">{{ quiz.taken_count }}</td>
               <td class="text-right">
-                <a href="{% url 'teachers:quiz_results' quiz.pk %}" class="btn btn-primary">View results</a>
+                <a href="{% url 'teachers:quiz_results' quiz.pk %}" id="hit-btn">View feedback</a>
               </td>
             </tr>
           {% empty %}

@@ -18,23 +18,23 @@
           <hr id="prof-line"> 
           <p class="text-muted">
             Subjects:&nbsp;{% for subject in user.student.interests.all %} {{ subject.get_html_badge }}{% endfor %}
-            <a href="{% url 'students:student_interests' %}"><small>(update subjects)</small></a>
+            <a href="{% url 'students:student_interests' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
             School:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">{{ user.student.school }}</span>
-            <a href="{% url 'students:student_school' %}"><small>(update your school)</small></a>
+            <a href="{% url 'students:student_school' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
             Grade:&nbsp;{% for grade in user.student.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
-            <a href="{% url 'students:student_grade_level' %}"><small>(change grade)</small></a>
+            <a href="{% url 'students:student_grade_level' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
             Availability:&nbsp;{% for availability in user.student.availability.all %} {{ availability.get_html_badge }}{% endfor %}
-            <a href="{% url 'students:student_availability' %}"><small>(update availability)</small></a>
+            <a href="{% url 'students:student_availability' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
             Sessions/week:&nbsp;{% for session in user.student.sessions.all %} {{ session.get_html_badge }}{% endfor %}
-            <a href="{% url 'students:student_sessions' %}"><small>(update # of sessions)</small></a>
+            <a href="{% url 'students:student_sessions' %}"><small>(update)</small></a>
           </p>       
         </div>
       </div>
@@ -49,9 +49,9 @@
       <table class="table mb-0">
         <thead>
           <tr>
-            <th>Quiz</th>
+            <th>Description</th>
             <th>Subject</th>
-            <th>Length</th>
+            <th>Zoom Link</th>
             <th></th>
           </tr>
         </thead>
@@ -59,10 +59,7 @@
           {% for quiz in quizzes %}
             <tr>
               <td class="align-middle">{{ quiz.name }}</td>
-              <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
-              <td class="text-right">
-                Start Quiz
-              </td>
+              <td id="" class="align-middle">{{ quiz.subject.get_html_badge }}</td>
             </tr>
           {% empty %}
             <tr>
