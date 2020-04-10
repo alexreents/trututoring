@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="login-card z-depth-2">
@@ -33,6 +33,7 @@
     <input id="password" type="password" name="password" value="{{ password }}">
     <br/>
     <button type="submit">sign in</button>
+    <!--<a href="{% url 'students:quiz_list' %}" class="sign-btn">Nevermind</a>-->  
     <br/>
   </form>
 </div>

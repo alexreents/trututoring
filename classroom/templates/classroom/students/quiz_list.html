@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="main-card">
@@ -7,7 +8,7 @@
 
     <div class="col-lg-5 text-center">
       <h1 class="font-weight-light">Start Learning!</h1>
-      <p>Explore learning opportunities available to you below!</p>    
+      <p>Explore learning opportunities available to you below!</p>  
     </div>
 
     <div class="col-lg-7">
@@ -45,7 +46,31 @@
 
   <div class="card text-black bg-white my-4 py-2 z-depth-1">
     <div class="card-body">
-
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th>Quiz</th>
+            <th>Subject</th>
+            <th>Length</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for quiz in quizzes %}
+            <tr>
+              <td class="align-middle">{{ quiz.name }}</td>
+              <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
+              <td class="text-right">
+                Start Quiz
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
 

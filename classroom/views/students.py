@@ -10,7 +10,7 @@ from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 
 from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm, StudentSchoolForm
-from ..models import Student, User
+from ..models import Student, User, Quiz
 
 
 class StudentSignUpView(CreateView):
@@ -26,10 +26,6 @@ class StudentSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('students:quiz_list')
-
-@method_decorator([login_required, student_required], name='dispatch')
-class StudentQuizListView(TemplateView):
-    template_name = 'classroom/students/quiz_list.html'
 
 
 # Student Profile Fields
@@ -104,3 +100,39 @@ class StudentSchoolView(UpdateView):
     def form_valid(self, form):
         messages.success(self.request, 'School updated with success!')
         return super().form_valid(form)
+
+
+
+#@method_decorator([login_required, student_required], name='dispatch')
+#class StudentQuizListView(TemplateView):
+#    template_name = 'classroom/students/quiz_list.html'
+
+
+@method_decorator([login_required, student_required], name='dispatch')
+class QuizListView(ListView):
+    model = Quiz
+    ordering = ('name', )
+    context_object_name = 'quizzes'
+    template_name = 'classroom/students/quiz_list.html'
+
+    def get_queryset(self):
+        student = self.request.user.student
+        student_interests = student.interests.values_list('pk', flat=True)
+        queryset = Quiz.objects.filter(subject__in=student_interests) \
+            .annotate() \
+            .filter()
+        return queryset
+
+
+
+
+@login_required
+@student_required
+def take_quiz(request, pk):
+    quiz = get_object_or_404(Quiz, pk=pk)
+    student = request.user.student
+
+    if student.quizzes.filter(pk=pk).exists():
+        return render(request, 'students/quiz_list.html')
+
+    
