@@ -151,7 +151,7 @@ class QuizCreateView(CreateView):
         quiz.owner = self.request.user
         quiz.save()
         messages.success(self.request, 'The quiz was successfully created!')
-        return redirect('teachers:quiz_change', quiz.pk)
+        return redirect('teachers:quiz_change_list')
 
 
 

@@ -56,7 +56,7 @@
       <table class="table mb-0">
         <thead>
           <tr>
-            <th>Description</th>
+            <th>Name</th>
             <th>Subject</th>
             <th>Zoom Link</th>
           </tr>
@@ -67,13 +67,15 @@
               <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:quiz_change' quiz.pk %}">{{ quiz.name }}</a></td>
               <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
               <td class="align-middle">{{ quiz.taken_count }}</td>
+              <!--- to be implememted
               <td class="text-right">
                 <a href="{% url 'teachers:quiz_results' quiz.pk %}" id="hit-btn">View feedback</a>
               </td>
+              --->
             </tr>
           {% empty %}
             <tr>
-              <td class="bg-light text-center font-italic" colspan="5">You haven't created any quiz yet.</td>
+              <td class="bg-light text-center font-italic" colspan="5">You haven't created any sessions yet.</td>
             </tr>
           {% endfor %}
         </tbody>

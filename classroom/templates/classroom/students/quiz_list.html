@@ -49,7 +49,8 @@
       <table class="table mb-0">
         <thead>
           <tr>
-            <th>Description</th>
+            <th>Name</th>
+            <th>Teacher</th>
             <th>Subject</th>
             <th>Zoom Link</th>
             <th></th>
@@ -59,11 +60,13 @@
           {% for quiz in quizzes %}
             <tr>
               <td class="align-middle">{{ quiz.name }}</td>
+              <td class="align-middle">{{ quiz.owner.first_name }} {{ quiz.owner.last_name }}</td>
               <td id="" class="align-middle">{{ quiz.subject.get_html_badge }}</td>
+              <td></td>
             </tr>
           {% empty %}
             <tr>
-              <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+              <td class="bg-light text-center font-italic" colspan="4">No session matching your preferences right now.</td>
             </tr>
           {% endfor %}
         </tbody>
