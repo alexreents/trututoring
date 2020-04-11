@@ -209,17 +209,19 @@ class TeacherDistanceForm(forms.ModelForm):
 class QuizAddForm(forms.ModelForm):
     class Meta:
         model = Quiz
-        fields = ('name', 'subject', )
+        fields = ('name', 'subject', 'zoom', )
         widgets = {
             'name': forms.TextInput(attrs={'id':'selector-school'}),
-            'subject': forms.SelectMultiple(attrs={'id':'selector'})
+            'subject': forms.SelectMultiple(attrs={'id':'selector'}),
+            'zoom': forms.URLInput(attrs={'id':'selector-school'})
         }
 
 class QuizChangeForm(forms.ModelForm):
     class Meta:
         model = Quiz
-        fields = ('name', 'subject')
+        fields = ('name', 'subject', 'zoom', )
         widgets = {
             'name': forms.TextInput(attrs={'id':'selector-school'}),
-            'subject': forms.SelectMultiple(attrs={'id':'selector'})
+            'subject': forms.SelectMultiple(attrs={'id':'selector'}),
+            'zoom': forms.URLInput(attrs={'id':'selector-school'})
         }

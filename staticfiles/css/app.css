@@ -351,6 +351,7 @@ input:focus {
   text-align: center;
   -webkit-appearance: none;
   display: block;
+  width:20em;
 }
 
 #selector {

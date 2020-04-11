@@ -13,8 +13,9 @@
     
     <form method="post" novalidate>
       {% csrf_token %}
-      {% render_field form.name placeholder="Name" id+="selector-name" %}
+      {% render_field form.name placeholder="Session Name" id+="selector-name" %}
       {% render_field form.subject id+="selector-subject" %}
+      {% render_field form.zoom placeholder="Paste a zoom link here (optional)" type="url" id+="selector-name" %}
       <div class="triple-btn">
         <button type="submit" id="yes-btn">Update</button>
         <a href="{% url 'teachers:quiz_change_list' %}" id="hit-btn">Nevermind</a>

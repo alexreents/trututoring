@@ -141,7 +141,7 @@ class QuizListView(ListView):
 @method_decorator([login_required, teacher_required], name='dispatch')
 class QuizCreateView(CreateView):
     model = Quiz
-    fields = ('name', 'subject', )
+    fields = ('name', 'subject', 'zoom')
 
     #form_class = QuizAddForm
     template_name = 'classroom/teachers/quiz_add_form.html'
@@ -159,7 +159,7 @@ class QuizCreateView(CreateView):
 class QuizUpdateView(UpdateView):
     model = Quiz
     #form_class = QuizChangeForm  
-    fields = ('name', 'subject', )  
+    fields = ('name', 'subject', 'zoom')  
     context_object_name = 'quiz'
     template_name = 'classroom/teachers/quiz_change_form.html'
 

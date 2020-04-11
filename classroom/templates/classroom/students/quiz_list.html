@@ -62,7 +62,7 @@
               <td class="align-middle">{{ quiz.name }}</td>
               <td class="align-middle">{{ quiz.owner.first_name }} {{ quiz.owner.last_name }}</td>
               <td id="" class="align-middle">{{ quiz.subject.get_html_badge }}</td>
-              <td></td>
+              <td class="align-middle"><a href="{{ quiz.zoom }}">{{ quiz.zoom }}</a></td>
             </tr>
           {% empty %}
             <tr>
