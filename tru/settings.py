@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'crispy_forms',
-    'widget_tweaks',
+    #'widget_tweaks',
     #'tempus_dominus',
     #'bootstrap_datepicker_plus',
 
