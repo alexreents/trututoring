@@ -3,26 +3,34 @@
 {% block content %}
 <!-- Page Content -->
 <div class="main-card">
-
+  <div id="alerting" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Notice: </strong>This website is in beta form. We are currently undergoing app development, so existing
+    functionality is limited. We greatly appreciate your feedback and patience!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <!-- Heading Row -->
   <div class="row align-items-center my-5">
-    <div class="col-lg-7">
-      <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400" alt="">
+    <div class="col-lg-6">
+      {% load static %}<img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'img/learning_photo.jpg' %}" alt="">
     </div>
     <!-- /.col-lg-8 -->
-    <div class="col-lg-5">
+    <div class="col-lg-6">
       <h1 class="font-weight-light">Welcome to TRU Tutoring</h1>
-      <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-      <a class="btn btn-primary" href="#">Call to Action!</a>
+      <p id="home-page-txt">TRU Tutoring is a peer-to-peer education startup, dedicated to providing quality learning services at an affordable price. 
+      <br><br>Our service connects older and younger students to foster a more engaging and meaningful learning experience at a fraction of the cost.
+      </p>
+      <a id="home-page-btn" href="{% url 'signup' %}">Join Us!</a>
     </div>
     <!-- /.col-md-4 -->
   </div>
   <!-- /.row -->
 
   <!-- Call to Action Well -->
-  <div class="card text-white bg-secondary my-5 py-4 text-center">
+  <div class="card my-5 py-4 text-center">
     <div class="card-body">
-      <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+      <p class="m-0">To learn more, get in contact with us, submit a tutor application, or view testimonials, visit our <a id="facebook-pg-link" href="https://www.facebook.com/TRUtutoring/">facebook page</a>!</p>    
     </div>
   </div>
 
@@ -31,11 +39,12 @@
     <div class="col-md-4 mb-5">
       <div class="card h-100">
         <div class="card-body">
-          <h2 class="card-title">Card One</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          <h2 class="card-title">Students & Parents</h2>
+          <p class="card-text">Recieve one-on-one tutoring in any subject at hourly prices ranging from $0-$20. Our
+            tutors are distinguished both in their subject-specific knowledge and overall instruction quality!
+          </p>
         </div>
         <div class="card-footer">
-          <a href="#" class="btn btn-primary btn-sm">More Info</a>
         </div>
       </div>
     </div>
@@ -43,11 +52,12 @@
     <div class="col-md-4 mb-5">
       <div class="card h-100">
         <div class="card-body">
-          <h2 class="card-title">Card Two</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+          <h2 class="card-title">Tutors</h2>
+          <p class="card-text">With TRU, high school and college-age students can gain valuable professional experience
+            tutoring younger students. Our dynamic model allows for flexibility both in hours and compensation. Applications are currently open!   
+          </p>
         </div>
         <div class="card-footer">
-          <a href="#" class="btn btn-primary btn-sm">More Info</a>
         </div>
       </div>
     </div>
@@ -55,11 +65,12 @@
     <div class="col-md-4 mb-5">
       <div class="card h-100">
         <div class="card-body">
-          <h2 class="card-title">Card Three</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          <h2 class="card-title">COVID-19</h2>
+          <p class="card-text">In these uncertain times, affordable education has never been more important. TRU is committed to continue providing
+            quality peer-to-peer learning opportunities, now by using remote videoconferencing technology. 
+          </p>
         </div>
         <div class="card-footer">
-          <a href="#" class="btn btn-primary btn-sm">More Info</a>
         </div>
       </div>
     </div>

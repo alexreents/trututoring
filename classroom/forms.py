@@ -30,7 +30,7 @@ class TeacherSignUpForm(UserCreationForm):
         required=True
     )
 
-    sessions = forms.ModelMultipleChoiceField(label='select # of sessions/week',
+    sessions = forms.ModelMultipleChoiceField(label='select sessions/week',
         queryset=Session.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
@@ -88,7 +88,7 @@ class StudentSignUpForm(UserCreationForm):
         required=True
     )
 
-    sessions = forms.ModelMultipleChoiceField(label='select # of sessions/week',
+    sessions = forms.ModelMultipleChoiceField(label='select sessions/week',
         queryset=Session.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True

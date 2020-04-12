@@ -11,6 +11,58 @@
   min-height: 100%;
 }
 
+#alerting {
+  margin-top: 2em;
+  padding-bottom:1em;
+}
+
+#home-page-txt {
+  line-height: 1.4em;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+#facebook-pg-link {
+  color: #02075d;
+}
+
+#facebook-pg-link:hover {
+  color: #02075d;
+  text-decoration: underline;
+}
+
+#home-page-btn {
+  font-size: large;
+  background-color: #02075d;
+  margin-top:1em;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #02075d;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: white;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+#home-page-btn:hover{
+  color:#02075d;
+  background-color:white;
+  text-decoration: none;
+  border: 0.1em solid #02075d;
+  cursor: pointer;
+}
+
+#calltoaction {
+  border: 0.1em solid red; 
+  background-color: #ffcccb;
+}
+
+.card-footer {
+  background-color: #02075d;
+}
+
 
 html {
   height:100%;
