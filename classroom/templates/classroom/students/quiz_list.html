@@ -53,7 +53,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>School</th>
-            <!--<th>Subjects</th>-->
+            <th>Subjects</th>
             <th>Rate</th>
           </tr>
         </thead>
@@ -73,12 +73,12 @@
               <td class="align-middle">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</td>
               <td class="align-middle">{{ teacher.user.email }}</td>
               <td class="align-middle">{{ teacher.school }}</td>
-              <!--<td class="align-middle">{% for subject in teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}</td>-->
+              <td class="align-middle">{% for subject in teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}</td>
               <td class="align-middle">${{ teacher.rate }}/hour</a></td>
             </tr>
           {% empty %}
             <tr>
-              <td class="bg-light text-center font-italic" colspan="4">No tutors matching your preferences at the moment :(</td>
+              <td class="bg-light text-center font-italic" colspan="5">No tutors matching your preferences at the moment :(</td>
             </tr>
           {% endfor %}
         </tbody>

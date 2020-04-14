@@ -59,7 +59,7 @@ class TeacherSignUpForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_teacher = True
         user.save()
-        teacher = Teacher.objects.create(user=user, school=self.cleaned_data.get('school'))
+        teacher = Teacher.objects.create(user=user, school=self.cleaned_data.get('school'), rate=self.cleaned_data.get('rate'))
         teacher.interests.add(*self.cleaned_data.get('interests'))
         teacher.grade_level.add(*self.cleaned_data.get('grade_level'))
         teacher.availability.add(*self.cleaned_data.get('availability'))

@@ -128,9 +128,8 @@ class QuizListView(ListView):
     def get_queryset(self):
         student = self.request.user.student
         student_interests = student.interests.values_list('pk', flat=True)
-        queryset = Teacher.objects.filter(interests__in=student_interests) \
-            .annotate() \
-            .filter()
+        queryset = Teacher.objects.distinct() \
+            .filter(interests__in=student_interests)
         return queryset
 
 
