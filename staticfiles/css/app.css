@@ -147,7 +147,7 @@ body {
   transition: all 0.2s;
 }
 
-#add-quiz-btn {
+#add-lesson-btn {
   font-size: large;
   background-color: #02075d;
   float: right;
@@ -179,7 +179,7 @@ body {
   cursor: pointer;
 }
 
-#add-quiz-btn:hover{
+#add-lesson-btn:hover{
   color:#02075d;
   background-color:white;
   text-decoration: none;

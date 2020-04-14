@@ -51,40 +51,25 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>School</th>
-            <th>Subjects</th>
+            <th>Date</th>
+            <th>Subject</th>
             <th>Rate</th>
-            <th>TRU Verified</th>
+            <th>Paid</th>
           </tr>
         </thead>
         <tbody>
-          <!--
-          {% for quiz in quizzes %}
+          
+          {% for lesson in lessons %}
             <tr>
-              <td class="align-middle">{{ quiz.owner.user.first_name }} {{ quiz.owner.user.last_name }}</td>
-              <td class="align-middle">{{ quiz.name }}</td>
-              <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
-              <td class="align-middle"><a id="course-descriptor" href="https://zoom.us/join">{{ quiz.zoom }}</a></td>
-            </tr>
-          {% endfor %}
-          -->
-          {% for teacher in teachers %}
-            <tr>
-              <td class="align-middle">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</td>
-              <td class="align-middle">{{ teacher.user.email }}</td>
-              <td class="align-middle">{{ teacher.school }}</td>
-              <td class="align-middle">{% for subject in teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}</td>
-              {% if teacher.verified %}
-                <td class="align-middle">$22.50/hour</a></td>
-              {% else %}
-                <td class="align-middle">${{ teacher.rate }}/hour</a></td>
-              {% endif %}
-              <td class="align-middle">{% if teacher.verified %}Yes{% else %}No{% endif %}</td>
+              <td class="align-middle">{{ lesson.owner.user.first_name }} {{ lesson.owner.user.last_name }}</td>
+              <td class="align-middle"></td>
+              <td class="align-middle"></td>
+              <td class="align-middle"></td>
+              <td class="align-middle"></td>
             </tr>
           {% empty %}
             <tr>
-              <td class="bg-light text-center font-italic" colspan="6">No tutors matching your preferences at the moment :(</td>
+              <td class="bg-light text-center font-italic" colspan="6">No lessons completed at this time :(</td>
             </tr>
           {% endfor %}
         </tbody>

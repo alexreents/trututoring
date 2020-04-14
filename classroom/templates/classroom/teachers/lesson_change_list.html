@@ -8,6 +8,7 @@
     <div class="col-lg-5 text-center">
       <h1 class="font-weight-light">Start Teaching!</h1>
       {% if user.teacher.verified %}
+        <br>
         <p>Interested students will get it touch with you <i>by email</i> shortly!</p>
         <p>As a verified tutor, your base pay begins at $17.50/hour and you get access to incentive pay structures and bonus opportunities.</p>
         <p>With verification, students are far more likely to contact you about lessons.</p>
@@ -62,11 +63,11 @@
   </div>
 
   <hr id="prof-line"> 
-  <!--
+  
   <div class="card text-black bg-white my-4 py-2 z-depth-1">
     <div class="card-body">
-      <h2 id="session-title" class="mb-3">My Sessions
-        <a href="{% url 'teachers:quiz_add' %}" class="text-right" id="add-quiz-btn" role="button">Add session</a>
+      <h2 id="session-title" class="mb-3">My Lessons
+        <a href="{% url 'teachers:lesson_add' %}" class="text-right" id="add-lesson-btn" role="button">Add session</a>
       </h2>
       
       <table id="session-table" class="table mb-0 table-striped">
@@ -74,15 +75,13 @@
           <tr>
             <th>Name</th>
             <th>Subject</th>
-            <th>Zoom Meeting ID</th>
           </tr>
         </thead>
         <tbody>
-          {% for quiz in user.quizzes.all %}
+          {% for lesson in user.lessons.all %}
             <tr>
-              <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:quiz_change' quiz.pk %}">{{ quiz.name }}</a></td>
-              <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
-              <td class="align-middle">{{ quiz.zoom }}</td>
+              <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
+              <td class="align-middle">{{ lesson.lesson.get_html_badge }}</td>
             </tr>
           {% empty %}
             <tr>

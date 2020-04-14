@@ -6,12 +6,12 @@
 <div class="login-card z-depth-2">
 
   <h2 id="title" class="mb-3">Confirm Deletion</h2>
-  <p class="lead">Are you sure you want to delete session <strong>"{{ quiz.name }}"</strong>? There is no going back.</p>
+  <p class="lead">Are you sure you want to delete session <strong>"{{ lesson.name }}"</strong>? There is no going back.</p>
   <form method="post" novalidate>
     {% csrf_token %}
     <div class="sign-btn">
       <button type="submit" id="no-btn">Yes, I'm sure</button>
-      <a href="{% url 'teachers:quiz_change' quiz.pk %}" id="hit-btn">Nevermind</a>
+      <a href="{% url 'teachers:lesson_change' lesson.pk %}" id="hit-btn">Nevermind</a>
     </div>
   </form>
 

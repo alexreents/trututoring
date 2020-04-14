@@ -11,10 +11,9 @@
     {% csrf_token %}
     {% render_field form.name placeholder="Session Name" id+="selector-name" %}
     {% render_field form.subject id+="selector-subject" %}
-    {% render_field form.zoom  placeholder="Paste a zoom meeting ID here (optional)" id+="selector-name" %}
     <div class="sign-btn">
       <button type="submit" id="yes-btn">Save changes</button>
-      <a href="{% url 'teachers:quiz_change_list' %}" id="hit-btn">Nevermind</a>
+      <a href="{% url 'teachers:lesson_change_list' %}" id="hit-btn">Nevermind</a>
     </div>
   </form>
 

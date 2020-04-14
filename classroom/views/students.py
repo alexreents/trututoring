@@ -10,7 +10,7 @@ from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 
 from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm, StudentSchoolForm
-from ..models import Student, User, Quiz, Teacher
+from ..models import Student, User, Lesson, Teacher
 
 
 class StudentSignUpView(CreateView):
@@ -25,7 +25,7 @@ class StudentSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('students:quiz_list')
+        return redirect('students:tutor_list')
 
 
 # Student Profile Fields
@@ -36,7 +36,7 @@ class StudentInterestsView(UpdateView):
     model = Student
     form_class = StudentInterestsForm
     template_name = 'classroom/students/interests_form.html'
-    success_url = reverse_lazy('students:quiz_list')
+    success_url = reverse_lazy('students:tutor_list')
 
     def get_object(self):
         return self.request.user.student
@@ -50,7 +50,7 @@ class StudentGradesView(UpdateView):
     model = Student
     form_class = StudentGradesForm
     template_name = 'classroom/students/grade_level_form.html'
-    success_url = reverse_lazy('students:quiz_list')
+    success_url = reverse_lazy('students:tutor_list')
 
     def get_object(self):
         return self.request.user.student
@@ -64,7 +64,7 @@ class StudentAvailabilityView(UpdateView):
     model = Student
     form_class = StudentAvailabilityForm
     template_name = 'classroom/students/availability_form.html'
-    success_url = reverse_lazy('students:quiz_list')
+    success_url = reverse_lazy('students:tutor_list')
 
     def get_object(self):
         return self.request.user.student
@@ -78,7 +78,7 @@ class StudentSessionsView(UpdateView):
     model = Student
     form_class = StudentSessionsForm
     template_name = 'classroom/students/sessions_form.html'
-    success_url = reverse_lazy('students:quiz_list')
+    success_url = reverse_lazy('students:tutor_list')
 
     def get_object(self):
         return self.request.user.student
@@ -92,7 +92,7 @@ class StudentSchoolView(UpdateView):
     model = Student
     form_class = StudentSchoolForm
     template_name = 'classroom/students/school_form.html'
-    success_url = reverse_lazy('students:quiz_list')
+    success_url = reverse_lazy('students:tutor_list')
 
     def get_object(self):
         return self.request.user.student
@@ -104,23 +104,21 @@ class StudentSchoolView(UpdateView):
 
 
 #@method_decorator([login_required, student_required], name='dispatch')
-#class StudentQuizListView(TemplateView):
-#    template_name = 'classroom/students/quiz_list.html'
+#class StudentTutorListView(TemplateView):
+#    template_name = 'classroom/students/tutor_list.html'
 
 
 @method_decorator([login_required, student_required], name='dispatch')
-class QuizListView(ListView):
-    #model = Quiz
+class TutorListView(ListView):
     model = Student
     ordering = ('name', )
-    #context_object_name = 'quizzes'
     context_object_name = 'teachers'
-    template_name = 'classroom/students/quiz_list.html'
+    template_name = 'classroom/students/tutor_list.html'
 
 #    def get_queryset(self):
 #        student = self.request.user.student
 #        student_interests = student.interests.values_list('pk', flat=True)
-#        queryset = Quiz.objects.filter(subject__in=student_interests) \
+#        queryset = Lesson.objects.filter(subject__in=student_interests) \
 #            .annotate() \
 #            .filter()
 #        return queryset
@@ -133,15 +131,27 @@ class QuizListView(ListView):
         return queryset
 
 
+@method_decorator([login_required, student_required], name='dispatch')
+class LessonListView(ListView):
+    model = Lesson
+    ordering = ('name', )
+    context_object_name = 'lessons'
+    template_name = 'classroom/students/lesson_list.html'
+
+    def get_queryset(self):
+        queryset = self.request.user.student.lessons \
+            .select_related('lesson', 'lesson__subject') \
+            .order_by('lesson__name')
+        return queryset
 
 
 @login_required
 @student_required
-def take_quiz(request, pk):
-    quiz = get_object_or_404(Quiz, pk=pk)
+def take_lesson(request, pk):
+    lesson = get_object_or_404(Lesson, pk=pk)
     student = request.user.student
 
-    if student.quizzes.filter(pk=pk).exists():
-        return render(request, 'students/quiz_list.html')
+    if student.lessons.filter(pk=pk).exists():
+        return render(request, 'students/tutor_list.html')
 
     

@@ -97,11 +97,10 @@ class Teacher(models.Model):
     def __str__(self):
         return self.user.username
 
-class Quiz(models.Model):
-    owner = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='quizzes')
+class Lesson(models.Model):
+    owner = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='lessons')
     name = models.CharField(max_length=255)
-    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='quizzes')
-    zoom = models.CharField(max_length=255, blank=True)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='lessons')
 
     def __str__(self):
         return self.name
@@ -109,7 +108,7 @@ class Quiz(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    quizzes = models.ManyToManyField(Quiz)
+    lessons = models.ManyToManyField(Lesson)
     interests = models.ManyToManyField(Subject, related_name='interested_students', verbose_name='subjects')
     grade_level = models.ManyToManyField(Grade, related_name='leveled_students')
     availability = models.ManyToManyField(Availability, related_name='available_students')

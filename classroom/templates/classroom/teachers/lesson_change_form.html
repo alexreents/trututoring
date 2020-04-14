@@ -8,18 +8,17 @@
   <div class="login-card z-depth-2">
 
     <h2 id="title" class="mb-3">
-      {{ quiz.name }}
+      {{ lesson.name }}
     </h2>
     
     <form method="post" novalidate>
       {% csrf_token %}
       {% render_field form.name placeholder="Session Name" id+="selector-name" %}
       {% render_field form.subject id+="selector-subject" %}
-      {% render_field form.zoom placeholder="Paste a zoom meeting ID here (optional)" id+="selector-name" %}
       <div class="triple-btn">
         <button type="submit" id="yes-btn">Update</button>
-        <a href="{% url 'teachers:quiz_change_list' %}" id="hit-btn">Nevermind</a>
-        <a href="{% url 'teachers:quiz_delete' quiz.pk %}" id="no-btn">Delete</a>
+        <a href="{% url 'teachers:lesson_change_list' %}" id="hit-btn">Nevermind</a>
+        <a href="{% url 'teachers:lesson_delete' lesson.pk %}" id="no-btn">Delete</a>
       </div>
     </form>
   

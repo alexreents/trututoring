@@ -6,19 +6,19 @@ urlpatterns = [
     path('', classroom.home, name='home'),
 
     path('students/', include(([
-        path('', students.QuizListView.as_view(), name='quiz_list'),
+        path('', students.TutorListView.as_view(), name='tutor_list'),
         path('interests/', students.StudentInterestsView.as_view(), name='student_interests'),
         path('grade_level/', students.StudentGradesView.as_view(), name='student_grade_level'),
         path('availability/', students.StudentAvailabilityView.as_view(), name='student_availability'),
         path('sessions/', students.StudentSessionsView.as_view(), name='student_sessions'),
         path('school/', students.StudentSchoolView.as_view(), name='student_school'),
         
-        path('quiz/<int:pk>/', students.take_quiz, name='take_quiz'),
+        path('lesson/<int:pk>/', students.take_lesson, name='take_lesson'),
 
     ], 'classroom'), namespace='students')),
 
     path('teachers/', include(([
-        path('', teachers.QuizListView.as_view(), name='quiz_change_list'),
+        path('', teachers.TutorListView.as_view(), name='lesson_change_list'),
         path('interests/', teachers.TeacherInterestsView.as_view(), name='teacher_interests'),
         path('grade_level/', teachers.TeacherGradesView.as_view(), name='teacher_grade_level'),
         path('availability/', teachers.TeacherAvailabilityView.as_view(), name='teacher_availability'),
@@ -27,10 +27,10 @@ urlpatterns = [
         path('distance/', teachers.TeacherDistanceView.as_view(), name='teacher_distance'),
         path('rate/', teachers.TeacherRateView.as_view(), name='teacher_rate'),
 
-        path('quiz/add/', teachers.QuizCreateView.as_view(), name='quiz_add'),
-        path('quiz/<int:pk>/', teachers.QuizUpdateView.as_view(), name='quiz_change'),
-        path('quiz/<int:pk>/delete/', teachers.QuizDeleteView.as_view(), name='quiz_delete'),
-        path('quiz/<int:pk>/results/', teachers.QuizResultsView.as_view(), name='quiz_results'),
+        path('lesson/add/', teachers.LessonCreateView.as_view(), name='lesson_add'),
+        path('lesson/<int:pk>/', teachers.LessonUpdateView.as_view(), name='lesson_change'),
+        path('lesson/<int:pk>/delete/', teachers.LessonDeleteView.as_view(), name='lesson_delete'),
+        path('lesson/<int:pk>/results/', teachers.LessonResultsView.as_view(), name='lesson_results'),
 
     ], 'classroom'), namespace='teachers')),
 ]

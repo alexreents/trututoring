@@ -13,8 +13,8 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
 from ..decorators import teacher_required
 from ..forms import (TeacherInterestsForm, TeacherSignUpForm, TeacherGradesForm, 
                     TeacherAvailabilityForm, TeacherSessionsForm, TeacherSchoolForm, TeacherDistanceForm, 
-                    QuizAddForm, QuizChangeForm, TeacherRateForm)
-from ..models import Quiz, User, Teacher
+                    LessonAddForm, LessonChangeForm, TeacherRateForm)
+from ..models import Lesson, User, Teacher
 
 
 class TeacherSignUpView(CreateView):
@@ -29,7 +29,7 @@ class TeacherSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('teachers:quiz_change_list')
+        return redirect('teachers:lesson_change_list')
 
 
 # Teacher Profile Fields
@@ -40,7 +40,7 @@ class TeacherInterestsView(UpdateView):
     model = Teacher
     form_class = TeacherInterestsForm
     template_name = 'classroom/teachers/interests_form.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def get_object(self):
         return self.request.user.teacher
@@ -54,7 +54,7 @@ class TeacherGradesView(UpdateView):
     model = Teacher
     form_class = TeacherGradesForm
     template_name = 'classroom/teachers/grade_level_form.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def get_object(self):
         return self.request.user.teacher
@@ -68,7 +68,7 @@ class TeacherAvailabilityView(UpdateView):
     model = Teacher
     form_class = TeacherAvailabilityForm
     template_name = 'classroom/teachers/availability_form.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def get_object(self):
         return self.request.user.teacher
@@ -82,7 +82,7 @@ class TeacherSessionsView(UpdateView):
     model = Teacher
     form_class = TeacherSessionsForm
     template_name = 'classroom/teachers/sessions_form.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def get_object(self):
         return self.request.user.teacher
@@ -96,7 +96,7 @@ class TeacherSchoolView(UpdateView):
     model = Teacher
     form_class = TeacherSchoolForm
     template_name = 'classroom/teachers/school_form.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def get_object(self):
         return self.request.user.teacher
@@ -110,7 +110,7 @@ class TeacherDistanceView(UpdateView):
     model = Teacher
     form_class = TeacherDistanceForm
     template_name = 'classroom/teachers/distance_form.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def get_object(self):
         return self.request.user.teacher
@@ -125,7 +125,7 @@ class TeacherRateView(UpdateView):
     model = Teacher
     form_class = TeacherRateForm
     template_name = 'classroom/teachers/rate_form.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def get_object(self):
         return self.request.user.teacher
@@ -137,47 +137,47 @@ class TeacherRateView(UpdateView):
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')
-class QuizListView(TemplateView):
-    template_name = 'classroom/teachers/quiz_change_list.html'
+class TutorListView(TemplateView):
+    template_name = 'classroom/teachers/lesson_change_list.html'
 
 #@method_decorator([login_required, teacher_required], name='dispatch')
-#class QuizListView(ListView):
-#    model = Quiz
+#class TutorListView(ListView):
+#    model = Lesson
 #    ordering = ('name', )
-#    context_object_name = 'quizzes'
-#    template_name = 'classroom/teachers/quiz_change_list.html'
+#    context_object_name = 'lessons'
+#    template_name = 'classroom/teachers/lesson_change_list.html'
 
 #    def get_queryset(self):
-#        queryset = self.request.user.quizzes \
+#        queryset = self.request.user.lessons \
 #            .select_related('subject')
 #        return queryset
 
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')
-class QuizCreateView(CreateView):
-    model = Quiz
-    fields = ('name', 'subject', 'zoom')
+class LessonCreateView(CreateView):
+    model = Lesson
+    fields = ('name', 'subject')
 
-    #form_class = QuizAddForm
-    template_name = 'classroom/teachers/quiz_add_form.html'
+    #form_class = LessonAddForm
+    template_name = 'classroom/teachers/lesson_add_form.html'
 
     def form_valid(self, form):
-        quiz = form.save(commit=False)
-        quiz.owner = self
-        quiz.save()
-        messages.success(self.request, 'The quiz was successfully created!')
-        return redirect('teachers:quiz_change_list')
+        lesson = form.save(commit=False)
+        lesson.owner = self
+        lesson.save()
+        messages.success(self.request, 'The lesson was successfully created!')
+        return redirect('teachers:lesson_change_list')
 
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')
-class QuizUpdateView(UpdateView):
-    model = Quiz
-    #form_class = QuizChangeForm  
-    fields = ('name', 'subject', 'zoom')  
-    context_object_name = 'quiz'
-    template_name = 'classroom/teachers/quiz_change_form.html'
+class LessonUpdateView(UpdateView):
+    model = Lesson
+    #form_class = LessonChangeForm  
+    fields = ('name', 'subject')  
+    context_object_name = 'lesson'
+    template_name = 'classroom/teachers/lesson_change_form.html'
 
     def get_context_data(self, **kwargs):
         #kwargs['questions'] = self.get_object().questions.annotate(answers_count=Count('answers'))
@@ -186,42 +186,42 @@ class QuizUpdateView(UpdateView):
     def get_queryset(self):
         '''
         This method is an implicit object-level permission management
-        This view will only match the ids of existing quizzes that belongs
+        This view will only match the ids of existing lessons that belongs
         to the logged in user.
         '''
-        return self.request.user.quizzes.all()
+        return self.request.user.lessons.all()
 
     def get_success_url(self):
-        return reverse('teachers:quiz_change_list')
+        return reverse('teachers:lesson_change_list')
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')
-class QuizDeleteView(DeleteView):
-    model = Quiz
-    context_object_name = 'quiz'
-    template_name = 'classroom/teachers/quiz_delete_confirm.html'
-    success_url = reverse_lazy('teachers:quiz_change_list')
+class LessonDeleteView(DeleteView):
+    model = Lesson
+    context_object_name = 'lesson'
+    template_name = 'classroom/teachers/lesson_delete_confirm.html'
+    success_url = reverse_lazy('teachers:lesson_change_list')
 
     def delete(self, request, *args, **kwargs):
-        quiz = self.get_object()
-        messages.success(request, 'The quiz %s was deleted with success!' % quiz.name)
+        lesson = self.get_object()
+        messages.success(request, 'The lesson %s was deleted with success!' % lesson.name)
         return super().delete(request, *args, **kwargs)
 
     def get_queryset(self):
-        return self.request.user.quizzes.all()
+        return self.request.user.lessons.all()
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')
-class QuizResultsView(DetailView):
-    model = Quiz
-    context_object_name = 'quiz'
-    template_name = 'classroom/teachers/quiz_results.html'
+class LessonResultsView(DetailView):
+    model = Lesson
+    context_object_name = 'lesson'
+    template_name = 'classroom/teachers/lesson_results.html'
 
     def get_context_data(self, **kwargs):
-        quiz = self.get_object()
+        lesson = self.get_object()
         return super().get_context_data(**kwargs)
 
     def get_queryset(self):
-        return self.request.user.quizzes.all()
+        return self.request.user.lessons.all()
 
 

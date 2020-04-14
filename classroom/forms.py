@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
-from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session, Distance, Quiz) 
+from classroom.models import (Student, Teacher, Subject, User, Grade, Availability, Session, Distance, Lesson) 
 
 
 class TeacherSignUpForm(UserCreationForm):
@@ -217,25 +217,23 @@ class TeacherRateForm(forms.ModelForm):
             'rate': forms.TextInput(attrs={'id':'selector-school'})
         }
 
-# For Quizzes -- NOT CURRENTLY USED BECUASE FUNCTIONED INCORRECTLY 
+# For Lessons -- NOT CURRENTLY USED BECUASE FUNCTIONED INCORRECTLY 
 
 
-class QuizAddForm(forms.ModelForm):
+class LessonAddForm(forms.ModelForm):
     class Meta:
-        model = Quiz
-        fields = ('name', 'subject', 'zoom', )
+        model = Lesson
+        fields = ('name', 'subject', )
         widgets = {
             'name': forms.TextInput(attrs={'id':'selector-school'}),
             'subject': forms.SelectMultiple(attrs={'id':'selector'}),
-            'zoom': forms.URLInput(attrs={'id':'selector-school'})
         }
 
-class QuizChangeForm(forms.ModelForm):
+class LessonChangeForm(forms.ModelForm):
     class Meta:
-        model = Quiz
-        fields = ('name', 'subject', 'zoom', )
+        model = Lesson
+        fields = ('name', 'subject', )
         widgets = {
             'name': forms.TextInput(attrs={'id':'selector-school'}),
             'subject': forms.SelectMultiple(attrs={'id':'selector'}),
-            'zoom': forms.URLInput(attrs={'id':'selector-school'})
         }
