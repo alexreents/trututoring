@@ -75,7 +75,11 @@
               <td class="align-middle">{{ teacher.user.email }}</td>
               <td class="align-middle">{{ teacher.school }}</td>
               <td class="align-middle">{% for subject in teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}</td>
-              <td class="align-middle">${{ teacher.rate }}/hour</a></td>
+              {% if teacher.verified %}
+                <td class="align-middle">$22.50/hour</a></td>
+              {% else %}
+                <td class="align-middle">${{ teacher.rate }}/hour</a></td>
+              {% endif %}
               <td class="align-middle">{% if teacher.verified %}Yes{% else %}No{% endif %}</td>
             </tr>
           {% empty %}
