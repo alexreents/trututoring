@@ -65,6 +65,7 @@ class TeacherSignUpForm(UserCreationForm):
         teacher.availability.add(*self.cleaned_data.get('availability'))
         teacher.sessions.add(*self.cleaned_data.get('sessions'))
         teacher.distance.add(*self.cleaned_data.get('distance'))
+        teacher.verified = False
 
         return user
 

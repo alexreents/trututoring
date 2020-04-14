@@ -1,1 +1,7 @@
-<h2>{{user.first_name}}'s Profile</h2>
+<h2>{{user.first_name}}'s Profile
+    {% if user.teacher.verified %}
+        <span id="verified-badge">verified</span> 
+    {% else %}
+        <span id="verified-badge">unverified</span> 
+    {% endif %}
+</h2>

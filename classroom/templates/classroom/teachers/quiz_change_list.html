@@ -7,7 +7,14 @@
 
     <div class="col-lg-5 text-center">
       <h1 class="font-weight-light">Start Teaching!</h1>
-      <p>Interested students will get it touch with you <i>by email</i> shortly!</p>    
+      {% if user.teacher.verified %}
+        <p>Interested students will get it touch with you <i>by email</i> shortly!</p>
+      {% else %}
+        <br>
+        <p><strong>Important: </strong> Currently, you are not a verified TRU Tutor.</p>
+        <p> Without verification, students may be less likely to contact you about lessons.</p>
+        <p>To apply for verification, please email <i>trututoring@gmail.com</i>!</p>
+      {% endif %}
     </div>
 
     <div class="col-lg-7">

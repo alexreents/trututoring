@@ -380,7 +380,13 @@ START LOGIN FORMATTING
 END LOGIN FORMATTING
 */
 
-
+#verified-badge {
+  vertical-align: text-top;
+  font-size:14px;
+  color: #02075d;
+  font-style: italic;
+  font-weight: 600;
+}
 
 /* general form styling */
 

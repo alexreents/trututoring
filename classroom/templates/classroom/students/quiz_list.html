@@ -55,6 +55,7 @@
             <th>School</th>
             <th>Subjects</th>
             <th>Rate</th>
+            <th>TRU Verified</th>
           </tr>
         </thead>
         <tbody>
@@ -75,10 +76,11 @@
               <td class="align-middle">{{ teacher.school }}</td>
               <td class="align-middle">{% for subject in teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}</td>
               <td class="align-middle">${{ teacher.rate }}/hour</a></td>
+              <td class="align-middle">{% if teacher.verified %}Yes{% else %}No{% endif %}</td>
             </tr>
           {% empty %}
             <tr>
-              <td class="bg-light text-center font-italic" colspan="5">No tutors matching your preferences at the moment :(</td>
+              <td class="bg-light text-center font-italic" colspan="6">No tutors matching your preferences at the moment :(</td>
             </tr>
           {% endfor %}
         </tbody>
