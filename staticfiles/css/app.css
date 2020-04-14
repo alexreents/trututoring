@@ -569,24 +569,6 @@ footer a {
   }
 }
 
-.fa {
-  float:right;
-  text-align: right;
-  text-decoration: none;
-  color:black;
-  background-color: transparent;
-}
-
-.fa-facebook:hover {
-    text-decoration: none;
-    color: #3B5998;
-}
-
-.fa-instagram:hover {
-  text-decoration: none;
-  color: #fb3958;
-}
-
 
 .has-danger .radio,
 .has-danger .checkbox {
