@@ -15,7 +15,7 @@ class TeacherSignUpForm(UserCreationForm):
     rate = forms.CharField(label='your asking rate (in $/hour)',
         widget=forms.TextInput(attrs={'id':'selector-school'}),
         required=True,
-        empty_value='Not set'
+        empty_value='15'
     )
     
     interests = forms.ModelMultipleChoiceField(label='select subjects',
@@ -24,7 +24,7 @@ class TeacherSignUpForm(UserCreationForm):
         required=True,
     )
 
-    grade_level = forms.ModelMultipleChoiceField(label='select your grade level',
+    grade_level = forms.ModelMultipleChoiceField(label='select preferred grade level',
         queryset=Grade.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
@@ -82,7 +82,7 @@ class StudentSignUpForm(UserCreationForm):
         required=True
     )
 
-    grade_level = forms.ModelMultipleChoiceField(label='select your grade level',
+    grade_level = forms.ModelMultipleChoiceField(label='select preferred grade level',
         queryset=Grade.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True

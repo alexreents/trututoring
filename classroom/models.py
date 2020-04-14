@@ -91,7 +91,7 @@ class Teacher(models.Model):
     sessions = models.ManyToManyField(Session, related_name='session_teachers')
     school = models.CharField(max_length=50, verbose_name='your school', null=True)
     distance = models.ManyToManyField(Distance, related_name='distanced_teachers', verbose_name='max lesson radius')
-    rate = models.IntegerField(max_length=50, verbose_name='your asking rate (in $/hour', default='Not set')
+    rate = models.IntegerField(max_length=50, verbose_name='your asking rate (in $/hour', default='15')
 
     
     def __str__(self):

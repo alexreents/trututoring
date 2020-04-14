@@ -16,10 +16,14 @@
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}">
       {{ form }}
-      <button type="submit" class="sign-btn">sign up</button>
-    </form>
-  </div>
-  
+      <button id="submit" type="submit" class="sign-btn">sign up</button>
+      <br>
+      <small id="terms-btn">by clicking sign up, you agree to our <a id="facebook-pg-link" href="{% url 'terms' %}">terms and conditions</a></small>
+      <br><br>
+  </form>
+
+</div>
+
 
 {% endblock %}
 
