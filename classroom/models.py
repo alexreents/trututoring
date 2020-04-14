@@ -72,9 +72,33 @@ class Distance(models.Model):
         html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (distance)
         return mark_safe(html)
 
+class Rate(models.Model):
+    rate = models.IntegerField(max_length=30)
+
+    def __str__(self):
+        return self.rate
+
+    def get_html_badge(self):
+        rate = escape(self.reate)
+        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (rate)
+        return mark_safe(html)
+
+class Teacher(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    interests = models.ManyToManyField(Subject, related_name='interested_teachers', verbose_name='subjects')
+    grade_level = models.ManyToManyField(Grade, related_name='leveled_teachers')
+    availability = models.ManyToManyField(Availability, related_name='available_teachers')
+    sessions = models.ManyToManyField(Session, related_name='session_teachers')
+    school = models.CharField(max_length=50, verbose_name='your school', null=True)
+    distance = models.ManyToManyField(Distance, related_name='distanced_teachers', verbose_name='max lesson radius')
+    rate = models.IntegerField(max_length=50, verbose_name='your asking rate (in $/hour', default='Not set')
+
+    
+    def __str__(self):
+        return self.user.username
 
 class Quiz(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='quizzes')
+    owner = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='quizzes')
     name = models.CharField(max_length=255)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='quizzes')
     zoom = models.CharField(max_length=255, blank=True)
@@ -95,16 +119,3 @@ class Student(models.Model):
     def __str__(self):
         return self.user.username
 
-
-class Teacher(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    interests = models.ManyToManyField(Subject, related_name='interested_teachers', verbose_name='subjects')
-    grade_level = models.ManyToManyField(Grade, related_name='leveled_teachers')
-    availability = models.ManyToManyField(Availability, related_name='available_teachers')
-    sessions = models.ManyToManyField(Session, related_name='session_teachers')
-    school = models.CharField(max_length=50, verbose_name='your school', null=True)
-    distance = models.ManyToManyField(Distance, related_name='distanced_teachers', verbose_name='max lesson radius')
-
-    
-    def __str__(self):
-        return self.user.username

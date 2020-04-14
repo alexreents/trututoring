@@ -8,7 +8,8 @@
 
     <div class="col-lg-5 text-center">
       <h1 class="font-weight-light">Start Learning!</h1>
-      <p>Explore learning opportunities available to you below!</p>  
+      <br>
+      <p>Below you can explore available tutors that fit your profile. <br><br> To get in touch with a tutor, please reach out to the email provided!</p>  
     </div>
 
     <div class="col-lg-7">
@@ -50,22 +51,34 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Tutor</th>
-            <th>Subject</th>
-            <th>Zoom Meeting ID</th>
+            <th>Email</th>
+            <th>School</th>
+            <th>Subjects</th>
+            <th>Rate</th>
           </tr>
         </thead>
         <tbody>
+          <!--
           {% for quiz in quizzes %}
             <tr>
+              <td class="align-middle">{{ quiz.owner.user.first_name }} {{ quiz.owner.user.last_name }}</td>
               <td class="align-middle">{{ quiz.name }}</td>
-              <td class="align-middle">{{ quiz.owner.first_name }} {{ quiz.owner.last_name }}</td>
               <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
               <td class="align-middle"><a id="course-descriptor" href="https://zoom.us/join">{{ quiz.zoom }}</a></td>
             </tr>
+          {% endfor %}
+          -->
+          {% for teacher in teachers %}
+            <tr>
+              <td class="align-middle">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</td>
+              <td class="align-middle">{{ teacher.user.email }}</td>
+              <td class="align-middle">{{ teacher.school }}</td>
+              <td class="align-middle">{% for subject in teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}</td>
+              <td class="align-middle">${{ teacher.rate }}/hour</a></td>
+            </tr>
           {% empty %}
             <tr>
-              <td class="bg-light text-center font-italic" colspan="4">No session matching your preferences right now.</td>
+              <td class="bg-light text-center font-italic" colspan="4">No tutors matching your preferences at the moment :(</td>
             </tr>
           {% endfor %}
         </tbody>

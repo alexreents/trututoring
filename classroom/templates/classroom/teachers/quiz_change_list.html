@@ -7,7 +7,7 @@
 
     <div class="col-lg-5 text-center">
       <h1 class="font-weight-light">Start Teaching!</h1>
-      <p>Create targeted learning opportunities below! </p>    
+      <p>Interested students will get it touch with you <i>by email</i> shortly!</p>    
     </div>
 
     <div class="col-lg-7">
@@ -22,7 +22,11 @@
           <p class="text-muted">
               School:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">{{ user.teacher.school }}</span>
               <a href="{% url 'teachers:teacher_school' %}"><small>(update)</small></a>
-            </p>
+          </p>
+          <p class="text-muted">
+            Asking Rate:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">${{ user.teacher.rate }}/hour</span>
+            <a href="{% url 'teachers:teacher_rate' %}"><small>(update)</small></a>
+          </p>
           <p class="text-muted">
             Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
             <a href="{% url 'teachers:teacher_grade_level' %}"><small>(update)</small></a>
@@ -46,7 +50,7 @@
   </div>
 
   <hr id="prof-line"> 
-
+  <!--
   <div class="card text-black bg-white my-4 py-2 z-depth-1">
     <div class="card-body">
       <h2 id="session-title" class="mb-3">My Sessions
@@ -67,11 +71,6 @@
               <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:quiz_change' quiz.pk %}">{{ quiz.name }}</a></td>
               <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
               <td class="align-middle">{{ quiz.zoom }}</td>
-              <!--- implememt this
-              <td class="text-right">
-                <a href="{% url 'teachers:quiz_results' quiz.pk %}" id="hit-btn">View feedback</a>
-              </td>
-              --->
             </tr>
           {% empty %}
             <tr>
@@ -83,6 +82,7 @@
       
     </div>
   </div>
+
 
 </div>
 {% endblock %}

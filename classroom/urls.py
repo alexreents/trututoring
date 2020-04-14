@@ -25,6 +25,7 @@ urlpatterns = [
         path('sessions/', teachers.TeacherSessionsView.as_view(), name='teacher_sessions'),
         path('school/', teachers.TeacherSchoolView.as_view(), name='teacher_school'),
         path('distance/', teachers.TeacherDistanceView.as_view(), name='teacher_distance'),
+        path('rate/', teachers.TeacherRateView.as_view(), name='teacher_rate'),
 
         path('quiz/add/', teachers.QuizCreateView.as_view(), name='quiz_add'),
         path('quiz/<int:pk>/', teachers.QuizUpdateView.as_view(), name='quiz_change'),

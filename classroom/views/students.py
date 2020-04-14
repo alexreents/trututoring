@@ -10,7 +10,7 @@ from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 
 from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm, StudentSchoolForm
-from ..models import Student, User, Quiz
+from ..models import Student, User, Quiz, Teacher
 
 
 class StudentSignUpView(CreateView):
@@ -110,15 +110,25 @@ class StudentSchoolView(UpdateView):
 
 @method_decorator([login_required, student_required], name='dispatch')
 class QuizListView(ListView):
-    model = Quiz
+    #model = Quiz
+    model = Student
     ordering = ('name', )
-    context_object_name = 'quizzes'
+    #context_object_name = 'quizzes'
+    context_object_name = 'teachers'
     template_name = 'classroom/students/quiz_list.html'
+
+#    def get_queryset(self):
+#        student = self.request.user.student
+#        student_interests = student.interests.values_list('pk', flat=True)
+#        queryset = Quiz.objects.filter(subject__in=student_interests) \
+#            .annotate() \
+#            .filter()
+#        return queryset
 
     def get_queryset(self):
         student = self.request.user.student
         student_interests = student.interests.values_list('pk', flat=True)
-        queryset = Quiz.objects.filter(subject__in=student_interests) \
+        queryset = Teacher.objects.filter(interests__in=student_interests) \
             .annotate() \
             .filter()
         return queryset

@@ -11,6 +11,12 @@ class TeacherSignUpForm(UserCreationForm):
         required=True,
         empty_value=''
     )
+
+    rate = forms.CharField(label='your asking rate (in $/hour)',
+        widget=forms.TextInput(attrs={'id':'selector-school'}),
+        required=True,
+        empty_value='Not set'
+    )
     
     interests = forms.ModelMultipleChoiceField(label='select subjects',
         queryset=Subject.objects.all(),
@@ -202,6 +208,13 @@ class TeacherDistanceForm(forms.ModelForm):
             'distance': forms.SelectMultiple(attrs={'id':'selector'})
         }
 
+class TeacherRateForm(forms.ModelForm):
+    class Meta:
+        model = Teacher
+        fields = ('rate', )
+        widgets = {
+            'rate': forms.TextInput(attrs={'id':'selector-school'})
+        }
 
 # For Quizzes -- NOT CURRENTLY USED BECUASE FUNCTIONED INCORRECTLY 
 

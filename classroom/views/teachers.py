@@ -13,7 +13,7 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
 from ..decorators import teacher_required
 from ..forms import (TeacherInterestsForm, TeacherSignUpForm, TeacherGradesForm, 
                     TeacherAvailabilityForm, TeacherSessionsForm, TeacherSchoolForm, TeacherDistanceForm, 
-                    QuizAddForm, QuizChangeForm)
+                    QuizAddForm, QuizChangeForm, TeacherRateForm)
 from ..models import Quiz, User, Teacher
 
 
@@ -120,21 +120,37 @@ class TeacherDistanceView(UpdateView):
         return super().form_valid(form)
 
 
-#@method_decorator([login_required, teacher_required], name='dispatch')
-#class TeacherQuizListView(TemplateView):
-#    template_name = 'classroom/teachers/quiz_change_list.html'
+@method_decorator([login_required, teacher_required], name='dispatch')
+class TeacherRateView(UpdateView):
+    model = Teacher
+    form_class = TeacherRateForm
+    template_name = 'classroom/teachers/rate_form.html'
+    success_url = reverse_lazy('teachers:quiz_change_list')
+
+    def get_object(self):
+        return self.request.user.teacher
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Lesson rate updated with success!')
+        return super().form_valid(form)
+
+
 
 @method_decorator([login_required, teacher_required], name='dispatch')
-class QuizListView(ListView):
-    model = Quiz
-    ordering = ('name', )
-    context_object_name = 'quizzes'
+class QuizListView(TemplateView):
     template_name = 'classroom/teachers/quiz_change_list.html'
 
-    def get_queryset(self):
-        queryset = self.request.user.quizzes \
-            .select_related('subject')
-        return queryset
+#@method_decorator([login_required, teacher_required], name='dispatch')
+#class QuizListView(ListView):
+#    model = Quiz
+#    ordering = ('name', )
+#    context_object_name = 'quizzes'
+#    template_name = 'classroom/teachers/quiz_change_list.html'
+
+#    def get_queryset(self):
+#        queryset = self.request.user.quizzes \
+#            .select_related('subject')
+#        return queryset
 
 
 
@@ -148,7 +164,7 @@ class QuizCreateView(CreateView):
 
     def form_valid(self, form):
         quiz = form.save(commit=False)
-        quiz.owner = self.request.user
+        quiz.owner = self
         quiz.save()
         messages.success(self.request, 'The quiz was successfully created!')
         return redirect('teachers:quiz_change_list')
