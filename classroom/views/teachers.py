@@ -153,21 +153,19 @@ class TutorListView(TemplateView):
 #        return queryset
 
 
-
 @method_decorator([login_required, teacher_required], name='dispatch')
 class LessonCreateView(CreateView):
     model = Lesson
-    fields = ('name', 'subject')
-
-    #form_class = LessonAddForm
+    fields = ('name', 'subject', )
     template_name = 'classroom/teachers/lesson_add_form.html'
 
     def form_valid(self, form):
         lesson = form.save(commit=False)
-        lesson.owner = self
+        lesson.owner = self.request.user.teacher
         lesson.save()
-        messages.success(self.request, 'The lesson was successfully created!')
+        messages.success(self.request, 'The quiz lesson was successfully created!')
         return redirect('teachers:lesson_change_list')
+
 
 
 
@@ -189,7 +187,7 @@ class LessonUpdateView(UpdateView):
         This view will only match the ids of existing lessons that belongs
         to the logged in user.
         '''
-        return self.request.user.lessons.all()
+        return self.request.user.teacher.lessons.all()
 
     def get_success_url(self):
         return reverse('teachers:lesson_change_list')
@@ -208,7 +206,7 @@ class LessonDeleteView(DeleteView):
         return super().delete(request, *args, **kwargs)
 
     def get_queryset(self):
-        return self.request.user.lessons.all()
+        return self.request.user.teacher.lessons.all()
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')
@@ -222,6 +220,6 @@ class LessonResultsView(DetailView):
         return super().get_context_data(**kwargs)
 
     def get_queryset(self):
-        return self.request.user.lessons.all()
+        return self.request.user.teacher.lessons.all()
 
 

@@ -45,6 +45,15 @@
 
   <hr id="prof-line"> 
 
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item">
+      <a class="nav-link{% if active == 'new' %} active{% endif %}" href="{% url 'students:tutor_list' %}">New</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link{% if active == 'taken' %} active{% endif %}" href="{% url 'students:lesson_list' %}">Taken</a>
+    </li>
+  </ul>
+
   <div class="card text-black bg-white my-4 py-2 z-depth-1">
     <div class="card-body">
       <table class="table mb-0 table-striped">

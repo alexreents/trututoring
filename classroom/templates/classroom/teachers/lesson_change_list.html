@@ -78,10 +78,10 @@
           </tr>
         </thead>
         <tbody>
-          {% for lesson in user.lessons.all %}
+          {% for lesson in user.teacher.lessons.all %}
             <tr>
               <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
-              <td class="align-middle">{{ lesson.lesson.get_html_badge }}</td>
+              <td class="align-middle">{{ lesson.subject.get_html_badge }}</td>
             </tr>
           {% empty %}
             <tr>

@@ -139,9 +139,11 @@ class LessonListView(ListView):
     template_name = 'classroom/students/lesson_list.html'
 
     def get_queryset(self):
-        queryset = self.request.user.student.lessons \
-            .select_related('lesson', 'lesson__subject') \
-            .order_by('lesson__name')
+        student = self.request.user.student
+        student_interests = student.interests.values_list('pk', flat=True)
+        queryset = Lesson.objects.filter(subject__in=student_interests) \
+            .annotate() \
+            .filter()
         return queryset
 
 
