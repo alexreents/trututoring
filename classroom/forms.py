@@ -82,7 +82,7 @@ class StudentSignUpForm(UserCreationForm):
         required=True
     )
 
-    grade_level = forms.ModelMultipleChoiceField(label='select preferred grade level',
+    grade_level = forms.ModelMultipleChoiceField(label='select your grade level',
         queryset=Grade.objects.all(),
         widget=forms.SelectMultiple(attrs={'id':'selector'}),
         required=True
