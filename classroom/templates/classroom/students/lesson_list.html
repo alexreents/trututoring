@@ -60,10 +60,11 @@
         <thead>
           <tr>
             <th>Name</th>
+            <th>Email</th>
             <th>Date</th>
-            <th>Material Covered</th>
+            <th>Material Covered & Notes</th>
             <th>Rate</th>
-            <th>Paid</th>
+            <th>Paid?</th>
           </tr>
         </thead>
         <tbody>
@@ -71,14 +72,15 @@
           {% for lesson in lessons %}
             <tr>
               <td class="align-middle">{{ lesson.tutor.user.first_name }} {{ lesson.tutor.user.last_name }}</td>
-              <td class="align-middle">{{ lesson.name }}</td>
-              <td class="align-middle"></td>
+              <td class="align-middle">{{ lesson.tutor.user.email }}</td>
+              <td class="align-middle">{{ lesson.date }}</td>
+              <td style="width:50%" class="align-middle">{{ lesson.material }}</td>
               {% if teacher.verified %}
-                <td class="align-middle">$22.50/hour</a></td>
+                <td class="align-middle">$22.50/hour</td>
               {% else %}
-                <td class="align-middle">${{ lesson.tutor.rate }}/hour</a></td>
+                <td class="align-middle">${{ lesson.tutor.rate }}/hour</td>
               {% endif %}
-              <td class="align-middle"></td>
+              <td class="align-middle">{% if lesson.paid %}Yes{% else %}Pay Now{% endif %}</td>
             </tr>
           {% empty %}
             <tr>

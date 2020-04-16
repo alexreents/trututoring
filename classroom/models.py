@@ -101,7 +101,8 @@ class Lesson(models.Model):
     tutor = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='lessons')
     name = models.CharField(max_length=255, null=False, verbose_name="Student Username")
     date = models.DateField(null=True, verbose_name="Lesson Date (mm/dd/yyyy)")
-    material = models.TextField(null=True, verbose_name="Material Covered")
+    material = models.TextField(null=True, verbose_name="Material Covered & Notes")
+    paid = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
