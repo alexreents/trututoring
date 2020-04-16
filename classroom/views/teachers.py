@@ -156,19 +156,31 @@ class TutorListView(TemplateView):
 @method_decorator([login_required, teacher_required], name='dispatch')
 class LessonCreateView(CreateView):
     model = Lesson
-    fields = ('name','subject')
+    form_class = LessonAddForm
     template_name = 'classroom/teachers/lesson_add_form.html'
-    
+
     def form_valid(self, form):
         lesson = form.save(commit=False)
         lesson.tutor = self.request.user.teacher
-        if (User.objects.filter(username=form.cleaned_data['name']).exists() == False):
-            messages.error(self.request, 'The username entered does not correspond to a student!')
-            return redirect('teachers:lesson_add')
-        else:
-            lesson.save()
-            messages.success(self.request, 'The quiz lesson was successfully created!')
-            return redirect('teachers:lesson_change_list')
+        lesson.save()
+        return redirect('teachers:lesson_change_list')
+
+#@method_decorator([login_required, teacher_required], name='dispatch')
+#class LessonCreateView(CreateView):
+#    model = Lesson
+#    fields = ('name','subject')
+#    template_name = 'classroom/teachers/lesson_add_form.html'
+#    
+#    def form_valid(self, form):
+#        lesson = form.save(commit=False)
+#        lesson.tutor = self.request.user.teacher
+#        if (User.objects.filter(username=form.cleaned_data['name']).exists() == False):
+#            messages.error(self.request, 'The username entered does not correspond to a student!')
+#            return redirect('teachers:lesson_add')
+#        else:
+#            lesson.save()
+#            messages.success(self.request, 'The quiz lesson was successfully created!')
+#            return redirect('teachers:lesson_change_list')
         
 
 
