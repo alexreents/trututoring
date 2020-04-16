@@ -31,16 +31,17 @@
   text-decoration: underline;
 }
 
+
 #home-page-btn {
   font-size: large;
   background-color: #02075d;
   margin-top:1em;
   padding: 0.35em 1.2em;
-  border: 0.1em solid #02075d;
+  border: 2px solid #02075d;
   border-radius: 3em;
   box-sizing: border-box;
   text-decoration:none;
-  font-weight:400;
+  font-weight:500;
   color: white;
   text-align:center;
   transition: all 0.2s;
@@ -50,7 +51,7 @@
   color:#02075d;
   background-color:white;
   text-decoration: none;
-  border: 0.1em solid #02075d;
+  border: 2px solid #02075d;
   cursor: pointer;
 }
 
@@ -99,6 +100,7 @@ body {
   border: solid #02075d 1.5px;
   border-radius:50px;
   margin:0.5em;
+  transition: all 0.2s;
 }
 
 #tutor-lesson {
@@ -108,6 +110,7 @@ body {
   border: solid white 1.5px;
   border-radius:50px;
   margin:0.5em;
+  transition: all 0.2s;
 }
 
 #lesson-lesson {
@@ -117,6 +120,7 @@ body {
   border: solid #02075d 1.5px;
   border-radius:50px;
   margin:0.5em;
+  transition: all 0.2s;
 }
 
 #lesson-tutor {
@@ -126,12 +130,14 @@ body {
   border: solid white 1.5px;
   border-radius:50px;
   margin:0.5em;
+  transition: all 0.2s;
 }
 
 #tutor-lesson:hover, #lesson-tutor:hover{
   color:#02075d;
   background-color: transparent;
   border: solid #02075d 1.5px;
+  transition: all 0.2s;
 }
 
 #lesson-lesson a, #tutor-tutor a {
