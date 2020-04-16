@@ -221,13 +221,35 @@ class TeacherRateForm(forms.ModelForm):
 
 
 class LessonAddForm(forms.ModelForm):
+    #school = forms.CharField(label='your school',
+    #    widget=forms.TextInput(attrs={'id':'selector-school'}),
+    #    required=True,
+    #    empty_value=""
+    #)
     class Meta:
         model = Lesson
-        fields = ('name', 'subject', )
+        fields = ('name', 'subject')
         widgets = {
             'name': forms.TextInput(attrs={'id':'selector-school'}),
             'subject': forms.SelectMultiple(attrs={'id':'selector'}),
         }
+
+    
+
+    def clean_username(self):
+        if (User.objects.filter(username=name).exists() == False):
+            raise forms.ValidationError(u'Username "%s" does not exist.' % name)
+        return username
+
+
+
+    #@transaction.atomic
+    #def save(self):
+    #    lesson = super().save(commit=False)
+    #    user.save()
+    #    return user
+
+
 
 class LessonChangeForm(forms.ModelForm):
     class Meta:

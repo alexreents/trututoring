@@ -15,12 +15,17 @@
       {% csrf_token %}
       {% render_field form.name placeholder="Session Name" id+="selector-name" %}
       {% render_field form.subject id+="selector-subject" %}
+     
       <div class="triple-btn">
         <button type="submit" id="yes-btn">Update</button>
-        <a href="{% url 'teachers:lesson_change_list' %}" id="hit-btn">Nevermind</a>
         <a href="{% url 'teachers:lesson_delete' lesson.pk %}" id="no-btn">Delete</a>
+        <a href="{% url 'teachers:lesson_change_list' %}" id="hit-btn">Close</a>
       </div>
+      <!-- to have only a close button
+      <div class="sign-btn">
+        <a href="{% url 'teachers:lesson_change_list' %}" id="hit-btn">Close</a>
+      </div>
+      -->
     </form>
-  
   </div>
 {% endblock %}

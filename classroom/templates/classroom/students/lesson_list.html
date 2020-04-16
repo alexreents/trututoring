@@ -70,8 +70,8 @@
           
           {% for lesson in lessons %}
             <tr>
-              <td class="align-middle">{{ lesson.owner.user.first_name }} {{ lesson.owner.user.last_name }}</td>
-              <td class="align-middle"></td>
+              <td class="align-middle">{{ lesson.tutor.user.first_name }} {{ lesson.tutor.user.last_name }}</td>
+              <td class="align-middle">{{ lesson.name }}</td>
               <td class="align-middle"></td>
               <td class="align-middle"></td>
               <td class="align-middle"></td>

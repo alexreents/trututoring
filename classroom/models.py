@@ -98,7 +98,8 @@ class Teacher(models.Model):
         return self.user.username
 
 class Lesson(models.Model):
-    owner = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='lessons')
+    tutor = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='lessons')
+    #name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='lessons')
     name = models.CharField(max_length=255)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='lessons')
 
