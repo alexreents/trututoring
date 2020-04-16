@@ -223,10 +223,11 @@ class TeacherRateForm(forms.ModelForm):
 class LessonAddForm(forms.ModelForm):
     class Meta:
         model = Lesson
-        fields = ('name','date')
+        fields = ('name','date','material')
         widgets = {
             'name': forms.TextInput(),
             'date': forms.DateInput(),
+            'material': forms.Textarea(attrs={"id": "material-text"}),
         }
 
     def clean(self):
@@ -241,8 +242,9 @@ class LessonAddForm(forms.ModelForm):
 class LessonChangeForm(forms.ModelForm):
     class Meta:
         model = Lesson
-        fields = ('name', 'date', )
+        fields = ('name', 'date', 'material',)
         widgets = {
             'name': forms.TextInput(),
             'date': forms.DateInput(),
+            'material': forms.Textarea(attrs={"id": "material-text"}),
         }

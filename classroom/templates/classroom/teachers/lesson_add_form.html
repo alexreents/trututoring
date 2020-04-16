@@ -5,12 +5,12 @@
 
 {% block content %}
 <div class="login-card z-depth-2">
-  <h2 id="title" class="mb-3">Add a New Session</h2>
+  <h2 id="title" class="mb-3">Record a Lesson</h2>
   <form method="post" novalidate>
     {% csrf_token %}
     {{ form }}
     <div class="sign-btn">
-      <button type="submit" id="yes-btn">Save changes</button>
+      <button type="submit" id="yes-btn">Add</button>
       <a href="{% url 'teachers:lesson_change_list' %}" id="hit-btn">Nevermind</a>
     </div>
   </form>

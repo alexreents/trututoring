@@ -91,9 +91,60 @@ body {
 #navigation {
   height: 6em;
 }
-.nav-item {
+
+#tutor-tutor {
+  background-color:#02075d;
+  color:white;
+  font-weight:500;
+  border: solid #02075d 1.5px;
+  border-radius:50px;
+  margin:0.5em;
+}
+
+#tutor-lesson {
+  background-color:white;
+  color:#02075d;
+  font-weight:500;
+  border: solid white 1.5px;
+  border-radius:50px;
+  margin:0.5em;
+}
+
+#lesson-lesson {
+  background-color:#02075d;
+  color:white;
+  font-weight:500;
+  border: solid #02075d 1.5px;
+  border-radius:50px;
+  margin:0.5em;
+}
+
+#lesson-tutor {
+  background-color:white;
+  color:#02075d;
+  font-weight:500;
+  border: solid white 1.5px;
+  border-radius:50px;
+  margin:0.5em;
+}
+
+#tutor-lesson:hover, #lesson-tutor:hover{
+  color:#02075d;
+  background-color: transparent;
+  border: solid #02075d 1.5px;
+}
+
+#lesson-lesson a, #tutor-tutor a {
   color:white;
 }
+
+#lesson-tutor a, #tutor-lesson a {
+  color:#02075d;
+}
+
+
+
+
 .navbar-brand{
   font-size: 4em!important;
   font-weight: 900;
@@ -420,6 +471,20 @@ END LOGIN FORMATTING
 input:focus {
   padding:2%;
   transition:all 0.5s;
+}
+
+#material-text {
+  height: 8em;
+  padding: 3%;
+  width:25em;
+  margin-top: 3%;
+  margin-bottom:7%;
+  border-width:1.5px;
+  border-style:solid;
+  border-color:black;
+  font-size: 16px;
+  -webkit-appearance: none;
+  display: block;
 }
 
 #selector-name, #selector-subject {

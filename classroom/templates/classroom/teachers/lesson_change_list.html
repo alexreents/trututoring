@@ -66,8 +66,8 @@
   
   <div class="card text-black bg-white my-4 py-2 z-depth-1">
     <div class="card-body">
-      <h2 id="session-title" class="mb-3">My Lessons
-        <a href="{% url 'teachers:lesson_add' %}" class="text-right" id="add-lesson-btn" role="button">Add session</a>
+      <h2 id="session-title" class="mb-3">Completed Lessons
+        <a href="{% url 'teachers:lesson_add' %}" class="text-right" id="add-lesson-btn" role="button">Record a lesson</a>
       </h2>
       
       <table id="session-table" class="table mb-0 table-striped">
@@ -95,7 +95,7 @@
             </tr>
           {% empty %}
             <tr>
-              <td class="bg-light text-center font-italic" colspan="5">You haven't created any sessions yet.</td>
+              <td class="bg-light text-center font-italic" colspan="5">You haven't completed any lessons yet.</td>
             </tr>
           {% endfor %}
         </tbody>
