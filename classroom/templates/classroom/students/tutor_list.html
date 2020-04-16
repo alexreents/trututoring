@@ -22,7 +22,7 @@
             <a href="{% url 'students:student_interests' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
-            School:&nbsp;<span class="badge badge-primary" style="background-color:#505050;">{{ user.student.school }}</span>
+            School:&nbsp;<span id="badger">{{ user.student.school }}</span>
             <a href="{% url 'students:student_school' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">
@@ -47,7 +47,7 @@
 
   <ul id="tab" class="nav nav-pills mb-3">
     <li id="tutor-tutor" class="nav-item">
-      <a class="nav-link" href="{% url 'students:tutor_list' %}">Tutors</a>
+      <a class="nav-link" href="{% url 'students:tutor_list' %}">Available Tutors</a>
     </li>
     <li id="tutor-lesson" class="nav-item">
       <a class="nav-link" href="{% url 'students:lesson_list' %}">Completed Lessons</a>

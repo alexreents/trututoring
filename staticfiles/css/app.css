@@ -441,6 +441,16 @@ END LOGIN FORMATTING
   font-weight: 600;
 }
 
+#badger {
+  background-color: #02075d;
+  color:white;
+  font-weight:600;
+  font-size:12px;
+  padding:3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 3px;
+}
 /* general form styling */
 
 .text-muted small{

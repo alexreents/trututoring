@@ -18,7 +18,7 @@ class Subject(models.Model):
     def get_html_badge(self):
         name = escape(self.name)
         color = escape(self.color)
-        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (name)
+        html = '<span id="badger">%s</span>' % (name)
         return mark_safe(html)
 
 
@@ -32,7 +32,7 @@ class Grade(models.Model):
     def get_html_badge(self):
         grade_level = escape(self.grade_level)
         color = escape(self.color)
-        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (grade_level)
+        html = '<span id="badger">%s</span>' % (grade_level)
         return mark_safe(html)
 
 class Availability(models.Model):
@@ -47,7 +47,7 @@ class Availability(models.Model):
         day = escape(self.day)
         time = escape(self.time)
         color = escape(self.color)
-        html = '<span class="badge badge-primary" style="background-color:#505050;">%s %s</span>' % (day, time)
+        html = '<span id="badger">%s %s</span>' % (day, time)
         return mark_safe(html)
 
 class Session(models.Model):
@@ -58,7 +58,7 @@ class Session(models.Model):
 
     def get_html_badge(self):
         sessions = escape(self.sessions)
-        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (sessions)
+        html = '<span id="badger">%s</span>' % (sessions)
         return mark_safe(html)
 
 class Distance(models.Model):
@@ -69,7 +69,7 @@ class Distance(models.Model):
 
     def get_html_badge(self):
         distance = escape(self.distance)
-        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (distance)
+        html = '<span id="badger">%s</span>' % (distance)
         return mark_safe(html)
 
 class Rate(models.Model):
@@ -80,7 +80,7 @@ class Rate(models.Model):
 
     def get_html_badge(self):
         rate = escape(self.reate)
-        html = '<span class="badge badge-primary" style="background-color:#505050;">%s</span>' % (rate)
+        html = '<span id="badger">%s</span>' % (rate)
         return mark_safe(html)
 
 class Teacher(models.Model):
