@@ -99,9 +99,8 @@ class Teacher(models.Model):
 
 class Lesson(models.Model):
     tutor = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='lessons')
-    #name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='lessons')
-    name = models.CharField(max_length=255)
-    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='lessons')
+    name = models.CharField(max_length=255, null=False)
+    date = models.DateField(null=True, verbose_name="Lesson Date (mm/dd/yyyy)")
 
     def __str__(self):
         return self.name

@@ -140,18 +140,6 @@ class TeacherRateView(UpdateView):
 class TutorListView(TemplateView):
     template_name = 'classroom/teachers/lesson_change_list.html'
 
-#@method_decorator([login_required, teacher_required], name='dispatch')
-#class TutorListView(ListView):
-#    model = Lesson
-#    ordering = ('name', )
-#    context_object_name = 'lessons'
-#    template_name = 'classroom/teachers/lesson_change_list.html'
-
-#    def get_queryset(self):
-#        queryset = self.request.user.lessons \
-#            .select_related('subject')
-#        return queryset
-
 
 @method_decorator([login_required, teacher_required], name='dispatch')
 class LessonCreateView(CreateView):
@@ -164,38 +152,16 @@ class LessonCreateView(CreateView):
         lesson.tutor = self.request.user.teacher
         lesson.save()
         return redirect('teachers:lesson_change_list')
-
-#@method_decorator([login_required, teacher_required], name='dispatch')
-#class LessonCreateView(CreateView):
-#    model = Lesson
-#    fields = ('name','subject')
-#    template_name = 'classroom/teachers/lesson_add_form.html'
-#    
-#    def form_valid(self, form):
-#        lesson = form.save(commit=False)
-#        lesson.tutor = self.request.user.teacher
-#        if (User.objects.filter(username=form.cleaned_data['name']).exists() == False):
-#            messages.error(self.request, 'The username entered does not correspond to a student!')
-#            return redirect('teachers:lesson_add')
-#        else:
-#            lesson.save()
-#            messages.success(self.request, 'The quiz lesson was successfully created!')
-#            return redirect('teachers:lesson_change_list')
         
-
-
-
 
 @method_decorator([login_required, teacher_required], name='dispatch')
 class LessonUpdateView(UpdateView):
     model = Lesson
-    #form_class = LessonChangeForm  
-    fields = ('name', 'subject')  
+    form_class = LessonChangeForm  
     context_object_name = 'lesson'
     template_name = 'classroom/teachers/lesson_change_form.html'
 
     def get_context_data(self, **kwargs):
-        #kwargs['questions'] = self.get_object().questions.annotate(answers_count=Count('answers'))
         return super().get_context_data(**kwargs)
 
     def get_queryset(self):

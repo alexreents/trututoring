@@ -8,8 +8,7 @@
   <h2 id="title" class="mb-3">Add a New Session</h2>
   <form method="post" novalidate>
     {% csrf_token %}
-    {% render_field form.name placeholder="Session Name" id+="selector-name" %}
-    {% render_field form.subject id+="selector-subject" %}
+    {{ form }}
     <div class="sign-btn">
       <button type="submit" id="yes-btn">Save changes</button>
       <a href="{% url 'teachers:lesson_change_list' %}" id="hit-btn">Nevermind</a>

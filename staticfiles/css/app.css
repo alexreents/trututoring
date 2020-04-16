@@ -203,6 +203,8 @@ body {
 }
 
 .triple-btn {
+  margin-top:2em;
+  display: inline-block;
   margin-right:20%;
   margin-left:20%;
   margin-bottom:5em;
@@ -298,7 +300,7 @@ START LOGIN FORMATTING
   font-size: smaller;
 }
 
-.login-box input {
+.login-box input, .login-card input {
   outline: 0;
   border-width: 0 0 2px;
   border-color: black;
@@ -315,7 +317,7 @@ START LOGIN FORMATTING
   margin-right:auto;
 }
 
-.login-box input:focus {
+.login-box input:focus, .login-card input:focus {
 	outline: none;
 	border-color: #5c5c5c;
 	transition: 0.5s;

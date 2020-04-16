@@ -223,47 +223,26 @@ class TeacherRateForm(forms.ModelForm):
 class LessonAddForm(forms.ModelForm):
     class Meta:
         model = Lesson
-        fields = ('name','subject')
+        fields = ('name','date')
+        widgets = {
+            'name': forms.TextInput(),
+            'date': forms.DateInput(),
+        }
 
     def clean(self):
-        if (User.objects.filter(username=self.cleaned_data['name']).exists() == False):
-            raise ValidationError('The username entered does not correspond to a student!')
-
+        try:
+            if (User.objects.filter(username=self.cleaned_data['name']).exists() == False):
+                raise ValidationError('The username entered does not correspond to a student!')
+        except:
+                pass
         
-
-#class LessonAddForm(forms.ModelForm):
-    #school = forms.CharField(label='your school',
-    #    widget=forms.TextInput(attrs={'id':'selector-school'}),
-    #    required=True,
-    #    empty_value=""
-    #)
-#    class Meta:
-#        model = Lesson
-#        fields = ('name', 'subject')
-#        widgets = {
-#            'name': forms.TextInput(attrs={'id':'selector-school'}),
-#            'subject': forms.SelectMultiple(attrs={'id':'selector'}),
-#        }
-#    def clean_username(self):
-#        if (User.objects.filter(username=name).exists() == False):
-#            raise forms.ValidationError(u'Username "%s" does not exist.' % name)
-#        return username
-
-
-
-    #@transaction.atomic
-    #def save(self):
-    #    lesson = super().save(commit=False)
-    #    user.save()
-    #    return user
-
 
 
 class LessonChangeForm(forms.ModelForm):
     class Meta:
         model = Lesson
-        fields = ('name', 'subject', )
+        fields = ('name', 'date', )
         widgets = {
-            'name': forms.TextInput(attrs={'id':'selector-school'}),
-            'subject': forms.SelectMultiple(attrs={'id':'selector'}),
+            'name': forms.TextInput(),
+            'date': forms.DateInput(),
         }

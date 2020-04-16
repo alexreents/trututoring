@@ -73,15 +73,25 @@
       <table id="session-table" class="table mb-0 table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Subject</th>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Material Covered</th>
+            <th>Rate</th>
+            <th>Paid</th>
           </tr>
         </thead>
         <tbody>
           {% for lesson in user.teacher.lessons.all %}
             <tr>
-              <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
-              <td class="align-middle">{{ lesson.subject.get_html_badge }}</td>
+              <td><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
+              <td class="align-middle">{{ lesson.date }}</td>
+              <td class="align-middle"></td>
+              {% if lesson.tutor.verified %}
+                <td class="align-middle">$22.50/hour</a></td>
+              {% else %}
+                <td class="align-middle">${{ lesson.tutor.rate }}/hour</a></td>
+              {% endif %}
+              <td class="align-middle"></td>
             </tr>
           {% empty %}
             <tr>
