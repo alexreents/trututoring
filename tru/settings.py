@@ -130,6 +130,11 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 
+STRIPE_SECRET_KEY = 'sk_test_hDskaF2vei30jDCgFUq9HrOk00zHFA5VUq'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_XQIUPZkgPN4hhSGPDkIKQ2ij00LLEWrMy6'
+
+
+
 # Messages built-in framework
 
 MESSAGE_TAGS = {

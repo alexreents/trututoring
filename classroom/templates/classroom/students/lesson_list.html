@@ -75,12 +75,24 @@
               <td class="align-middle">{{ lesson.tutor.user.email }}</td>
               <td class="align-middle">{{ lesson.date }}</td>
               <td style="width:50%" class="align-middle">{{ lesson.material }}</td>
-              {% if teacher.verified %}
+              {% if lesson.tutor.verified %}
                 <td class="align-middle">$22.50/hour</td>
+                <td style="font-weight:bold; color:green" class="align-middle">{% if lesson.paid %}Yes{% else %}
+                  <form action="{% url 'students:charge' lesson.pk %}" method="post">
+                    {% csrf_token %}
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="{{ key }}"
+                            data-description="{{ user.first_name }}'s TRU Lesson"
+                            data-amount="2250"
+                            data-locale="auto"></script>
+                  </form>
+  
+                  {% endif %}
+                </td>
               {% else %}
                 <td class="align-middle">${{ lesson.tutor.rate }}/hour</td>
+                <td class="align-middle">Independent</td>
               {% endif %}
-              <td class="align-middle">{% if lesson.paid %}Yes{% else %}Pay Now{% endif %}</td>
             </tr>
           {% empty %}
             <tr>

@@ -7,11 +7,13 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView, TemplateView
-
+from django.conf import settings
+import stripe
 from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm, StudentSchoolForm
 from ..models import Student, User, Lesson, Teacher
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class StudentSignUpView(CreateView):
     model = User
@@ -138,12 +140,36 @@ class LessonListView(ListView):
     context_object_name = 'lessons'
     template_name = 'classroom/students/lesson_list.html'
 
+    def get_context_data(self, **kwargs): # new
+        context = super().get_context_data(**kwargs)
+        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+        return context
+
     def get_queryset(self):
         student_username = self.request.user.username
         queryset = Lesson.objects.all() \
             .filter(name=student_username)
         return queryset
 
+
+@login_required
+@student_required
+def charge(request, pk): # new
+    lesson = get_object_or_404(Lesson, pk=pk)
+
+    if request.method == 'POST':
+        charge = stripe.Charge.create(
+            amount=2250,
+            currency='usd',
+            description='TRU Tutoring Lesson',
+            source=request.POST['stripeToken']
+        )
+
+        lesson.paid = True
+        lesson.save()
+
+        #return render(request, 'classroom/students/charge.html')
+        return redirect('students:lesson_list')
 
 @login_required
 @student_required

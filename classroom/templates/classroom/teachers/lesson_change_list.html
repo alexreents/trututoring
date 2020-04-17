@@ -87,11 +87,12 @@
               <td class="align-middle">{{ lesson.date }}</td>
               <td style="width:50%" class="align-middle">{{ lesson.material }}</td>
               {% if lesson.tutor.verified %}
-                <td class="align-middle">$22.50/hour</a></td>
+                <td class="align-middle">$22.50/hour</td>
+                <td class="align-middle">{% if lesson.paid %}<span style="font-weight: bold; color:green">Yes</span>{% else %}<span>No</span>{% endif %}</td>
               {% else %}
                 <td class="align-middle">${{ lesson.tutor.rate }}/hour</a></td>
+                <td class="align-middle">Independent</td>
               {% endif %}
-              <td class="align-middle">{% if lesson.paid %}Yes{% else %}No{% endif %}</td>
             </tr>
           {% empty %}
             <tr>
