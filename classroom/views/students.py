@@ -13,7 +13,6 @@ from django.conf import settings
 from decimal import Decimal
 from paypal.standard.forms import PayPalPaymentsForm
 
-import stripe
 from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm, StudentSchoolForm
 from ..models import Student, User, Lesson, Teacher
@@ -143,11 +142,6 @@ class LessonListView(ListView):
     context_object_name = 'lessons'
     template_name = 'classroom/students/lesson_list.html'
 
-    def get_context_data(self, **kwargs): # new
-        context = super().get_context_data(**kwargs)
-        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
-        return context
-
     def get_queryset(self):
         student_username = self.request.user.username
         queryset = Lesson.objects.all() \
@@ -164,7 +158,7 @@ def process_payment(request, pk):
  
     paypal_dict = {
         'business': settings.PAYPAL_RECEIVER_EMAIL,
-        'amount': 22.50,
+        'amount': 0.02,
         'item_name': lesson.name,
         'invoice': str(lesson.id),
         'currency_code': 'USD',

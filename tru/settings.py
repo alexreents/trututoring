@@ -114,7 +114,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-PAYPAL_RECEIVER_EMAIL = 'sb-w4qen1480916@business.example.com'
+PAYPAL_RECEIVER_EMAIL = 'trututoring@gmail.com'
  
 PAYPAL_TEST = True
 
@@ -131,9 +131,6 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
 
-
-STRIPE_SECRET_KEY = 'sk_test_hDskaF2vei30jDCgFUq9HrOk00zHFA5VUq'
-STRIPE_PUBLISHABLE_KEY = 'pk_test_XQIUPZkgPN4hhSGPDkIKQ2ij00LLEWrMy6'
 
 
 

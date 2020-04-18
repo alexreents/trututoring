@@ -11,7 +11,7 @@ def payment_notification(sender, **kwargs):
         # payment was successful
         lesson = get_object_or_404(Lesson, id=ipn.invoice)
  
-        if ipn.mc_gross == 22.50:
+        if ipn.mc_gross == 0.02:
             # mark the order as paid
             lesson.paid = True
             lesson.save()
