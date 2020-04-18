@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.html import escape, mark_safe
+from django.shortcuts import get_object_or_404
+
 
 
 class User(AbstractUser):
@@ -103,6 +105,10 @@ class Lesson(models.Model):
     date = models.DateField(null=True, verbose_name="Lesson Date (mm/dd/yyyy)")
     material = models.TextField(null=True, verbose_name="Material Covered & Notes")
     paid = models.BooleanField(default=False)
+
+    def getUserEmail(self):
+        my_user = get_object_or_404(User, username=self.name)
+        return my_user.email
 
     def __str__(self):
         return self.name

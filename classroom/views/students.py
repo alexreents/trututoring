@@ -158,7 +158,7 @@ def process_payment(request, pk):
  
     paypal_dict = {
         'business': settings.PAYPAL_RECEIVER_EMAIL,
-        'amount': 0.02,
+        'amount': 22.50,
         'item_name': lesson.name,
         'invoice': str(lesson.id),
         'currency_code': 'USD',
