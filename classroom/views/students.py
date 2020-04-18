@@ -159,7 +159,7 @@ def process_payment(request, pk):
     paypal_dict = {
         'business': settings.PAYPAL_RECEIVER_EMAIL,
         'amount': 22.50,
-        'item_name': lesson.name,
+        'item_name': 'TRU Tutor: {}'.format(lesson.tutor.user.email),
         'invoice': str(lesson.id),
         'currency_code': 'USD',
         'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn')),

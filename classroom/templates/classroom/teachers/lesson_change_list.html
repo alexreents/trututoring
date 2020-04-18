@@ -76,12 +76,12 @@
         <thead>
           <tr>
             <th>Student</th>
-            {% if user.teacher.verified %}
-              <th>Email</th>
-            {% endif %}
+            <th>Email</th>
             <th>Date</th>
-            <th>Material Covered & Notes</th>
-            <th>Rate</th>
+            <th>Zoom Link + Meeting Details</th>
+            {% if user.teacher.verified %}{% else %}
+              <th>Rate</th>
+            {% endif %}
             <th>Paid?</th>
           </tr>
         </thead>
@@ -93,15 +93,10 @@
               {% else %}
                 <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
               {% endif %}
-              {% if user.teacher.verified %}
-                <td class="align-middle">
-                  {{ lesson.getUserEmail }}
-                </td>
-              {% endif %}
+              <td class="align-middle">{{ lesson.getStudentUser.email }}</td>
               <td class="align-middle">{{ lesson.date }}</td>
-              <td style="width:40%" class="align-middle">{{ lesson.material }}</td>
+              <td style="width:50%" class="align-middle">{{ lesson.material }}</td>
               {% if lesson.tutor.verified %}
-                <td class="align-middle">$22.50/hour</td>
                 <td class="align-middle">{% if lesson.paid %}<span style="font-weight: bold; color:green">Yes</span>{% else %}<span>No</span>{% endif %}</td>
               {% else %}
                 <td class="align-middle">${{ lesson.tutor.rate }}/hour</a></td>
@@ -110,11 +105,7 @@
             </tr>
           {% empty %}
             <tr>
-              {% if user.teacher.verified %}
               <td class="bg-light text-center font-italic" colspan="6">You haven't completed any lessons yet.</td>
-              {% else %}
-              <td class="bg-light text-center font-italic" colspan="5">You haven't completed any lessons yet.</td>
-              {% endif %}
             </tr>
           {% endfor %}
         </tbody>

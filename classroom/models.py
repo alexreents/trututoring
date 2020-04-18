@@ -103,12 +103,12 @@ class Lesson(models.Model):
     tutor = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='lessons')
     name = models.CharField(max_length=255, null=False, verbose_name="Student Username")
     date = models.DateField(null=True, verbose_name="Lesson Date (mm/dd/yyyy)")
-    material = models.TextField(null=True, verbose_name="Material Covered & Notes")
+    material = models.TextField(null=True, verbose_name="Zoom Link + Meeting Details")
     paid = models.BooleanField(default=False)
 
-    def getUserEmail(self):
+    def getStudentUser(self):
         my_user = get_object_or_404(User, username=self.name)
-        return my_user.email
+        return my_user
 
     def __str__(self):
         return self.name
