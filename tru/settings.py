@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'widget_tweaks',
+    'paypal.standard.ipn',
     #'tempus_dominus',
     #'bootstrap_datepicker_plus',
 
@@ -113,8 +114,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+PAYPAL_RECEIVER_EMAIL = 'sb-w4qen1480916@business.example.com'
+ 
+PAYPAL_TEST = True
 
 
 # Custom Django auth settings

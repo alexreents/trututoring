@@ -4,10 +4,15 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse_lazy
+from django.views.decorators.csrf import csrf_exempt
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 from django.conf import settings
+
+from decimal import Decimal
+from paypal.standard.forms import PayPalPaymentsForm
+
 import stripe
 from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm, StudentSchoolForm
@@ -150,28 +155,60 @@ class LessonListView(ListView):
         return queryset
 
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
-
-
 
 @login_required
 @student_required
-def charge(request, pk): # new
+def process_payment(request, pk):
+    host = request.get_host()
     lesson = get_object_or_404(Lesson, pk=pk)
+ 
+    paypal_dict = {
+        'business': settings.PAYPAL_RECEIVER_EMAIL,
+        'amount': 22.50,
+        'item_name': lesson.name,
+        'invoice': str(lesson.id),
+        'currency_code': 'USD',
+        'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn')),
+        'return_url': 'http://{}{}'.format(host, reverse('payment_done')),
+        'cancel_return': 'http://{}{}'.format(host, reverse('payment_canceled')),
+    }
+ 
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    return render(request, 'classroom/students/process_payment.html', {'form': form})
 
-    if request.method == 'POST':
-        charge = stripe.Charge.create(
-            amount=2250,
-            currency='usd',
-            description='TUTOR: ' + lesson.tutor.user.username,
-            source=request.POST['stripeToken'],
-        )
 
-        lesson.paid = True
-        lesson.save()
+@csrf_exempt
+def payment_done(request):
+    #return redirect('students:payment_done')
+    return render(request, 'classroom/students/payment_done.html')
+ 
+ 
+@csrf_exempt
+def payment_canceled(request):
+    #return redirect('students:payment_done')
+    return render(request, 'classroom/students/payment_canceled.html')
 
-        #return render(request, 'classroom/students/charge.html')
-        return redirect('students:lesson_list')
+
+#stripe.api_key = settings.STRIPE_SECRET_KEY
+#
+#@login_required
+#@student_required
+#def charge(request, pk): # new
+#    lesson = get_object_or_404(Lesson, pk=pk)
+#
+#    if request.method == 'POST':
+#        charge = stripe.Charge.create(
+#            amount=2250,
+#            currency='usd',
+#            description='TUTOR: ' + lesson.tutor.user.username,
+#            source=request.POST['stripeToken'],
+#        )
+#
+#        lesson.paid = True
+#        lesson.save()
+#
+#        #return render(request, 'classroom/students/charge.html')
+#        return redirect('students:lesson_list')
 
 
     

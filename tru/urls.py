@@ -5,6 +5,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', include('classroom.urls')),
+    path('paypal/', include('paypal.standard.ipn.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', classroom.SignUpView.as_view(), name='signup'),

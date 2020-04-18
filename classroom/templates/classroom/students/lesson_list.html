@@ -78,21 +78,7 @@
               {% if lesson.tutor.verified %}
                 <td class="align-middle">$22.50/hour</td>
                 <td style="font-weight:bold; color:green" class="align-middle">{% if lesson.paid %}Yes{% else %}
-                  <form action="{% url 'students:charge' lesson.pk %}" method="post">
-                    {% csrf_token %}
-                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                      data-key="{{ key }}"
-                      data-description="{{ user.first_name }}'s TRU Lesson"
-                      data-amount="2250"
-                      data-locale="auto">
-                    </script>
-                     <script>
-                      // Hide default stripe button
-                      document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-                    </script>
-                  <button type="submit" class="my-stripe-btn">Pay Now</button>
-                  </form>
-  
+                  <a id="course-descriptor" href="{% url 'students:process_payment' lesson.pk %}">Pay Now</a>
                   {% endif %}
                 </td>
               {% else %}

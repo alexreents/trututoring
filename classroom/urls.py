@@ -4,11 +4,12 @@ from .views import classroom, students, teachers
 
 urlpatterns = [
     path('', classroom.home, name='home'),
-
+    path('payment-done/', students.payment_done, name='payment_done'),
+    path('payment-canceled/', students.payment_canceled, name='payment_canceled'),
     path('students/', include(([
         path('', students.TutorListView.as_view(), name='tutor_list'),
+        path('process-payment/<int:pk>/', students.process_payment, name='process_payment'),
         path('taken/', students.LessonListView.as_view(), name='lesson_list'),
-        path('charge/<int:pk>/', students.charge, name='charge'),
         path('interests/', students.StudentInterestsView.as_view(), name='student_interests'),
         path('grade_level/', students.StudentGradesView.as_view(), name='student_grade_level'),
         path('availability/', students.StudentAvailabilityView.as_view(), name='student_availability'),

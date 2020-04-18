@@ -331,6 +331,20 @@ body {
 START LOGIN FORMATTING
 */
 
+.pay-card {
+  background-color: white;
+	box-shadow: 0 5px 50px rgba(2,7,93,0.3);
+  text-align: center;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-bottom:3em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 40em;
+}
+
 
 .login-card {
   background-color: white;
