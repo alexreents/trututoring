@@ -163,8 +163,8 @@ def charge(request, pk): # new
         charge = stripe.Charge.create(
             amount=2250,
             currency='usd',
-            description='TRU Tutoring Lesson',
-            source=request.POST['stripeToken']
+            description='TUTOR: ' + lesson.tutor.user.username,
+            source=request.POST['stripeToken'],
         )
 
         lesson.paid = True
