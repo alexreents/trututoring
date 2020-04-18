@@ -5,20 +5,20 @@
 <div class="main-card">
   <div class="row align-items-center my-5">
 
-    <div class="col-lg-5 text-center">
+    <div style="padding:1em;" class="col-lg-5 text-center">
       <h1 class="font-weight-light">Start Teaching!</h1>
       {% if user.teacher.verified %}
         <br>
         <p>Interested students will get it touch with you <i>by email</i> shortly!</p>
         <p>As a verified tutor, your base pay begins at $17.50/hour and you get access to incentive pay structures and bonus opportunities.</p>
         <p>With verification, students are far more likely to contact you about lessons.</p>
-        <p>You also get full access to our tutoring resources and ongoing company support!</p>
+        <p>You also get full access to our tutoring resources and company support!</p>
       {% else %}
         <br>
         <p><strong>Important: </strong> Currently, you are not a verified TRU Tutor.</p>
-        <p>Without verification, students may be less likely to contact you about lessons.</p>
+        <p>Without verification, students may be less likely to contact you for lessons.</p>
         <p>As a verified tutor, your base pay begins at $17.50/hour and you get access to incentive pay structures and bonus opportunities.</p>
-        <p>You also get full access to our tutoring resources and ongoing company support!</p>
+        <p>You also get full access to our tutoring resources and ongoing support!</p>
         <p>To apply, please email <i>trututoring@gmail.com</i>!</p>
       {% endif %}
     </div>
@@ -36,10 +36,12 @@
               School:&nbsp;<span id="badger">{{ user.teacher.school }}</span>
               <a href="{% url 'teachers:teacher_school' %}"><small>(update)</small></a>
           </p>
+          {% if user.teacher.verified %}{% else %}
           <p class="text-muted">
             Asking Rate:&nbsp;<span id="badger">${{ user.teacher.rate }}/hour</span>
             <a href="{% url 'teachers:teacher_rate' %}"><small>(update)</small></a>
           </p>
+          {% endif %}
           <p class="text-muted">
             Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
             <a href="{% url 'teachers:teacher_grade_level' %}"><small>(update)</small></a>
@@ -61,9 +63,9 @@
 
     </div>
   </div>
-
-  <hr id="prof-line"> 
   
+  <h6 class="font-weight-normal text-left"><strong>Important: </strong> Below, record all completed lessons (for payment purposes)</h6>
+  <hr id="prof-line"> 
   <div class="card text-black bg-white my-4 py-2 z-depth-1">
     <div class="card-body">
       <h2 id="session-title" class="mb-3">Completed Lessons
@@ -84,9 +86,9 @@
           {% for lesson in user.teacher.lessons.all %}
             <tr>
               {% if lesson.paid %}
-                <td>{{ lesson.name }}</td>
+                <td class="align-middle">{{ lesson.name }}</td>
               {% else %}
-                <td><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
+                <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
               {% endif %}
               <td class="align-middle">{{ lesson.date }}</td>
               <td style="width:50%" class="align-middle">{{ lesson.material }}</td>
