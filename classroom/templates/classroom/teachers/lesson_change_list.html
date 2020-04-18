@@ -83,7 +83,11 @@
         <tbody>
           {% for lesson in user.teacher.lessons.all %}
             <tr>
-              <td><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
+              {% if lesson.paid %}
+                <td>{{ lesson.name }}</td>
+              {% else %}
+                <td><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
+              {% endif %}
               <td class="align-middle">{{ lesson.date }}</td>
               <td style="width:50%" class="align-middle">{{ lesson.material }}</td>
               {% if lesson.tutor.verified %}

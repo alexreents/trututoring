@@ -14,9 +14,7 @@ urlpatterns = [
         path('availability/', students.StudentAvailabilityView.as_view(), name='student_availability'),
         path('sessions/', students.StudentSessionsView.as_view(), name='student_sessions'),
         path('school/', students.StudentSchoolView.as_view(), name='student_school'),
-        
-        path('lesson/<int:pk>/', students.take_lesson, name='take_lesson'),
-
+    
     ], 'classroom'), namespace='students')),
 
     path('teachers/', include(([

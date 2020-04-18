@@ -13,8 +13,6 @@ from ..decorators import student_required
 from ..forms import StudentInterestsForm, StudentSignUpForm, StudentGradesForm, StudentAvailabilityForm, StudentSessionsForm, StudentSchoolForm
 from ..models import Student, User, Lesson, Teacher
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
-
 class StudentSignUpView(CreateView):
     model = User
     form_class = StudentSignUpForm
@@ -152,6 +150,10 @@ class LessonListView(ListView):
         return queryset
 
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+
 @login_required
 @student_required
 def charge(request, pk): # new
@@ -171,13 +173,5 @@ def charge(request, pk): # new
         #return render(request, 'classroom/students/charge.html')
         return redirect('students:lesson_list')
 
-@login_required
-@student_required
-def take_lesson(request, pk):
-    lesson = get_object_or_404(Lesson, pk=pk)
-    student = request.user.student
-
-    if student.lessons.filter(pk=pk).exists():
-        return render(request, 'students/tutor_list.html')
 
     
