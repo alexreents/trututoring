@@ -28,6 +28,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # DEVELOPMENT
 SECRET_KEY = 'yr-!bb+ed3*mcx@0@!2+jso61ydy$k8(#xx@4^!0v5^^ky!hd9'
 DEBUG = True
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
 
 
 ALLOWED_HOSTS = ['trututoring.herokuapp.com', 'www.trututoring.live', 'localhost','0.0.0.0']
@@ -114,9 +116,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-PAYPAL_RECEIVER_EMAIL = 'sb-w4qen1480916@business.example.com'
- 
-PAYPAL_TEST = True
+PAYPAL_RECEIVER_EMAIL = 'trututoring@gmail.com'
+PAYPAL_TEST = False
 
 
 # Custom Django auth settings
