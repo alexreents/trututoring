@@ -30,4 +30,3 @@ class TeacherAdmin(admin.ModelAdmin):
 
 
 class SubjectAdmin(admin.ModelAdmin):
-    date_hierarchy =  'date_joined'

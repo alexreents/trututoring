@@ -43,7 +43,7 @@
           </p>
           {% endif %}
           <p class="text-muted">
-            Grade:&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
+            Grade(s):&nbsp;{% for grade in user.teacher.grade_level.all %} {{ grade.get_html_badge }}{% endfor %}
             <a href="{% url 'teachers:teacher_grade_level' %}"><small>(update)</small></a>
           </p>
           <p class="text-muted">

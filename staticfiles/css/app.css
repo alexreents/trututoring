@@ -484,6 +484,8 @@ END LOGIN FORMATTING
 }
 
 #badger {
+  white-space: nowrap;
+  line-height:2em;
   background-color: #02075d;
   color:white;
   font-weight:600;
