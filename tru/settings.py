@@ -119,6 +119,14 @@ USE_TZ = True
 PAYPAL_RECEIVER_EMAIL = 'trututoring@gmail.com'
 PAYPAL_TEST = False
 
+# Sandbox Only
+# PAYPAL_RECEIVER_EMAIL = 'sb-w4qen1480916@business.example.com'
+# PAYPAL_TEST = True
+
+# Sandbox FYI
+# Sandbox personal: sb-dmhln1472476@personal.example.com
+# Sandbox password: jNp}"R2%
+
 
 # Custom Django auth settings
 
