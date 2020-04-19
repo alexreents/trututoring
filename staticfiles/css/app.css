@@ -86,6 +86,7 @@ body {
   font-weight:600;
   color: #02075d;
   padding-left: 10px;
+  max-width: 100%;
 }
 
 /* nav bar styling */
@@ -475,12 +476,24 @@ START LOGIN FORMATTING
 END LOGIN FORMATTING
 */
 
+#verified-only {
+  vertical-align: text-top;
+  font-size:20px;
+  color: #02075d;
+  font-style: italic;
+  font-weight: 600;
+}
+
 #verified-badge {
   vertical-align: text-top;
   font-size:14px;
   color: #02075d;
   font-style: italic;
   font-weight: 600;
+}
+
+.fas {
+  color: #02075d;
 }
 
 #badger {
@@ -496,6 +509,11 @@ END LOGIN FORMATTING
   border-radius: 3px;
 }
 /* general form styling */
+
+.material-url:hover {
+  color: #02075d;
+  text-decoration: underline;
+}
 
 .text-muted small{
   color:black;

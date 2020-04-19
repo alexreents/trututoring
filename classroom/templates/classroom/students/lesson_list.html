@@ -74,7 +74,24 @@
               <td class="align-middle">{{ lesson.tutor.user.first_name }} {{ lesson.tutor.user.last_name }}</td>
               <td class="align-middle">{{ lesson.tutor.user.email }}</td>
               <td class="align-middle">{{ lesson.date }}</td>
-              <td style="width:40%" class="align-middle">{{ lesson.material }}</td>
+              <td style="width:40%" class="align-middle">
+                <!-- function to generate url link within text -->
+                <script>
+                  function urlify(text) {
+                      var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+                      //var urlRegex = /(https?:\/\/[^\s]+)/g;
+                      return text.replace(urlRegex, function(url,b,c) {
+                          var url2 = (c == 'www.') ?  'http://' +url : url;
+                          return '<a class="material-url" href="' +url2+ '" target="_blank">' + url + '</a>';
+                      }) 
+                  }
+
+                  var text = '{{ lesson.material }}';
+                  var html = urlify(text);  
+
+                  document.write(html);
+                </script>
+              </td>
               {% if lesson.tutor.verified %}
                 <td class="align-middle">$22.50/hour</td>
                 <td style="font-weight:bold; color:green" class="align-middle">{% if lesson.paid %}Yes{% else %}
