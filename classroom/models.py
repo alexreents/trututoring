@@ -75,7 +75,7 @@ class Distance(models.Model):
         return mark_safe(html)
 
 class Rate(models.Model):
-    rate = models.IntegerField(max_length=30)
+    rate = models.FloatField(max_length=30)
 
     def __str__(self):
         return self.rate
@@ -93,7 +93,7 @@ class Teacher(models.Model):
     sessions = models.ManyToManyField(Session, related_name='session_teachers')
     school = models.CharField(max_length=50, verbose_name='your school', null=True)
     distance = models.ManyToManyField(Distance, related_name='distanced_teachers', verbose_name='max lesson radius')
-    rate = models.IntegerField(max_length=50, verbose_name='your asking rate (in $/hour', default='15')
+    rate = models.FloatField(max_length=50, verbose_name='your asking rate (in $/hour', default='15')
     verified = models.BooleanField(default=False)
     
     def __str__(self):
