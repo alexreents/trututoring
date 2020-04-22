@@ -334,7 +334,7 @@ START LOGIN FORMATTING
 
 .pay-card {
   background-color: white;
-	box-shadow: 0 5px 50px rgba(2,7,93,0.3);
+	box-shadow: 0 5px 50px black;
   text-align: center;
   padding-left: 5em;
   padding-right: 5em;
@@ -348,8 +348,9 @@ START LOGIN FORMATTING
 
 
 .login-card {
+  z-index: 10px;
   background-color: white;
-	box-shadow: 0 5px 50px rgba(2,7,93,0.3);
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
   text-align: center;
   padding-left: 5em;
   padding-right: 5em;
@@ -702,7 +703,17 @@ footer a {
   line-height: 30px;
 }
 
-@media only screen and (max-width: 600px) {
+/* before 600 */
+@media screen and (max-width: 600px) , screen and (max-height: 600px) {
+  .login-card {
+    z-index:0;
+    box-shadow: none;
+    top:5em;
+    width:100%;
+  }
+  #selector, #selector-school, .login-card input {
+    width:100%
+  }
   #tru-footer-content {
       display: none;
   }
