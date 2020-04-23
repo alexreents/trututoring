@@ -77,7 +77,7 @@
 {{teacher.user.first_name}},
 %0D%0A
 %0D%0A
-This is an automated request for a TRU Tutoring lesson. To confirm this lesson request, please click 'Add a Lesson' on your TRU profile page and provide the required parameters.
+This is an automated request for a TRU Tutoring lesson, sent by {{ user.first_name }} {{ user.last_name }}. To confirm this lesson request, please click 'Add a Lesson' on your TRU profile page and provide the required parameters.
 %0D%0A
 %0D%0A
 Username: {{user.username}} //
@@ -92,10 +92,7 @@ Availabilities: {% for availability in user.student.availability.all %}{{ availa
 Custom Message: 
 %0D%0A
 %0D%0A
-Thank you,
-%0D%0A
-{{user.first_name}}
-                ">
+">
             
                 {{teacher.user.email}}</a>
               
