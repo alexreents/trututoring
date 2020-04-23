@@ -692,6 +692,23 @@ footer a {
   line-height: 30px;
 }
 
+#add-lessson-plus {
+  font-size: 30px;
+  background-color: none;
+  float: right;
+  margin-right:1em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: #02075d;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.fa-plus {
+  display:none;
+}
+
 /* before 600 */
 @media screen and (max-width: 600px) , screen and (max-height: 600px) {
   .login-card {
@@ -705,6 +722,24 @@ footer a {
   }
   #tru-footer-content {
       display: none;
+  }
+  #add-lesson-plus {
+    font-size: 30px;
+    background-color: none;
+    float: right;
+    margin-right:1em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: #02075d;
+    text-align:center;
+    transition: all 0.2s;
+  }
+  .fa-plus {
+    display:inline;
+  }
+  #add-lesson-btn {
+    display:none;
   }
 }
 
