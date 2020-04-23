@@ -46,7 +46,6 @@ class StudentInterestsView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Subjects updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, student_required], name='dispatch')
@@ -60,7 +59,6 @@ class StudentGradesView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Grade level updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, student_required], name='dispatch')
@@ -74,7 +72,6 @@ class StudentAvailabilityView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Availability updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, student_required], name='dispatch')
@@ -88,7 +85,6 @@ class StudentSessionsView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Sessions updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, student_required], name='dispatch')
@@ -102,7 +98,6 @@ class StudentSchoolView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'School updated with success!')
         return super().form_valid(form)
 
 

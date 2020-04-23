@@ -46,7 +46,6 @@ class TeacherInterestsView(UpdateView):
         return self.request.user.teacher
 
     def form_valid(self, form):
-        messages.success(self.request, 'Subjects updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, teacher_required], name='dispatch')
@@ -60,7 +59,6 @@ class TeacherGradesView(UpdateView):
         return self.request.user.teacher
 
     def form_valid(self, form):
-        messages.success(self.request, 'Grade level updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, teacher_required], name='dispatch')
@@ -74,7 +72,6 @@ class TeacherAvailabilityView(UpdateView):
         return self.request.user.teacher
 
     def form_valid(self, form):
-        messages.success(self.request, 'Availability updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, teacher_required], name='dispatch')
@@ -88,7 +85,6 @@ class TeacherSessionsView(UpdateView):
         return self.request.user.teacher
 
     def form_valid(self, form):
-        messages.success(self.request, 'Sessions updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, teacher_required], name='dispatch')
@@ -102,7 +98,6 @@ class TeacherSchoolView(UpdateView):
         return self.request.user.teacher
 
     def form_valid(self, form):
-        messages.success(self.request, 'School updated with success!')
         return super().form_valid(form)
 
 @method_decorator([login_required, teacher_required], name='dispatch')
@@ -116,7 +111,6 @@ class TeacherDistanceView(UpdateView):
         return self.request.user.teacher
 
     def form_valid(self, form):
-        messages.success(self.request, 'Sessions updated with success!')
         return super().form_valid(form)
 
 
@@ -131,7 +125,6 @@ class TeacherRateView(UpdateView):
         return self.request.user.teacher
 
     def form_valid(self, form):
-        messages.success(self.request, 'Lesson rate updated with success!')
         return super().form_valid(form)
 
 
@@ -185,7 +178,6 @@ class LessonDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         lesson = self.get_object()
-        messages.success(request, 'The lesson %s was deleted with success!' % lesson.name)
         return super().delete(request, *args, **kwargs)
 
     def get_queryset(self):

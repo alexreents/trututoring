@@ -17,6 +17,9 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
 
+    def get_text_name(self):
+        return self.name
+
     def get_html_badge(self):
         name = escape(self.name)
         color = escape(self.color)
@@ -31,6 +34,9 @@ class Grade(models.Model):
     def __str__(self):
         return self.grade_level
 
+    def get_text_name(self):
+        return self.grade_level
+
     def get_html_badge(self):
         grade_level = escape(self.grade_level)
         color = escape(self.color)
@@ -43,6 +49,9 @@ class Availability(models.Model):
     color = models.CharField(max_length=7, default='#505050')
 
     def __str__(self):
+        return self.day + " " + self.time
+
+    def get_text_name(self):
         return self.day + " " + self.time
 
     def get_html_badge(self):

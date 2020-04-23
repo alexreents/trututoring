@@ -35,8 +35,15 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="navigation">
       <div class="container">
-        <a class="navbar-brand" style="color:#02075d;" href="{% url 'home' %}">tru</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- for sju demos 
+        {% if user.is_authenticated %}
+          {% load static %}<a class="navbar-brand" style="color:#02075d;" href="{% url 'home' %}"><img style="height:80px; border:none;" class="img-fluid" src="{% static 'img/San_Juan_Unified.jpg' %}" alt=""></a>
+        {% else %}
+          <a class="navbar-brand" style="color:#02075d;" href="{% url 'home' %}">tru</a>
+        {% endif %}
+        -->
+          <a class="navbar-brand" style="color:#02075d;" href="{% url 'home' %}">tru</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
