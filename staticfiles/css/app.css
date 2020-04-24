@@ -709,6 +709,12 @@ footer a {
   display:none;
 }
 
+.card-body{
+  width:100%;
+  display:block;
+  overflow-x: scroll;
+}
+
 /* before 600 */
 @media screen and (max-width: 600px) , screen and (max-height: 600px) {
   .login-card {
