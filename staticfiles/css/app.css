@@ -2,6 +2,15 @@
 * {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+#home-title {
+  text-align: center;
+  padding-top:1em;
+  padding-bottom:1em;
+  font-weight:400;
+}
+
+
 .bottom-footer {
   position:absolute;
   bottom:0;
@@ -68,10 +77,27 @@
   background-color: #ffcccb;
 }
 
+#card-primary {
+  background-color: #000D33;
+}
+
 .card-footer {
   background-color: #000D33;
 }
 
+.card-footer a {
+  color:white;
+}
+
+.card-footer a:hover {
+  color:white;
+  text-decoration: underline;
+}
+
+#page-title {
+  font-weight:400;
+  margin-bottom:0.7em;
+}
 
 html {
   height:100%;

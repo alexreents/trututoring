@@ -70,17 +70,16 @@
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'services' %}">Services</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Other Pages
+                <a class="nav-link dropdown-toggle dropdown-toggle-split" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Services
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownBlog">
-                  <a class="dropdown-item" href="{% url 'pricing' %}">Pricing Table</a>
+                  <a href="{% url 'services' %}" class="dropdown-item">Services</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'pricing' %}">Pricing</a>
                   <a class="dropdown-item" href="{% url 'faq' %}">FAQ</a>
                 </div>
               </li>
