@@ -28,68 +28,86 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
   </head>
 
-  <body>
+  <body class="background">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="navigation">
+    <nav class="navbar navbar-expand-lg fixed-top" id="navigation">
       <div class="container">
         <!-- for sju demos 
         {% if user.is_authenticated %}
-          {% load static %}<a class="navbar-brand" style="color:#02075d;" href="{% url 'home' %}"><img style="height:80px; border:none;" class="img-fluid" src="{% static 'img/San_Juan_Unified.jpg' %}" alt=""></a>
+          {% load static %}<a class="navbar-brand" style="color:#000D33;" href="{% url 'home' %}"><img style="height:80px; border:none;" class="img-fluid" src="{% static 'img/San_Juan_Unified.jpg' %}" alt=""></a>
         {% else %}
-          <a class="navbar-brand" style="color:#02075d;" href="{% url 'home' %}">tru</a>
+          <a class="navbar-brand" style="color:#000D33;" href="{% url 'home' %}">tru</a>
         {% endif %}
         -->
-          <a class="navbar-brand" style="color:#02075d;" href="{% url 'home' %}">tru</a>
+          <a class="navbar-brand" href="{% url 'home' %}">tru</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <i style="color:white" class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
               {% if user.is_teacher %}
                 <li class="nav-item">
-                  <p style="color:black;" class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>tutor account</i>"><strong id="identify-user">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
+                  <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>tutor account</i>"><strong id="identify-user">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
                 </li>  
               {% else %}
                 <li class="nav-item">
-                  <p style="color:black;" class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong id="identify-user">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
+                  <p class="pt-3">logged in as <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>student account</i>"><strong id="identify-user">{{ user.username }}</strong></a>|<a class="logout-btn" href="{% url 'logout' %}">log out</a> </p>
                 </li>  
               {% endif %}
             {% else %}
-              <li class="nav-item active">
-                <a class="home-btn" href="{% url 'home' %}">Home
-                  <span class="sr-only">(current)</span>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'services' %}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Other Pages
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownBlog">
+                  <a class="dropdown-item" href="{% url 'pricing' %}">Pricing Table</a>
+                  <a class="dropdown-item" href="{% url 'faq' %}">FAQ</a>
+                </div>
               </li>
-              <li class="nav-item">
-                <a href="{% url 'login' %}" class="standard-btn">Log In</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i style="color:white" class="fas fa-user"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownBlog">
+                  <a href="{% url 'login' %}" class="dropdown-item">Log In</a>
+                  <a href="{% url 'signup' %}" class="dropdown-item">Sign Up</a>
+                </div>
               </li>
-              <li class="nav-item">
-                <a href="{% url 'signup' %}" class="standard-btn">Sign Up</a>
-              </li>  
+
             {% endif %}
           </ul>
         </div>
       </div>
     </nav>
 
-    {% for message in messages %}
-      <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-        {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    {% endfor %}
-
     
     <!-- begin website code -->
     {% block content %}
     {% endblock %}    
 
+      <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

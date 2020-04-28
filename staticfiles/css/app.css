@@ -2,19 +2,27 @@
 * {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
-
-.background {
-  background-position: center;
-  background-size: cover;
-  background-color:white;
-  min-height: 100%;
+.bottom-footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
 }
 
 #alerting {
   margin-top: 2em;
   padding-bottom:1em;
+  background-color: #000D33;
+  color:white;
+  border-color:white;
 }
+
+
+#close-button {
+  float:right;
+  background-color: transparent;
+  border:none;
+}
+
 
 #home-page-txt {
   line-height: 1.4em;
@@ -23,21 +31,21 @@
 }
 
 #facebook-pg-link {
-  color: #02075d;
+  color: #000D33;
 }
 
 #facebook-pg-link:hover {
-  color: #02075d;
+  color: #000D33;
   text-decoration: underline;
 }
 
 
 #home-page-btn {
   font-size: large;
-  background-color: #02075d;
+  background-color: #000D33;
   margin-top:1em;
   padding: 0.35em 1.2em;
-  border: 2px solid #02075d;
+  border: 2px solid #000D33;
   border-radius: 3em;
   box-sizing: border-box;
   text-decoration:none;
@@ -48,10 +56,10 @@
 }
 
 #home-page-btn:hover{
-  color:#02075d;
+  color:#000D33;
   background-color:white;
   text-decoration: none;
-  border: 2px solid #02075d;
+  border: 2px solid #000D33;
   cursor: pointer;
 }
 
@@ -61,7 +69,7 @@
 }
 
 .card-footer {
-  background-color: #02075d;
+  background-color: #000D33;
 }
 
 
@@ -76,29 +84,34 @@ body {
   line-height: 20px;
 }
 
-
 .main-card {
-  background-color: white;
-  padding:5em 2em 1em 2em;
+  padding:4em 2em 0 2em;
 }
+
+.main-container {
+  padding:7em 2em 0 2em;
+}
+
 
 #session-title {
   font-weight:600;
-  color: #02075d;
+  color: #000D33;
   padding-left: 10px;
   max-width: 100%;
 }
 
 /* nav bar styling */
 #navigation {
-  height: 6em;
+  padding-top:1em;
+  background-color: #000D33;
+  box-shadow: none;
 }
 
 #tutor-tutor {
-  background-color:#02075d;
+  background-color:#000D33;
   color:white;
   font-weight:500;
-  border: solid #02075d 1.5px;
+  border: solid #000D33 1.5px;
   border-radius:50px;
   margin:0.5em;
   transition: all 0.2s;
@@ -106,7 +119,7 @@ body {
 
 #tutor-lesson {
   background-color:white;
-  color:#02075d;
+  color:#000D33;
   font-weight:500;
   border: solid white 1.5px;
   border-radius:50px;
@@ -115,10 +128,10 @@ body {
 }
 
 #lesson-lesson {
-  background-color:#02075d;
+  background-color:#000D33;
   color:white;
   font-weight:500;
-  border: solid #02075d 1.5px;
+  border: solid #000D33 1.5px;
   border-radius:50px;
   margin:0.5em;
   transition: all 0.2s;
@@ -126,7 +139,7 @@ body {
 
 #lesson-tutor {
   background-color:white;
-  color:#02075d;
+  color:#000D33;
   font-weight:500;
   border: solid white 1.5px;
   border-radius:50px;
@@ -135,9 +148,9 @@ body {
 }
 
 #tutor-lesson:hover, #lesson-tutor:hover{
-  color:#02075d;
+  color:#000D33;
   background-color: transparent;
-  border: solid #02075d 1.5px;
+  border: solid #000D33 1.5px;
   transition: all 0.2s;
 }
 
@@ -146,62 +159,50 @@ body {
 }
 
 #lesson-tutor a, #tutor-lesson a {
-  color:#02075d;
-}
-
-.my-stripe-btn {
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-  color: black;
-  padding: 0;
-  text-decoration: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight:600;
-}
-
-.my-stripe-btn:hover {
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-  color: black;
-  padding: 0;
-  text-decoration: underline;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight:600;
+  color:#000D33;
 }
 
 
 .navbar-brand{
-  font-size: 4em!important;
+  font-size: 5em;
   font-weight: 900;
-  color:#02075d;
+  color:white;
+  margin-bottom: 0.2em;
 }
 
 .navbar-brand:hover{
-  font-size: 4em!important;
   text-decoration: none;
-  color:#02075d;
+  color:white;
 }
 
 #identify-user {
   margin-right:10px;
-  color:black;
+  color:white;
+}
+
+#home-top-content {
+  color:white;
+}
+
+.nav-item {
+  color:white;
 }
 
 .logout-btn {
   margin-left: 10px;
   font-weight: 400;
-  color: black;
+  color: white;
 }
 
 .logout-btn:hover {
   margin-left: 10px;
   font-weight: 400;
-  color: black;
+  color: white;
   text-decoration: none;
+}
+
+.navbar-nav {
+  color:black;
 }
 
 /* end nav bar styling */
@@ -229,11 +230,11 @@ body {
 
 #add-lesson-btn {
   font-size: large;
-  background-color: #02075d;
+  background-color: #000D33;
   float: right;
   margin-right:2em;
   padding: 0.35em 1.2em;
-  border: 0.1em solid #02075d;
+  border: 0.1em solid #000D33;
   border-radius: 3em;
   box-sizing: border-box;
   text-decoration:none;
@@ -260,10 +261,10 @@ body {
 }
 
 #add-lesson-btn:hover{
-  color:#02075d;
+  color:#000D33;
   background-color:white;
   text-decoration: none;
-  border: 0.1em solid #02075d;
+  border: 0.1em solid #000D33;
   cursor: pointer;
 }
 
@@ -356,7 +357,7 @@ START LOGIN FORMATTING
 }
 
 #title {
-  color: #02075d;
+  color: #000D33;
   font-weight: 900;
 	letter-spacing: 1px;
 	font-size: 2em;
@@ -458,7 +459,7 @@ START LOGIN FORMATTING
 }
 
 #terms-title {
-  color: #02075d;
+  color: #000D33;
   font-weight: 900;
 	letter-spacing: 1px;
 	font-size: 2em;
@@ -474,7 +475,7 @@ END LOGIN FORMATTING
 #verified-only {
   vertical-align: text-top;
   font-size:20px;
-  color: #02075d;
+  color: #000D33;
   font-style: italic;
   font-weight: 600;
 }
@@ -482,19 +483,19 @@ END LOGIN FORMATTING
 #verified-badge {
   vertical-align: text-top;
   font-size:14px;
-  color: #02075d;
+  color: #000D33;
   font-style: italic;
   font-weight: 600;
 }
 
 .fas {
-  color: #02075d;
+  color: #000D33;
 }
 
 #badger {
   white-space: nowrap;
   line-height:2em;
-  background-color: #02075d;
+  background-color: #000D33;
   color:white;
   font-weight:600;
   font-size:12px;
@@ -506,7 +507,7 @@ END LOGIN FORMATTING
 /* general form styling */
 
 .material-url:hover {
-  color: #02075d;
+  color: #000D33;
   text-decoration: underline;
 }
 
@@ -646,42 +647,19 @@ footer a {
 }
 
 
-.standard-btn {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid black;
-  margin: 0.5em 0 0 0.5em;
-  border-radius: 3em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-weight:400;
-  color: black;
-  text-align:center;
-  transition: 0.3s all;
-}
-.standard-btn:hover{
-  color:white;
-  background-color:black;
-  border: 0.1em solid black;
-  text-decoration: none;
-}
-
-
-
-.home-btn {
+.nav-link {
   display: inline-block;
   padding: 0.35em 1.2em;
   border: none;
-  margin: 0.5em 0 0 0.5em;
   border-radius: 3em;
   box-sizing: border-box;
   text-decoration:none;
-  font-weight:400;
-  color: black;
+  font-weight:500;
+  color: white;
   text-align:center;
 }
-.home-btn:hover{
-  color:black;
+.nav-link:hover{
+  color:white;
   text-decoration: none;
 }
 
@@ -700,7 +678,7 @@ footer a {
   box-sizing: border-box;
   text-decoration:none;
   font-weight:400;
-  color: #02075d;
+  color: #000D33;
   text-align:center;
   transition: all 0.2s;
 }
@@ -737,7 +715,7 @@ footer a {
     box-sizing: border-box;
     text-decoration:none;
     font-weight:400;
-    color: #02075d;
+    color: #000D33;
     text-align:center;
     transition: all 0.2s;
   }
@@ -746,6 +724,13 @@ footer a {
   }
   #add-lesson-btn {
     display:none;
+  }
+  .fa-youtube-play, .fa-twitter, .fa-linkedin {
+    display: none;
+  }
+  .dropdown-menu {
+    left:50%; margin-left:-80px;
+    text-align: center;
   }
 }
 
@@ -757,4 +742,19 @@ footer a {
 
 .has-danger .invalid-feedback {
   display: block;
+}
+
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
 }
