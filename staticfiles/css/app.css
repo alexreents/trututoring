@@ -111,7 +111,7 @@ body {
 }
 
 .main-card {
-  padding:4em 2em 0 2em;
+  padding:4em 2em 0.5em 2em;
 }
 
 .main-container {
@@ -374,8 +374,8 @@ START LOGIN FORMATTING
   background-color: white;
 	box-shadow: 0 0 10px rgba(0,0,0,0.3);
   text-align: center;
-  padding-left: 5em;
-  padding-right: 5em;
+  padding-left: 3em;
+  padding-right: 3em;
   position: absolute;
   top: 20%;
   left: 50%;
@@ -384,13 +384,14 @@ START LOGIN FORMATTING
 
 #title {
   color: #000D33;
-  font-weight: 900;
+  font-weight: 300;
 	letter-spacing: 1px;
 	font-size: 2em;
   line-height: 2.8em;
   padding-top: 15%;
   padding-bottom:10%;
   margin: auto auto;
+  text-transform: none;
 }
 
 
@@ -783,4 +784,9 @@ footer a {
 
 .portfolio-item {
   margin-bottom: 30px;
+}
+
+#faq-title {
+  color: #000D33;
+  font-weight:400;
 }
