@@ -470,10 +470,14 @@ START LOGIN FORMATTING
   text-align: center;
 }
 
+#terms-btn a{
+  text-decoration: underline;
+}
+
 #legal {
   height: 15em;
   padding: 3%;
-  text-align:left;
+  text-align: left;
   margin-top: 3%;
   border-width:1.5px;
   border-style:solid;
@@ -484,6 +488,12 @@ START LOGIN FORMATTING
   display: block;
   overflow:scroll;
 }
+
+#legal-heading{
+  text-align: center;
+  font-weight:500;
+}
+
 
 #terms-title {
   color: #000D33;

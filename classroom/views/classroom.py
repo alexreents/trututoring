@@ -14,6 +14,9 @@ class SignUpView(TemplateView):
 class TermsView(TemplateView):
     template_name = 'registration/terms.html'
 
+class PrivacyView(TemplateView):
+    template_name = 'registration/privacy.html'    
+
 class ServicesView(TemplateView):
     template_name = 'classroom/services.html'
 
