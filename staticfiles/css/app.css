@@ -148,7 +148,9 @@ body {
 
 /* nav bar styling */
 #navigation {
-  background-color: #000D33;
+  background: #000D33;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   box-shadow: none;
 }
 
@@ -235,7 +237,7 @@ body {
 .expand {
   font-size: 11em;
   font-weight:500;
-  padding-top:1em;
+  padding-top:1.2em;
   transition: 1s;
   color:white;
   position:fixed;
