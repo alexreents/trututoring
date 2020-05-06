@@ -12,6 +12,13 @@
   padding-left: 12%;
 }
 
+#kid-logo {
+  margin-left:65%;
+  bottom:0;
+  transform: translateY(-63%);
+  margin-bottom:-20em;
+}
+
 #home-title {
   text-align: center;
   padding-top:1em;
@@ -778,7 +785,7 @@ footer a {
   }
   #tru-image {
     color:white;
-    font-size:6em;
+    font-size:7em;
     font-weight:200;
     position: relative;
     text-align: left;
@@ -795,6 +802,9 @@ footer a {
     margin:0;
     position: fixed;
     transition: 1s;
+  }
+  #kid-logo {
+    display:none;
   }
   .login-card {
     z-index:0;
