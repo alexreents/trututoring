@@ -4,13 +4,12 @@
 }
 
 #tru-image {
-  width:60%; 
-  margin: 0;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  color:white;
+  font-size:13em;
+  font-weight:100;
+  position: relative;
+  padding-top:12%;
+  padding-left: 12%;
 }
 
 #home-title {
@@ -142,7 +141,6 @@ body {
 
 /* nav bar styling */
 #navigation {
-  padding-top:1em;
   background-color: #000D33;
   box-shadow: none;
 }
@@ -202,17 +200,38 @@ body {
   color:#000D33;
 }
 
+.fa-bars {
+  position:fixed;
+  top:1.2em;
+  right:1em;
+}
 
-.navbar-brand{
-  font-size: 4em;
-  font-weight: 300;
+.navbar {
+  min-height:4em;
+}
+
+.navbar-brand {
+  transition: 0.5s;
+  padding-top:0;
+  margin-bottom: 0.1em;
+  font-size:4em;
+  font-weight:500;
   color:white;
-  margin-bottom: 0.2em;
+  position:fixed;
 }
 
 .navbar-brand:hover{
   text-decoration: none;
   color:white;
+}
+
+.expand {
+  font-size: 11em;
+  font-weight:500;
+  padding-top:1em;
+  transition: 1s;
+  color:white;
+  position:fixed;
 }
 
 #identify-user {
@@ -241,9 +260,7 @@ body {
   text-decoration: none;
 }
 
-.navbar-nav {
-  color:black;
-}
+
 
 /* end nav bar styling */
 
@@ -748,10 +765,36 @@ footer a {
   overflow-x: scroll;
 }
 
+.carousel-inner{
+  width:100%;
+  max-height: 32em !important;
+}
+
 /* before 600 */
 @media screen and (max-width: 599px) , screen and (max-height: 599px) {
+  .carousel-inner{
+    width:100%;
+    max-height: 18em !important;
+  }
   #tru-image {
-    width:80%;
+    color:white;
+    font-size:6em;
+    font-weight:200;
+    position: relative;
+    text-align: left;
+    padding-left:5%;
+    padding-top: 30%;
+  }
+
+  .expand {
+    font-size: 7em;
+    color:white;
+    font-weight:500;
+    transition: 0s;
+    padding-top:0.6em;
+    margin:0;
+    position: fixed;
+    transition: 1s;
   }
   .login-card {
     z-index:0;

@@ -38,6 +38,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top" id="navigation">
+
       <div class="container">
         <!-- for sju demos 
         {% if user.is_authenticated %}
@@ -46,9 +47,9 @@
           <a class="navbar-brand" style="color:#000D33;" href="{% url 'home' %}">tru</a>
         {% endif %}
         -->
-          <a class="navbar-brand" href="{% url 'home' %}">tru</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <i style="color:white" class="fas fa-bars"></i>
+        <a class="navbar-brand" href="{% url 'home' %}">tru</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i style="color:white" class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -98,7 +99,6 @@
         </div>
       </div>
     </nav>
-
     
     <!-- begin website code -->
     {% block content %}
@@ -115,6 +115,25 @@
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       })
+    </script>
+    <script>
+      var sPage = window.location.pathname;
+      if(sPage == "/") {
+        $('.navbar-brand').addClass('expand');
+        $(window).on('scroll', function () {
+          if ($(this).scrollTop() > 0) {
+              if ($('.navbar-brand').hasClass('expand')) {
+                  $('.navbar-brand').removeClass('expand');
+              }
+          } else {
+              if (!$('.navbar-brand').hasClass('expand')) {
+                  $('.navbar-brand').addClass('expand');
+              }
+          }
+        });
+      } else {
+        $('.navbar-brand').removeClass('expand');
+      }
     </script>
 
   </body>
