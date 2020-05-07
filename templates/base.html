@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
 
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@700&display=swap" rel="stylesheet">
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -42,9 +45,9 @@
       <div class="container">
         <!-- for sju demos 
         {% if user.is_authenticated %}
-          {% load static %}<a class="navbar-brand" style="color:#000D33;" href="{% url 'home' %}"><img style="height:80px; border:none;" class="img-fluid" src="{% static 'img/San_Juan_Unified.jpg' %}" alt=""></a>
+          {% load static %}<a class="navbar-brand" style="color:#415ebe;" href="{% url 'home' %}"><img style="height:80px; border:none;" class="img-fluid" src="{% static 'img/San_Juan_Unified.jpg' %}" alt=""></a>
         {% else %}
-          <a class="navbar-brand" style="color:#000D33;" href="{% url 'home' %}">tru</a>
+          <a class="navbar-brand" style="color:#415ebe;" href="{% url 'home' %}">tru</a>
         {% endif %}
         -->
         <a class="navbar-brand" href="{% url 'home' %}">tru</a>
@@ -121,7 +124,7 @@
       if(sPage == "/") {
         $('.navbar-brand').addClass('expand');
         $(window).on('scroll', function () {
-          if ($(this).scrollTop() > 0) {
+          if ($(this).scrollTop() > 30) {
               if ($('.navbar-brand').hasClass('expand')) {
                   $('.navbar-brand').removeClass('expand');
               }
