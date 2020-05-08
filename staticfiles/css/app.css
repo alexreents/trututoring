@@ -22,20 +22,24 @@
 
 #home-title-1{
   font-family: 'Domine', serif;
-  text-align: left;
-  padding-top:0.5em;
-  padding-bottom:0.8em;
-  font-size: 3.2em;
+  text-align: center;
+  padding-top:1.5em;
+  padding-bottom:1.5em;
+  font-size: 2.8em;
   color:#415ebe;
 }
 
 #home-title-2{
   font-family: 'Domine', serif;
-  text-align: left;
-  padding-top:0em;
-  padding-bottom:0.8em;
-  font-size: 3.5em;
+  text-align: center;
+  padding-top:0.5em;
+  padding-bottom:4rem;
+  font-size: 3.7em;
   color:#415ebe;
+}
+
+#home-line {
+  padding-bottom:3rem;
 }
 
 
@@ -55,6 +59,8 @@
 }
 
 #home-info-block {
+  font-size: 18px;
+  line-height: 1.5em;
   margin-bottom:5em;
 }
 
@@ -96,6 +102,21 @@
   text-decoration: underline;
 }
 
+#home-page-btn2 {
+  float:right;
+  font-size: large;
+  background-color: #415ebe;
+  margin-top:1em;
+  padding: 0.25em 1.2em;
+  border: 2px solid #415ebe;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: white;
+  text-align:center;
+  transition: all 0.2s;
+}
 
 #home-page-btn {
   font-size: large;
@@ -106,13 +127,13 @@
   border-radius: 3em;
   box-sizing: border-box;
   text-decoration:none;
-  font-weight:500;
+  font-weight:400;
   color: white;
   text-align:center;
   transition: all 0.2s;
 }
 
-#home-page-btn:hover{
+#home-page-btn:hover, #home-page-btn2:hover{
   color:#415ebe;
   background-color:white;
   text-decoration: none;
@@ -805,8 +826,23 @@ footer a {
   max-height: 32em !important;
 }
 
+#home-right-text {
+  text-align:right;
+}
 /* before 600 */
-@media screen and (max-width: 599px) , screen and (max-height: 599px) {
+@media screen and (max-width: 600px) , screen and (max-height: 600px) {
+  #home-page-btn2 {
+    float:left;
+  }
+  #home-right-text {
+    text-align: left;
+  }
+  #home-title-3{
+    font-family: 'Domine', serif;
+    text-align: center!important;
+    font-size: 2.5em;
+    color:black;
+  }
   .carousel-inner{
     width:100%;
     max-height: 18em !important;
@@ -818,7 +854,7 @@ footer a {
     position: relative;
     text-align: left;
     padding-left:5%;
-    padding-top: 30%;
+    padding-top: 20%;
   }
 
   .expand {

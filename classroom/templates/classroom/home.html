@@ -46,80 +46,120 @@
 <!-- Page Content -->
 <div class="container">
 
-  <h1 id="home-title-1" class="my-4">Let's re-think outside learning.</h1>
+  <h1 id="home-title-1" class="my-4">Looking for extra help with school?<br>Most options aren't great.</h1>
   <h2 id="home-title-3" class="my-4">Online tutorials? Parents?</h2>
   <h1 id="home-title-4" class="my-4">(Not so helpful)</h1>
   <br>
   <h2 id="home-title-3" class="my-4">$50+ for a tutor?</h2>
   <h1 id="home-title-4" class="my-4">(Not worth it)</h1>
   <br>
-  <h1 id="home-title-2" class="my-4">We do things differently.</h1>
-
+  
+  <h1 id="home-title-2" class="my-4">Let's re-think outside learning.</h1>
 
   <!-- Features Section -->
+  <h2 id="home-title-3" style="text-align:left" class="my-4">What is peer-to-peer learning?</h2>
+
   <div id="home-info-block" class="row">
-    <div class="col-lg-6">
-      <h2 id="page-title">Modern Business Features</h2>
-      <p>The Modern Business template by Start Bootstrap includes:</p>
-      <ul>
-        <li>
-          <strong>Bootstrap v4</strong>
-        </li>
-        <li>jQuery</li>
-        <li>Font Awesome</li>
-        <li>Working contact form with validation</li>
-        <li>Unstyled page elements for easy customization</li>
-      </ul>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+
+    <div class="col-lg-7">
+
+      <p>Our approach toward tutoring involves student-to-student interaction. We utilize the expertise of high schoolers who've
+       already demonstrated academic success in the specific subject of need. These tutors are familiar with both the local curriculum 
+       and the nature of student learning. They are, after all, students themselves.
+      </p>
+      <p>Peer-to-peer interaction has many benefits both in the classroom and outside. Click below to find out more about our method
+        of learning!
+      </p>
+      
+      <br>
+      <a href="{% url 'about' %}" id="home-page-btn">Learn More</a>
     </div>
-    <div class="col-lg-6">
-      <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+    <div class="col-lg-5" style="text-align:center;">
+      <i style="padding-top:2rem; font-size: 10em;" class="fas fa-user-friends"></i>
     </div>
   </div>
   <!-- /.row -->
 
   <!-- Features Section -->
+
   <div id="home-info-block" class="row">
+
     <div class="col-lg-6">
-      <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+      <h2 id="home-title-3" style="text-align: left" class="my-4">Parents and Students</h2>
+
+
+      <p>Our approach toward tutoring involves student-to-student interaction. We utilize the expertise of high schoolers who've
+       already demonstrated academic success in the specific subject of need. These tutors are familiar with both the local curriculum 
+       and the nature of student learning. They are, after all, students themselves.
+      </p>
+      <p>Peer-to-peer interaction has many benefits both in the classroom and outside. Click below to find out more about our method
+        of learning!
+      </p>
+      
+      <br>
+      <a href="{% url 'student_signup' %}" id="home-page-btn">Get Started</a>
+      
     </div>
-    <div class="col-lg-6">
-      <h2 id="page-title">Modern Business Features</h2>
-      <p>The Modern Business template by Start Bootstrap includes:</p>
-      <ul>
-        <li>
-          <strong>Bootstrap v4</strong>
-        </li>
-        <li>jQuery</li>
-        <li>Font Awesome</li>
-        <li>Working contact form with validation</li>
-        <li>Unstyled page elements for easy customization</li>
-      </ul>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+    <div class="col-lg-6" style="padding-left:5%; padding-top:3em;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/f0xoImPivhE?start=34" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+
   </div>
+  
   <!-- /.row -->
 
-  <!-- Features Section -->
+
   <div id="home-info-block" class="row">
-    <div class="col-lg-6">
-      <h2 id="page-title">COVID-19: How We Can Help</h2>
-      <p>The Modern Business template by Start Bootstrap includes:</p>
-      <ul>
-        <li>
-          <strong>Bootstrap v4</strong>
-        </li>
-        <li>jQuery</li>
-        <li>Font Awesome</li>
-        <li>Working contact form with validation</li>
-        <li>Unstyled page elements for easy customization</li>
-      </ul>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-    </div>
-    <div class="col-lg-6">
+
+    <div class="col-lg-6" style="padding-top:1.5em">
       <img class="img-fluid rounded" src="{% static 'img/remote.jpg' %}" alt="">
     </div>
+
+    <div id="home-right-text" class="col-lg-6">
+      <h2 style="text-align:right" id="home-title-3" class="my-4">Interested in Tutoring?</h2>
+
+      <p>Our approach toward tutoring involves student-to-student interaction. We utilize the expertise of high schoolers who've
+       already demonstrated academic success in the specific subject of need. These tutors are familiar with both the local curriculum 
+       and the nature of student learning. They are, after all, students themselves.
+      </p>
+      <p>Peer-to-peer interaction has many benefits both in the classroom and outside. Click below to find out more about our method
+        of learning!
+      </p>
+      
+      <a href="{% url 'teacher_signup' %}" id="home-page-btn2">Join Us</a>
+      
+    </div>
+    
+
   </div>
+  
+  <!-- /.row -->
+
+  <!-- Features Section -->
+  <h2 id="home-title-3" style="text-align: left" class="my-4">COVID-19: How we're helping</h2>
+
+  <div id="home-info-block" class="row">
+
+    <div class="col-lg-6">
+
+      <p>Our approach toward tutoring involves student-to-student interaction. We utilize the expertise of high schoolers who've
+       already demonstrated academic success in the specific subject of need. These tutors are familiar with both the local curriculum 
+       and the nature of student learning. They are, after all, students themselves.
+      </p>
+      <p>Peer-to-peer interaction has many benefits both in the classroom and outside. Click below to find out more about our method
+        of learning!
+      </p>
+      <br>
+      <a href="{% url 'services' %}" id="home-page-btn">Explore Serivces</a>
+      
+    </div>
+
+    <div class="col-lg-5" style="text-align:right;">
+      <i style="padding-top:2rem; font-size: 10em;" class="fas fa-video"></i>
+    </div>
+
+  </div>
+
   <!-- /.row -->
 
 </div>
