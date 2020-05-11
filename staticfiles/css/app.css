@@ -13,11 +13,12 @@
 }
 
 #kid-logo {
+  width:26%;
   margin-left:65%;
   bottom:0;
   transform: translateY(-63%);
   margin-bottom:-20em;
-  filter: brightness(0.15) invert(1);
+  filter: brightness(0.2) invert(1);
 }
 
 #home-title-1{
@@ -42,6 +43,14 @@
   padding-bottom:3rem;
 }
 
+#faq-title-top{
+  font-family: 'Domine', serif;
+  text-align: center;
+  font-size: 2.2em;
+  color:black;
+  margin:0;
+  padding-top:0;
+}
 
 #home-title-3{
   font-family: 'Domine', serif;
@@ -59,6 +68,7 @@
 }
 
 #home-info-block {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.5em;
   margin-bottom:5em;
@@ -66,7 +76,7 @@
 
 
 .bottom-footer {
-  position:absolute;
+  position:fixed;
   bottom:0;
   width:100%;
 }
@@ -164,8 +174,11 @@
 }
 
 #page-title {
-  font-weight:400;
-  margin-bottom:0.7em;
+  font-family: 'Domine', serif;
+  text-align: center;
+  font-size: 2em;
+  color:black;
+  padding-bottom:1rem;
 }
 
 html {
@@ -829,8 +842,12 @@ footer a {
 #home-right-text {
   text-align:right;
 }
+
 /* before 600 */
 @media screen and (max-width: 600px) , screen and (max-height: 600px) {
+  .fa-video{
+    display: none;
+  }
   #home-page-btn2 {
     float:left;
   }
