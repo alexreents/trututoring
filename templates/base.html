@@ -50,10 +50,14 @@
           <a class="navbar-brand" style="color:#415ebe;" href="{% url 'home' %}">tru</a>
         {% endif %}
         -->
+
+
+
+
         <a class="navbar-brand" href="{% url 'home' %}">tru</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler" data-toggle="collapse" data-target="#navbarResponsive">
         <i style="color:white" class="fas fa-bars"></i>
-        </button>
+        </span>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
@@ -124,7 +128,7 @@
       if(sPage == "/") {
         $('.navbar-brand').addClass('expand');
         $(window).on('scroll', function () {
-          if ($(this).scrollTop() > 30) {
+          if ($(this).scrollTop() > 0) {
               if ($('.navbar-brand').hasClass('expand')) {
                   $('.navbar-brand').removeClass('expand');
               }
