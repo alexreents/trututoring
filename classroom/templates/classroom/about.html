@@ -7,14 +7,22 @@
 
       <!-- Intro Content -->
       <div class="row">
-        <div class="col-lg-6">
-          <img class="img-fluid rounded mb-4" src="http://placehold.it/750x450" alt="">
-        </div>
-        <div id="home-info-block" class="col-lg-6">
+        
+        <div id="about-info-block" class="col-lg-9">
           <h2 id="page-title">About TRU Tutoring</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+          <p><strong>Mission: </strong>Provide peer-to-peer tutoring services that make quality learning truly affordable.</p>
+          <p><strong>Core Beliefs:</strong> TRU Tutoring believes that learning from a peer who has a shared academic experience is the most effective supplement to learning in the classroom. Peer to peer tutoring interactions facilitate positive environments for two way learning. 
+            <br><br>
+            We believe that “to teach is to learn twice.”
+            <br><br>
+
+            We also believe that learning done in the classroom is only a portion of a students learning experience. And yet, tutoring services are far too expensive for many families. People should have access to affordable education without sacrificing quality.
+            </p>
+          <p><strong>Peer-to-peer: </strong>Peer to peer tutoring increases retention rates and comprehension of material, empowers students to learn and teach, and creates an environment of “inclusive excellence.”
+          </p>
+        </div>
+        <div class="col-lg-3">
+          {% load static %}<img class="img-fluid rounded mb-4" src="{% static 'img/books.jpg' %}" alt="">
         </div>
       </div>
       <!-- /.row -->
@@ -25,11 +33,16 @@
       <div class="row">
         <div class="col-lg-3 mb-4">
           <div class="card h-100 text-center">
-            {% load static %}<img class="card-img-top" src="{% static 'img/eemon.png' %}" alt="">
+            <div class="container-profile">
+              {% load static %}<img class="card-img-top" src="{% static 'img/eemon.png' %}" alt="">
+              <div class="middle">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
+              </div>
+            </div>
+
             <div class="card-body">
-              <h4 class="card-title">Eemon Ghasemiyeh</h4>
+              <h4 class="card-title">Eemon Ghasemiyah</h4>
               <h6 class="card-subtitle mb-2 text-muted">Founder</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
             </div>
             <div class="card-footer">
               <a href="mailto:imran@trututoring.live">imran@trututoring.live</a>
@@ -38,11 +51,20 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="card h-100 text-center">
-            {% load static %}<img class="card-img-top" src="{% static 'img/alex.png' %}" alt="">
+            <div class="container-profile">
+              {% load static %}<img class="card-img-top" src="{% static 'img/alex.png' %}" alt="">
+              <div class="middle">
+                <p class="card-text">Alex is focused on the development of business operations and vertical growth within TRU. He is also responsible for building
+our website and application functionality. 
+<br><br>
+Alex, a team member since January 2020, is from Seattle, WA and is currently pursuing degrees in Economics and Computer Science.
+                </p>
+              </div>
+            </div>
+
             <div class="card-body">
               <h4 class="card-title">Alex Reents</h4>
               <h6 class="card-subtitle mb-2 text-muted">Lead, Business Development</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
             </div>
             <div class="card-footer">
               <a href="mailto:alex@trututoring.live">alex@trututoring.live</a>
@@ -51,11 +73,20 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="card h-100 text-center">
-            {% load static %}<img class="img-fluid" src="{% static 'img/aidan.png' %}" alt="">
+            <div class="container-profile">
+              {% load static %}<img class="card-img-top" src="{% static 'img/aidan.png' %}" alt="">
+              <div class="middle">
+                <p class="card-text">Aidan is focused on developing our framework for effective peer-to-peer tutoring. 
+His extensive research into the cognitive benefits of peer learning has been instramental in desiging a model for quality tutoring. 
+<br><br>
+Aidan, a team member since December 2019, is from Berkeley, CA and is currently pursuing a degree in Cognitive Science at Santa Clara University.
+                </p>
+              </div>
+            </div>
+
             <div class="card-body">
               <h4 class="card-title">Aidan Williams</h4>
-              <h6 class="card-subtitle mb-2 text-muted">Lead, Behavioral Learning</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
+              <h6 class="card-subtitle mb-2 text-muted">Lead, Congitive Science</h6>
             </div>
             <div class="card-footer">
               <a href="mailto:aidan@trututoring.live">aidan@trututoring.live</a>
@@ -64,11 +95,21 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="card h-100 text-center">
-            {% load static %}<img class="card-img-top" src="{% static 'img/diego.png' %}" alt="">
+            <div class="container-profile">
+              {% load static %}<img class="card-img-top" src="{% static 'img/diego.png' %}" alt="">
+              <div class="middle">
+                <p class="card-text">Diego is focused on all legal operations for TRU Tutoring. He is responsible for managing TRU as a legal entity and for
+developing contracts essential to maintaining the integrity and safety of our service.
+<br><br>
+Diego, a team member since February 2020, is from Los Altos, CA and is currently pursuing degrees in Political Science and Economics at Santa Clara University.
+Diego is on the pre-law track and plans to attend law school.
+                </p>
+              </div>
+            </div>
+
             <div class="card-body">
               <h4 class="card-title">Diego Pedrayes</h4>
               <h6 class="card-subtitle mb-2 text-muted">Lead, Legal</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
             </div>
             <div class="card-footer">
               <a href="mailto:diego@trututoring.live">diego@trututoring.live</a>

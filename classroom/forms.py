@@ -248,3 +248,15 @@ class LessonChangeForm(forms.ModelForm):
             'date': forms.DateInput(),
             'material': forms.Textarea(attrs={"id": "material-text"}),
         }
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
+
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs['placeholder'] = 'Full Name'
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['message'].widget.attrs['placeholder'] = 'Your Message'

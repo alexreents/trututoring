@@ -1,12 +1,14 @@
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from ..forms import ContactForm
+
 
 class AboutView(TemplateView):
     template_name = 'classroom/about.html'
-
-class ContactView(TemplateView):
-    template_name = 'classroom/contact.html'
 
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
@@ -26,6 +28,8 @@ class FAQView(TemplateView):
 class PricingView(TemplateView):
     template_name = 'classroom/pricing.html'
 
+
+
 def home(request):
     if request.user.is_authenticated:
         if request.user.is_teacher:
@@ -35,3 +39,20 @@ def home(request):
             #return render(request, 'classroom/students/tutor_list.html')
             return redirect('students:tutor_list')
     return render(request, 'classroom/home.html')
+
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            sender_name = form.cleaned_data['name']
+            sender_email = form.cleaned_data['email']
+
+            message = "{0} has sent you a new message:\n\n{1}".format(sender_name, form.cleaned_data['message'])
+            send_mail('New Enquiry', message, sender_email, ['trututoring@gmail.com'])
+            return render(request, 'classroom/thanks.html')
+    else:
+        form = ContactForm()
+
+    return render(request, 'classroom/contact.html', {'form': form})

@@ -4,7 +4,8 @@ from .views import classroom, students, teachers
 
 urlpatterns = [
     path('', classroom.home, name='home'),
-    
+
+    path('contact', classroom.contact, name='contact'),
 
     path('payment-done/', students.payment_done, name='payment_done'),
     path('payment-canceled/', students.payment_canceled, name='payment_canceled'),

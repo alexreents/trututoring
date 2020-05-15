@@ -9,7 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('about/', classroom.AboutView.as_view(), name='about'),
-    path('contact/', classroom.ContactView.as_view(), name='contact'),
+
     path('services/', classroom.ServicesView.as_view(), name='services'),
     path('faq/', classroom.FAQView.as_view(), name='faq'),
     path('pricing/', classroom.PricingView.as_view(), name='pricing'),
