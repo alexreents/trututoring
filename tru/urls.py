@@ -4,9 +4,10 @@ from classroom.views import classroom, students, teachers
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+
     path('', include('classroom.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
-    path('admin/', admin.site.urls),
 
     path('about/', classroom.AboutView.as_view(), name='about'),
 
