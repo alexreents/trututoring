@@ -539,6 +539,7 @@ START LOGIN FORMATTING
   top: 20%;
   left: 50%;
   transform: translate(-50%);
+  position:fixed;
 }
 
 #title {
@@ -576,6 +577,12 @@ START LOGIN FORMATTING
   font-size: smaller;
 }
 
+.alert-danger {
+  position:fixed;
+  padding:0.5em;
+  margin-right:2em;
+}
+
 .login-box input, .login-card input {
   padding: 3%;
   width:25em;
@@ -593,6 +600,7 @@ START LOGIN FORMATTING
   -webkit-appearance: none;
   display: block;
   font-size: 16px;
+  position:sticky;
 }
 
 
