@@ -1,0 +1,292 @@
+/* home top design */
+
+#tru-image {
+color:white;
+font-size:13em;
+font-weight:100;
+position: relative;
+padding-top:12%;
+padding-left: 12%;
+}
+
+#kid-logo {
+width:26%;
+margin-left:65%;
+bottom:0;
+transform: translateY(-63%);
+margin-bottom:-20em;
+filter: brightness(0.2) invert(1);
+}
+
+.expand {
+font-size: 11em;
+font-weight:500;
+padding-top:1.2em;
+transition: 1s;
+color:white;
+position:fixed;
+}
+
+/* end home top design */
+
+/* home text */
+
+
+#home-title-1{
+font-family: 'Domine', serif;
+text-align: center;
+padding-top:1.5em;
+padding-bottom:1.5em;
+font-size: 2.8em;
+color:#415ebe;
+}
+
+#home-title-2{
+font-family: 'Domine', serif;
+text-align: center;
+padding-top:0.5em;
+padding-bottom:4rem;
+font-size: 3.7em;
+color:#415ebe;
+}
+
+#home-line {
+padding-bottom:1rem;
+}
+
+#home-title-3{
+font-family: 'Domine', serif;
+text-align: center;
+font-size: 2.5em;
+color:black;
+}
+
+#home-title-4{
+font-size: 1.5em;
+color:black;
+text-align: center;
+font-style: italic;
+text-transform: lowercase;
+}
+
+#home-info-block {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 18px;
+line-height: 1.5em;
+margin-bottom:5em;
+}
+
+
+#home-page-txt {
+line-height: 1.4em;
+padding-top: 0.5em;
+padding-bottom: 1em;
+}
+
+#home-top-content {
+color:white;
+}
+
+/* end home text */
+
+
+/* other home pages */
+
+#faq-title-top{
+font-family: 'Domine', serif;
+text-align: center;
+font-size: 2.2em;
+color:black;
+margin:0;
+padding-top:0;
+}
+
+
+#about-info-block {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 18px;
+line-height: 1.5em;
+margin-bottom:5em;
+padding-right:2em;
+}
+
+.card-img-top {
+opacity: 1;
+display: block;
+width: 100%;
+height: auto;
+transition: .5s ease;
+backface-visibility: hidden;
+}
+
+#card-primary {
+background-color: #415ebe;
+}
+
+.card-footer {
+background-color: #415ebe;
+}
+
+.card-footer a {
+color:white;
+}
+
+.card-footer a:hover {
+color:white;
+text-decoration: underline;
+}
+
+#page-title {
+font-family: 'Domine', serif;
+text-align: left;
+font-size:2.5em;
+color:black;
+padding-bottom:1rem;
+}
+
+#page-title-contact {
+font-family: 'Domine', serif;
+font-size:3em;
+color:black;
+text-align: center;
+padding-bottom:1rem;
+}
+
+
+/* end other home pages */
+
+
+/* contact page */
+
+.contact-box {
+    margin-bottom: 2em;
+    float: right;
+    padding:2em;
+  }
+  
+  .contact-box form {
+    z-index: 5px;
+  }
+  
+  .contact-box label {
+    display: none;
+  }
+  
+  .contact-box input::placeholder, .contact-box textarea::placeholder {
+    text-align: left;
+    color:black;
+    position: relative;
+  }
+  
+  
+  .contact-box input, .contact-box #id_message {
+    padding:2%;
+    padding-left:5%;
+    width:25em;
+    margin-top:2%;
+    margin-bottom:1%;
+    border-width:1px;
+    border-style:solid;
+    border-color:black;
+    border-radius:1em;
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 16px;
+    text-align: left;
+    -webkit-appearance: none;
+    display: block;
+    font-size: 16px;
+  }
+  
+  
+  #id_message {
+    text-align: left!important;
+    height:10em!important;
+  }
+  
+  #contact-btn {
+    background-color: white;
+    text-align: center;
+    border-color:black;
+    color:#415ebe;
+    font-weight: 500;
+  }
+  
+  #contact-btn:hover {
+    color:white;
+    border-color: #415ebe;
+    background-color: #415ebe;
+    transition: 0.5s;
+  }
+  
+  
+  .left-contact-info ul {
+    list-style: none;
+    text-align: left;
+    padding:0;
+    margin-top: 1rem;
+  }
+  
+  .left-contact-info li {
+    width:20rem;
+    border:solid 0.5px black;
+    padding:1rem;
+    margin-top:1rem;
+    transition: 0.5s;
+    color:black;
+    font-weight: 500;
+    transition: 0.5s ease;
+  }
+  
+  .left-contact-info li a {
+    text-decoration: none;
+    color:black;
+    padding-right:5rem;
+  }
+  
+  .left-contact-info li:hover {
+    width:20rem;
+    padding:1.5rem;
+    margin-top:1rem;
+    transition: 0.5s ease;
+    color:#415ebe;
+    border:solid 0.5px #415ebe;
+  }
+  
+  .left-contact-info li:hover a{
+    text-decoration: none;
+    color:#415ebe;
+    padding-right:5rem;
+  
+  }
+  
+  .right-contact-info {
+    margin-top:1rem;
+    float:right;
+    border-left:solid black 1px;
+    width:13rem;
+    margin-right:2rem;
+    text-align: right;
+  }
+  
+  .right-contact-info a {
+    text-decoration: none;
+    color: #415ebe;
+  }
+  
+  .fa-inbox {
+    display:none;
+  }
+  
+  .right-contact-info a:hover {
+    text-decoration: underline;
+    color: #415ebe;
+  }
+  
+  .fa-angle-right {
+    float:right;
+  }
+
+  /* end contact */
+

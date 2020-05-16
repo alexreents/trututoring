@@ -1,0 +1,185 @@
+/* general styling */
+
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html {
+  height:100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.main-card {
+  padding:4em 2em 0.5em 2em;
+}
+
+.main-container {
+  padding:7em 2em 0 2em;
+}
+
+/* end general styling */
+
+/* navigation */
+
+#navigation {
+  background: rgb(65,94,190);
+  background: linear-gradient(90deg, rgba(65,94,190,1) 11%, rgba(42,82,152,1) 100%);  box-shadow: none;
+}
+
+.navbar {
+  min-height:4em;
+}
+
+.navbar-brand {
+  transition: 0.5s;
+  font-size:4em;
+  font-weight:500;
+  color:white;
+  position:fixed;
+  padding-bottom:0.2em;
+}
+
+.navbar-brand:hover{
+  text-decoration: none;
+  color:white;
+}
+
+#identify-user {
+  margin-right:10px;
+  color:white;
+}
+
+
+.nav-item {
+  color:white;
+  font-size: 16px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: none;
+  border-radius: 3em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color: white;
+  text-align:center;
+}
+.nav-link:hover{
+  color:white;
+  text-decoration: none;
+}
+
+.logout-btn {
+  margin-left: 10px;
+  font-weight: 400;
+  color: white;
+}
+
+.logout-btn:hover {
+  margin-left: 10px;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+}
+
+.toggler i{
+  color:transparent!important;
+}
+
+.toggler i:hover{
+  color:transparent!important;
+  cursor: pointer;
+  text-transform: none;
+  color:white!important;
+}
+
+
+/* end navigation */
+
+
+
+/* footer */
+
+#admin-link {
+  color:black;
+  text-decoration: none;
+  font-weight:400;
+}
+
+#admin-link:hover {
+  color:black;
+  text-decoration: underline;
+  font-weight:400;
+}
+
+footer {
+  font-size: .9rem;
+}
+
+footer a {
+  color: #212529;
+}
+
+.bottom-footer {
+  position: fixed;
+  bottom:0;
+  width:100%;
+}
+
+
+#facebook-pg-link {
+  color: #415ebe;
+}
+
+#facebook-pg-link:hover {
+  color: #415ebe;
+  text-decoration: underline;
+}
+
+/* end footer */
+
+/* errors and alerts */
+
+#alerting {
+  margin-top: 2em;
+  padding-bottom:1em;
+  background-color: #415ebe;
+  color:white;
+  border-color:white;
+}
+
+
+#close-button {
+  float:right;
+  background-color: transparent;
+  border:none;
+}
+
+.helptext {
+  display:none;
+}
+
+.errorlist {
+  color:red;
+  list-style-type: none;
+  text-align: center;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-size: smaller;
+}
+
+.alert-danger {
+  position:fixed;
+  padding:0.5em;
+  margin-right:2em;
+}
+
+/* end error and alerts */
+

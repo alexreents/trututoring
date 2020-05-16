@@ -1,0 +1,199 @@
+.triple-btn {
+    margin-top:2em;
+    display: inline-block;
+    margin-right:20%;
+    margin-left:20%;
+    margin-bottom:5em;
+  }
+  
+  .sign-btn {
+    margin-top:2em;
+    margin-bottom:5em;
+    display: inline-block;
+  }
+  
+  .sign-btn button {
+    background-color: white;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid black;
+    border-radius: 3em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: black;
+    text-align:center;
+    transition: all 0.2s;
+    margin-left:1em;
+    margin-right:1em;
+    margin-top:1em;
+  }
+  
+  .sign-btn button:hover{
+    color:white;
+    background-color:black;
+    text-decoration: none;
+    border: 0.1em solid black;
+    cursor: pointer;
+  }
+
+  #hit-btn, #yes-btn, #no-btn {
+    background-color: white;
+    display: inline-block;
+    margin-top:2%;
+    margin-bottom:2%;
+    margin-left: 3%;
+    margin-right: 5%;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid black;
+    border-radius: 3em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: black;
+    text-align:center;
+    transition: all 0.2s;
+  }
+  
+  #add-lesson-btn {
+    font-size: large;
+    background-color: #415ebe;
+    float: right;
+    margin-right:2em;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #415ebe;
+    border-radius: 3em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: white;
+    text-align:center;
+    transition: all 0.2s;
+  }
+  
+  #yes-btn:hover{
+    color:white;
+    background-color:green;
+    text-decoration: none;
+    border: 0.1em solid green;
+    cursor: pointer;
+  }
+  
+  #no-btn:hover{
+    color:white;
+    background-color:red;
+    text-decoration: none;
+    border: 0.1em solid red;
+    cursor: pointer;
+  }
+  
+  #add-lesson-btn:hover{
+    color:#415ebe;
+    background-color:white;
+    text-decoration: none;
+    border: 0.1em solid #415ebe;
+    cursor: pointer;
+  }
+  
+  
+  #hit-btn:hover{
+    color:white;
+    background-color:black;
+    text-decoration: none;
+    border: 0.1em solid black;
+    cursor: pointer;
+  }
+
+  #home-terms-btn {
+    background-color: white;
+    display: inline-block;
+    margin-left: 2%;
+    padding: 0.3em 0.8em;
+    border: 0.1em solid white;
+    border-radius: 3em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: black;
+    text-align:center;
+  }
+
+  #home-page-btn {
+    font-size: large;
+    background-color: #415ebe;
+    margin-top:1em;
+    padding: 0.35em 1.2em;
+    border: 2px solid #415ebe;
+    border-radius: 3em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: white;
+    text-align:center;
+    transition: all 0.2s;
+  }
+  
+  #home-page-btn:hover, #home-page-btn2:hover{
+    color:#415ebe;
+    background-color:white;
+    text-decoration: none;
+    border: 2px solid #415ebe;
+    cursor: pointer;
+  }
+
+  #home-page-btn2 {
+    float:right;
+    font-size: large;
+    background-color: #415ebe;
+    margin-top:1em;
+    padding: 0.25em 1.2em;
+    border: 2px solid #415ebe;
+    border-radius: 3em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: white;
+    text-align:center;
+    transition: all 0.2s;
+  }
+
+
+  /* login */
+
+  .login-box button {
+    background-color: white;
+    display: inline-block;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid black;
+    border-radius: 3em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    color: black;
+    text-align:center;
+    transition: all 0.2s;
+  }
+  
+  .login-box button:hover{
+    color:white;
+    background-color:green;
+    text-decoration: none;
+    border: 0.1em solid green;
+    cursor: pointer;
+  }
+  
+  #terms-btn {
+    font-weight: 400;
+      font-size: 12px;
+      color: black;
+      letter-spacing: 1px;
+    text-transform: lowercase;
+    text-align: center;
+  }
+  
+  #terms-btn a{
+    text-decoration: underline;
+  }
+
+  /* end login */
