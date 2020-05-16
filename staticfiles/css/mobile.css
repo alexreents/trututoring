@@ -70,10 +70,10 @@
         position: relative;
         text-align: left!important;
         padding-left:7%!important;
-        padding-top: 20%!important;
+        padding-top: 22%!important;
       }
     .expand {
-        font-size: 7em;
+        font-size: 6em!important;
         color:white;
         font-weight:500;
         padding-top:0.6em;
