@@ -85,8 +85,8 @@
                   Services
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownBlog">
-                  <a href="{% url 'services' %}" class="dropdown-item">Services</a>
-                  <div class="dropdown-divider"></div>
+                  <!--<a href="{% url 'services' %}" class="dropdown-item">Services</a>
+                  <div class="dropdown-divider"></div>-->
                   <a class="dropdown-item" href="{% url 'pricing' %}">Pricing</a>
                   <a class="dropdown-item" href="{% url 'faq' %}">FAQ</a>
                 </div>
@@ -138,9 +138,7 @@
               }
           }
         });
-      } else {
-        $('.navbar-brand').removeClass('expand');
-      }
+      } 
     </script>
 
   </body>

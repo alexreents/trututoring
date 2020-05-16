@@ -342,6 +342,7 @@ body {
   font-weight:500;
   color:white;
   position:fixed;
+  padding-bottom:0.2em;
 }
 
 .navbar-brand:hover{
