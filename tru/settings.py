@@ -27,8 +27,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # DEVELOPMENT
 SECRET_KEY = 'yr-!bb+ed3*mcx@0@!2+jso61ydy$k8(#xx@4^!0v5^^ky!hd9'
-DEBUG = True
+DEBUG = False
+
 DEBUG_PROPAGATE_EXCEPTIONS = True
+TASTYPIE_FULL_DEBUG = True
 
 
 ALLOWED_HOSTS = ['trututoring.herokuapp.com', 'www.trututoring.live', 'localhost','0.0.0.0']
