@@ -70,8 +70,29 @@
     font-size: 16px;
     position:sticky;
   }
+
+  #title-2 {
+    color: #415ebe;
+    font-weight: 300;
+      letter-spacing: 1px;
+      font-size: 1.8em;
+    line-height: 2.8em;
+    padding-top: 5%;
+    padding-bottom:15%;
+    margin: auto auto;
+    text-transform: uppercase;
+  }
   
-  
+  .subtitle {
+    text-align: center;
+    margin: auto auto;
+    position:fixed;
+    padding-top: 25%;
+    padding-bottom:10%;
+    left: 50%;
+    transform: translate(-50%);
+    width:100%;
+  }  
 
   
   #legal {
