@@ -223,9 +223,10 @@ class TeacherRateForm(forms.ModelForm):
 class LessonAddForm(forms.ModelForm):
     class Meta:
         model = Lesson
-        fields = ('name','date','material')
+        fields = ('name','rate','date','material')
         widgets = {
             'name': forms.TextInput(),
+            'rate': forms.NumberInput(),
             'date': forms.DateInput(),
             'material': forms.Textarea(attrs={"id": "material-text"}),
         }
@@ -242,9 +243,10 @@ class LessonAddForm(forms.ModelForm):
 class LessonChangeForm(forms.ModelForm):
     class Meta:
         model = Lesson
-        fields = ('name', 'date', 'material',)
+        fields = ('name', 'rate','date', 'material',)
         widgets = {
             'name': forms.TextInput(),
+            'rate': forms.NumberInput(),
             'date': forms.DateInput(),
             'material': forms.Textarea(attrs={"id": "material-text"}),
         }

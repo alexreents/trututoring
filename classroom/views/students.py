@@ -153,7 +153,7 @@ def process_payment(request, pk):
  
     paypal_dict = {
         'business': settings.PAYPAL_RECEIVER_EMAIL,
-        'amount': 22.50,
+        'amount': lesson.rate,
         'item_name': 'TRU Tutor: {}'.format(lesson.tutor.user.email),
         'invoice': str(lesson.id),
         'currency_code': 'USD',
@@ -169,12 +169,14 @@ def process_payment(request, pk):
 @csrf_exempt
 def payment_done(request):
     #return redirect('students:payment_done')
+    #return redirect('students:tutor_list')
     return render(request, 'classroom/students/payment_done.html')
  
  
 @csrf_exempt
 def payment_canceled(request):
     #return redirect('students:payment_done')
+    #return redirect('students:tutor_list')
     return render(request, 'classroom/students/payment_canceled.html')
 
 

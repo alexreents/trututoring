@@ -80,9 +80,7 @@
             <th>Email</th>
             <th>Date</th>
             <th>Zoom Link + Meeting Details</th>
-            {% if user.teacher.verified %}{% else %}
-              <th>Rate</th>
-            {% endif %}
+            <th>Lesson Rate</th>
             <th>Paid?</th>
           </tr>
         </thead>
@@ -94,15 +92,36 @@
               {% else %}
                 <td class="align-middle"><a id="course-descriptor" href="{% url 'teachers:lesson_change' lesson.pk %}">{{ lesson.name }}</a></td>
               {% endif %}
-              <td class="align-middle">{{ lesson.getStudentUser.email }}</td>
+              <td class="align-middle">
+                <a class="material-url" href="mailto:{{lesson.getStudentUser.email}}">{{ lesson.getStudentUser.email }}</a>
+              </td>
               <td class="align-middle">{{ lesson.date }}</td>
               <td style="width:50%" class="align-middle">{{ lesson.material }}</td>
-              {% if lesson.tutor.verified %}
-                <td class="align-middle">{% if lesson.paid %}<span style="font-weight: bold; color:green">Yes</span>{% else %}<span>No</span>{% endif %}</td>
-              {% else %}
-                <td class="align-middle">${{ lesson.tutor.rate }}/hour</a></td>
-                <td class="align-middle">Independent</td>
-              {% endif %}
+              <td class="align-middle">
+                
+                <script>
+                  function CurrencyFormatted(amount) {
+                    var i = parseFloat(amount);
+                    if(isNaN(i)) { i = 0.00; }
+                    var minus = '';
+                    if(i < 0) { minus = '-'; }
+                    i = Math.abs(i);
+                    i = parseInt((i + .005) * 100);
+                    i = i / 100;
+                    s = new String(i);
+                    if(s.indexOf('.') < 0) { s += '.00'; }
+                    if(s.indexOf('.') == (s.length - 2)) { s += '0'; }
+                    s = minus + s;
+                    return s;
+                  }
+                  var amount = '{{ lesson.rate }}';
+                  var html = CurrencyFormatted(amount); 
+                  document.write('$' + html + '/hour');
+                </script>
+
+              </td>
+
+              <td class="align-middle">{% if lesson.paid %}<span style="font-weight: bold; color:green">Yes</span>{% else %}<span>No</span>{% endif %}</td>
             </tr>
           {% empty %}
             <tr>

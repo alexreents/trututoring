@@ -104,6 +104,7 @@ class Teacher(models.Model):
     distance = models.ManyToManyField(Distance, related_name='distanced_teachers', verbose_name='max lesson radius')
     rate = models.FloatField(max_length=50, verbose_name='your asking rate (in $/hour', default='15')
     verified = models.BooleanField(default=False)
+
     
     def __str__(self):
         return self.user.username
@@ -111,6 +112,7 @@ class Teacher(models.Model):
 class Lesson(models.Model):
     tutor = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='lessons')
     name = models.CharField(max_length=255, null=False, verbose_name="Student Username")
+    rate = models.FloatField(max_length=30, default=22.50, verbose_name="Lesson Rate")
     date = models.DateField(null=True, verbose_name="Lesson Date (mm/dd/yyyy)")
     material = models.TextField(null=True, verbose_name="Zoom Link + Meeting Details")
     paid = models.BooleanField(default=False)

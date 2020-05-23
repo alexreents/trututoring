@@ -63,7 +63,7 @@
             <th>Email</th>
             <th>School</th>
             <th>Subjects</th>
-            <th>Rate</th>
+            <th>Base Rate</th>
             <th>TRU Verified <i class="fas fa-check-circle"></i></th>
           </tr>
         </thead>
@@ -99,11 +99,29 @@ Custom Message:
               </td>
               <td class="align-middle">{{ teacher.school }}</td>
               <td style="width:40%" class="align-middle">{% for subject in teacher.interests.all %} {{ subject.get_html_badge }}{% endfor %}</td>
-              {% if teacher.verified %}
-                <td class="align-middle">$22.50/hour</a></td>
-              {% else %}
-                <td class="align-middle">${{ teacher.rate }}/hour</a></td>
-              {% endif %}
+              <td class="align-middle">
+                
+                <script>
+                  function CurrencyFormatted(amount) {
+                    var i = parseFloat(amount);
+                    if(isNaN(i)) { i = 0.00; }
+                    var minus = '';
+                    if(i < 0) { minus = '-'; }
+                    i = Math.abs(i);
+                    i = parseInt((i + .005) * 100);
+                    i = i / 100;
+                    s = new String(i);
+                    if(s.indexOf('.') < 0) { s += '.00'; }
+                    if(s.indexOf('.') == (s.length - 2)) { s += '0'; }
+                    s = minus + s;
+                    return s;
+                  }
+                  var amount = '{{ teacher.rate }}';
+                  var html = CurrencyFormatted(amount); 
+                  document.write('$' + html + '/hour');
+                </script>
+
+              </td>
               <td class="align-middle">{% if teacher.verified %}Yes{% else %}No{% endif %}</td>
             </tr>
           {% empty %}
