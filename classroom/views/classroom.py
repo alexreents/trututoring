@@ -1,14 +1,14 @@
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
-
+from django.views.generic.list import ListView
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from ..forms import ContactForm
+from ..models import Lesson
 
-
-class AboutView(TemplateView):
-    template_name = 'classroom/about.html'
+#class AboutView(TemplateView):
+#    template_name = 'classroom/about.html'
 
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
@@ -56,3 +56,14 @@ def contact(request):
         form = ContactForm()
 
     return render(request, 'classroom/contact.html', {'form': form})
+
+
+class AboutView(ListView):
+    model = Lesson
+    template_name = 'classroom/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        num = Lesson.objects.count()
+        context['count'] = num+556      # 556 completed already at time of release
+        return context

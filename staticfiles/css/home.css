@@ -148,6 +148,21 @@ margin-bottom:5em;
 padding-right:2em;
 }
 
+#lesson-count {
+  font-family: 'Domine', serif;
+  font-size: 3em;
+  margin-bottom:2em;
+  color:black;
+  line-height: 1.2em;
+}
+
+#count-number {
+  font-family: 'Domine', serif;
+  text-align: center;
+  font-size: 7rem;
+  color:#415ebe;
+}
+
 /* end about */
 
 .card-img-top {
